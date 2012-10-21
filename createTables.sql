@@ -4,8 +4,8 @@ CREATE TABLE Class(
 class_id INT AUTO_INCREMENT PRIMARY KEY,
 title VARCHAR(128) NOT NULL,
 link VARCHAR(2000),
-credits INT(2) NOT NULL,
-pep_credits INT(2),
+credits DECIMAL NOT NULL,
+pep_credits DECIMAL,
 UNIQUE (title) );
 
 CREATE TABLE Student(
@@ -19,8 +19,8 @@ UNIQUE(username) );
 CREATE TABLE Manually_Entered_Class(
 class_id INT AUTO_INCREMENT PRIMARY KEY,
 title VARCHAR(128) NOT NULL,
-credits INT(2) NOT NULL,
-pep_credits INT(2),
+credits DECIMAL NOT NULL,
+pep_credits DECIMAL,
 UNIQUE (title) );
 
 ALTER TABLE Manually_Entered_Class
@@ -30,7 +30,7 @@ CREATE TABLE Requirements(
 r_id INT AUTO_INCREMENT PRIMARY KEY,
 specialization VARCHAR(128) NOT NULL,
 description VARCHAR(1000) NOT NULL,
-credits INT(2),
+credits DECIMAL,
 UNIQUE(specialization) );
 
 CREATE TABLE Takes(
