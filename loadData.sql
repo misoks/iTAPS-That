@@ -31,7 +31,7 @@ INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 562 - Microeconomics', 'http://si.umich.edu/class/fall-2012/microeconomics-information-professionals', 1.5, 0);
 
 INSERT INTO Class(title, link, credits, pep_credits)
-VALUES ('SI 563 - Game Theory', 'http://si.umich.edu/class/fall-2012/game-theoryk\', 1.5, 0);
+VALUES ('SI 563 - Game Theory', 'http://si.umich.edu/class/fall-2012/game-theory', 1.5, 0);
 
 INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 601 - Data Manipulation', 'http://si.umich.edu/class/winter-2012/data-manipulation', 1.5, 0);
@@ -54,8 +54,8 @@ VALUES ('SI 501 - Contextual Inquiry and Project Management', 'http://si.umich.e
 INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 502 - Networked Computing: Storage, Communication, and Processing', 'http://si.umich.edu/class/fall-2012/networked-computing-storage-communication-and-processing', 3, 0);
 
-//INSERT INTO Class(title, link, credits, pep_credits)
-//VALUES ('SI 582 - Introduction to Interaction Design', 'http://genericlink', 3, 0);
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 582 - Introduction to Interaction Design', 'http://www.si.umich.edu/class/fall-2012/introduction-interaction-design-0', 3, 0);
 
 INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 588 - Fundamentals of Human Behavior', 'http://si.umich.edu/class/fall-2012/fundamentals-human-behavior', 3, 0);
@@ -134,7 +134,7 @@ VALUES ('SI 681 - Internship/Field Seminar', 'http://si.umich.edu/careers/practi
 
 
 INSERT INTO Requirements(specialization, description, credits)
-VALUES('MSI', 'Foundations' 9);
+VALUES('MSI', 'Foundations', 9);
 
 INSERT INTO Requirements(specialization, description, credits)
 VALUES('MSI','Management and Research', 3);
