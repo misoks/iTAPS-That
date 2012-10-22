@@ -1,10 +1,137 @@
 use itaps;
 
 INSERT INTO Class(title, link, credits, pep_credits)
-VALUES ('SI 523 - Information and Control', 'http://genericlink', 3, 0);
+VALUES ('SI 523 - Information and Control', 'http://si.umich.edu/class/fall-2012/information-and-control', 3, 0);
 
 INSERT INTO Class(title, link, credits, pep_credits)
-VALUES('SI 530 - Principles in Management', 'http://anotherlink', 3, 0);
+VALUES ('SI 530 - Principles in Management', 'http://si.umich.edu/class/winter-2012/principles-management', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 534 - Theories of Social Influence', 'http://si.umich.edu/class/fall-2012/theories-social-influence', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 617 - Choice Architecture', 'http://si.umich.edu/class/winter-2012/choice-architecture', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 626 - Management of Nonprofit Libraries and Information Services', 'http://si.umich.edu/class/fall-2012/management-nonprofit-libraries-and-information-services', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 627 - Managing the Information Technology Organization', 'http://si.umich.edu/class/winter-2012/managing-it-org', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 638 - School Library Media Management', 'http://si.umich.edu/class/winter-2012/school-library-media-management', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 663 - Entrepreneurship in the Information Industry', 'http://si.umich.edu/class/fall-2012/entrepreneurship-information-industry', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 544 - Introduction to Statistics and Data Analysis', 'http://si.umich.edu/class/fall-2012/introduction-statistics-and-data-analysis', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 562 - Microeconomics', 'http://si.umich.edu/class/fall-2012/microeconomics-information-professionals', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 563 - Game Theory', 'http://si.umich.edu/class/fall-2012/game-theoryk\', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 601 - Data Manipulation', 'http://si.umich.edu/class/winter-2012/data-manipulation', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 622 - Needs Assessment and Usability Evaluation ', 'http://si.umich.edu/class/winter-2012/evaluation-systems-and-services-0', 3, 3);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 623 - Research Methods for Information Professionals', 'http://si.umich.edu/class/winter-2012/outcome-based-evaluations-programs-and-services', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 840 - Research Methods', 'http://si.umich.edu/class/fall-2012/research-methods', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 500 - Information in Social Systems: Collections, Flows, and Processing', 'http://si.umich.edu/class/winter-2012/information-social-systems-collecting-flows-and-processing', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 501 - Contextual Inquiry and Project Management', 'http://si.umich.edu/class/fall-2012/contextual-inquiry-and-project-management', 3, 3);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 502 - Networked Computing: Storage, Communication, and Processing', 'http://si.umich.edu/class/fall-2012/networked-computing-storage-communication-and-processing', 3, 0);
+
+//INSERT INTO Class(title, link, credits, pep_credits)
+//VALUES ('SI 582 - Introduction to Interaction Design', 'http://genericlink', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 588 - Fundamentals of Human Behavior', 'http://si.umich.edu/class/fall-2012/fundamentals-human-behavior', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 520 - Graphic Design', 'http://si.umich.edu/class/fall-2012/graphic-design', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 529 - eCommunities: Analysis and Design of Online Interaction Environments', 'http://si.umich.edu/class/winter-2012/ecommunities', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 531 - Human Interaction in Information Retrieval', 'http://si.umich.edu/class/fall-2012/human-interaction-information-retrieval', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 551 - Information-Seeking Behavior', 'http://si.umich.edu/class/winter-2012/information-seeking-behavior', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 561 - Natural Language Processing', 'http://si.umich.edu/class/winter-2012/natural-language-processing', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 583 - Recommender Systems', 'http://si.umich.edu/class/winter-2012/recommender-systems', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 606 - Personal Informatics Design', 'http://si.umich.edu/class/winter-2012/personal-informatics-design', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 612 - Pervasive Interaction Design', 'http://si.umich.edu/class/winter-2012/pervasive-interaction-design', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 631 - Content Management Systems', 'http://si.umich.edu/class/fall-2012/content-management-systems', 1.5, 1.5);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 649 - Information Visualization', 'http://si.umich.edu/class/fall-2012/information-visualization', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 658 - Information Architecture', 'http://si.umich.edu/class/fall-2012/information-architecture', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 664 - Database Application Design', 'http://genericlink', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 686 - User-Generated Content', 'http://si.umich.edu/class/winter-2012/user-generated-content', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 689 - Computer-Supported Cooperative Work', 'http://si.umich.edu/class/fall-2012/computer-supported-cooperative-work', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 694 - Advanced Project and Social Computing Design', 'http://si.umich.edu/class/fall-2012/advanced-project-and-social-computing-design', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 539 - Design of Complex Web Sites', 'http://si.umich.edu/class/fall-2012/design-complex-websites', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 543 - Programming I (Java)', 'http://si.umich.edu/class/fall-2012/programming-i', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 690 - Internship', 'http://si.umich.edu/careers/practical-engagement-program', 1, 1);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 690 - Internship', 'http://si.umich.edu/careers/practical-engagement-program', 2, 2);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 690 - Internship', 'http://si.umich.edu/careers/practical-engagement-program', 3, 3);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 690 - Internship', 'http://si.umich.edu/careers/practical-engagement-program', 4, 4);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 690 - Internship', 'http://si.umich.edu/careers/practical-engagement-program', 5, 5);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 690 - Internship', 'http://si.umich.edu/careers/practical-engagement-program', 6, 6);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 681 - Internship/Field Seminar', 'http://si.umich.edu/careers/practical-engagement-program', 6, 6);
+
 
 INSERT INTO Requirements(specialization, description, credits)
 VALUES('MSI', 'Foundations' 9);
