@@ -35,6 +35,14 @@ else if ( isset($_POST['course_number']) && isset($_POST['title'])
    
 
 ?>
+
+<html>
+<head>
+    <title>Manually Enter Courses - iTAPS That</title>
+    <link rel=stylesheet href="style.css" type="text/css" media="screen" />
+</head>
+
+<body>
 <p>Can't find a class? Enter a new one here!</p>
 <form method="post">
 <p>Course #:
@@ -62,3 +70,5 @@ else if ( isset($_POST['course_number']) && isset($_POST['title'])
 <p><input type="submit" value="Submit"/>
 </form>
 
+</body>
+</html>

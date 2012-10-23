@@ -25,6 +25,13 @@ if ( isset($_SESSION['userid']) ) {
    return;
 }
 ?>
+<html>
+<head>
+    <title>Login - iTAPS That</title>
+    <link rel=stylesheet href="style.css" type="text/css" media="screen" />
+</head>
+
+<body>
 <p>Login</p>
 <form method="post">
 <p>Username:
@@ -33,3 +40,6 @@ if ( isset($_SESSION['userid']) ) {
 <input type="text" name="password"></p>
 <p><input type="submit" value="Login"/>
 </form>
+</body>
+
+</html>

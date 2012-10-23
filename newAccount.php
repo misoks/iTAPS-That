@@ -23,6 +23,14 @@ if ( isset($_POST['username']) && isset($_POST['password'])
    return;
 }
 ?>
+<html>
+<head>
+    <title>Create an Account - iTAPS That</title>
+    <link rel=stylesheet href="style.css" type="text/css" media="screen" />
+</head>
+
+<body>
+
 <p>Create an Account</p>
 <form method="post">
 <p>Username:
@@ -59,3 +67,6 @@ if ( isset($_POST['username']) && isset($_POST['password'])
 <p/>
 <input type="submit" value="Submit"/>
 </form>
+
+</body>
+</html>
