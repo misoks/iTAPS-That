@@ -387,3 +387,71 @@ and c.title = 'SI 689 - Computer-Supported Cooperative Work';
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total HCI Credits' and r.specialization = 'HCI'
 and c.title = 'SI 694 - Advanced Project and Social Computing Design';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming' and r.specialization = 'IAR'
+and c.title = 'SI 539 - Design of Complex Websites';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming' and r.specialization = 'IAR'
+and c.title = 'SI 543 - Programming I (Java)';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming' and r.specialization = 'IAR'
+and c.title = 'SI 664 - Database Application Design';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Statistics' and r.specialization = 'IAR'
+and c.title = 'SI 544 - Introduction to Statistics and Data Analysis';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IAR Credits' and r.specialization = 'IAR'
+and c.title = 'SI 531 - Human Interaction in Information Retrieval';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IAR Credits' and r.specialization = 'IAR'
+and c.title = 'SI 561 - Natural Language Processing';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IAR Credits' and r.specialization = 'IAR'
+and c.title = 'SI 583 - Recommender Systems';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IAR Credits' and r.specialization = 'IAR'
+and c.title = 'SI 508 - Networks: Theory and Application';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IAR Credits' and r.specialization = 'IAR'
+and c.title = 'SI 601 - Data Manipulation';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IAR Credits' and r.specialization = 'IAR'
+and c.title = 'SI 618 - Exploratory Data Analysis';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IAR Credits' and r.specialization = 'IAR'
+and c.title = 'SI 649 - Information Visualization';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IAR Credits' and r.specialization = 'IAR'
+and c.title = 'SI 650 - Information Retrieval';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IAR Credits' and r.specialization = 'IAR'
+and c.title = 'SI 664 - Database Application Design';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IAR Credits' and r.specialization = 'IAR'
+and c.title = 'SI 665 - Online Searching and Databases';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IAR Credits' and r.specialization = 'IAR'
+and c.title = 'SI 721 - Data Mining: Methods and Applications';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IAR Credits' and r.specialization = 'IAR'
+and c.title = 'SI 760 - Language and Information';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IAR Credits' and r.specialization = 'IAR'
+and c.title = 'SI 767 - Advanced Natural Language Processing and Information Retrieval';
