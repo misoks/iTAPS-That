@@ -5,7 +5,8 @@ class_id INT AUTO_INCREMENT PRIMARY KEY,
 title VARCHAR(128) NOT NULL,
 link VARCHAR(2000),
 credits DECIMAL NOT NULL,
-pep_credits DECIMAL );
+pep_credits DECIMAL,
+UNIQUE(title) );
 
 CREATE TABLE Student(
 user_id INT AUTO_INCREMENT PRIMARY KEY,

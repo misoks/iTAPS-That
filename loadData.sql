@@ -112,22 +112,22 @@ INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 543 - Programming I (Java)', 'http://si.umich.edu/class/fall-2012/programming-i', 3, 0);
 
 INSERT INTO Class(title, link, credits, pep_credits)
-VALUES ('SI 690 - Internship', 'http://si.umich.edu/careers/practical-engagement-program', 1, 1);
+VALUES ('SI 690 - Internship (1 credit)', 'http://si.umich.edu/careers/practical-engagement-program', 1, 1);
 
 INSERT INTO Class(title, link, credits, pep_credits)
-VALUES ('SI 690 - Internship', 'http://si.umich.edu/careers/practical-engagement-program', 2, 2);
+VALUES ('SI 690 - Internship (2 credits)', 'http://si.umich.edu/careers/practical-engagement-program', 2, 2);
 
 INSERT INTO Class(title, link, credits, pep_credits)
-VALUES ('SI 690 - Internship', 'http://si.umich.edu/careers/practical-engagement-program', 3, 3);
+VALUES ('SI 690 - Internship (3 credits)', 'http://si.umich.edu/careers/practical-engagement-program', 3, 3);
 
 INSERT INTO Class(title, link, credits, pep_credits)
-VALUES ('SI 690 - Internship', 'http://si.umich.edu/careers/practical-engagement-program', 4, 4);
+VALUES ('SI 690 - Internship (4 credits)', 'http://si.umich.edu/careers/practical-engagement-program', 4, 4);
 
 INSERT INTO Class(title, link, credits, pep_credits)
-VALUES ('SI 690 - Internship', 'http://si.umich.edu/careers/practical-engagement-program', 5, 5);
+VALUES ('SI 690 - Internship (5 credits)', 'http://si.umich.edu/careers/practical-engagement-program', 5, 5);
 
 INSERT INTO Class(title, link, credits, pep_credits)
-VALUES ('SI 690 - Internship', 'http://si.umich.edu/careers/practical-engagement-program', 6, 6);
+VALUES ('SI 690 - Internship (6 credits)', 'http://si.umich.edu/careers/practical-engagement-program', 6, 6);
 
 INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 681 - Internship/Field Seminar', 'http://si.umich.edu/careers/practical-engagement-program', 6, 6);
