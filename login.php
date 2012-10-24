@@ -22,7 +22,7 @@ if ( isset($_POST['username']) && isset($_POST['password'])) {
    return;
 }
 if ( isset($_SESSION['userid']) ) {
-   echo('<p><a href="logout.php">Logout</a></p>'."\n");
+   header('Location: manual.php');
    return;
 }
 ?>
