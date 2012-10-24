@@ -198,7 +198,10 @@ INSERT INTO Requirements(specialization, description, credits)
 VALUES('MSI', 'Foundations', 9);
 
 INSERT INTO Requirements(specialization, description, credits)
-VALUES('MSI','Management and Research', 3);
+VALUES('MSI','Management', 3);
+
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('MSI','Research', 3);
 
 INSERT INTO Requirements(specialization, description, credits)
 VALUES('MSI', 'PEP Credits', 8);
@@ -213,19 +216,19 @@ INSERT INTO Requirements(specialization, description, credits)
 VALUES('HCI', 'Total HCI Credits', 15);
 
 INSERT INTO Requirements(specialization, description, credits)
-VALUES('HCI', 'Programming', 6);
+VALUES('HCI', 'Programming (HCI)', 6);
 
 INSERT INTO Requirements(specialization, description, credits)
-VALUES('HCI', 'Statistics', 3);
+VALUES('HCI', 'Statistics (HCI)', 3);
 
 INSERT INTO Requirements(specialization, description, credits)
 VALUES('IAR', 'Total IAR Credits', 12);
 
 INSERT INTO Requirements(specialization, description, credits)
-VALUES('IAR', 'Programming', 3);
+VALUES('IAR', 'Programming (IAR)', 3);
 
 INSERT INTO Requirements(specialization, description, credits)
-VALUES('IAR', 'Statistics', 3);
+VALUES('IAR', 'Statistics (IAR)', 3);
 
 INSERT INTO Requirements(specialization, description, credits)
 VALUES('ARM', 'Total ARM Credits', 15);
@@ -244,67 +247,67 @@ SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Fo
 and c.title = 'SI 502 - Networked Computing: Storage, Communication, and Processing';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management and Research' and r.specialization = 'MSI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management' and r.specialization = 'MSI'
 and c.title = 'SI 523 - Information and Control';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management and Research' and r.specialization = 'MSI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management' and r.specialization = 'MSI'
 and c.title = 'SI 530 - Principles and Management';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management and Research' and r.specialization = 'MSI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management' and r.specialization = 'MSI'
 and c.title = 'SI 534 - Theories of Social Influence';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management and Research' and r.specialization = 'MSI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management' and r.specialization = 'MSI'
 and c.title = 'SI 617 - Choice Architecture';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management and Research' and r.specialization = 'MSI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management' and r.specialization = 'MSI'
 and c.title = 'SI 626 - Management of Nonprofit Libraries and Information Services';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management and Research' and r.specialization = 'MSI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management' and r.specialization = 'MSI'
 and c.title = 'SI 627 - Managing the Information Technology Organization';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management and Research' and r.specialization = 'MSI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management' and r.specialization = 'MSI'
 and c.title = 'SI 638 - School Library Media Management';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management and Research' and r.specialization = 'MSI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management' and r.specialization = 'MSI'
 and c.title = 'SI 663 - Entrepreneurship in the Information Industry';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management and Research' and r.specialization = 'MSI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Research' and r.specialization = 'MSI'
 and c.title = 'SI 544 - Introduction to Statistics and Data Analysis';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management and Research' and r.specialization = 'MSI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Research' and r.specialization = 'MSI'
 and c.title = 'SI 562 - Microeconomics';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management and Research' and r.specialization = 'MSI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Research' and r.specialization = 'MSI'
 and c.title = 'SI 563 - Game Theory';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management and Research' and r.specialization = 'MSI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Research' and r.specialization = 'MSI'
 and c.title = 'SI 601 Data Manipulation';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management and Research' and r.specialization = 'MSI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Research' and r.specialization = 'MSI'
 and c.title = 'SI 618 - Exploratory Data Analysis';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management and Research' and r.specialization = 'MSI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Research' and r.specialization = 'MSI'
 and c.title = 'SI 622 - Needs Assessment and Usability Evaluation';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management and Research' and r.specialization = 'MSI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Research' and r.specialization = 'MSI'
 and c.title = 'SI 623 - Research Methods for Information Professionals';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management and Research' and r.specialization = 'MSI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Research' and r.specialization = 'MSI'
 and c.title = 'SI 840 - Research Methods';
 
 INSERT INTO Fulfills(r_id, class_id)
@@ -321,7 +324,27 @@ and c.title = 'SI 631 - Content Management Systems';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'PEP Credits' and r.specialization = 'MSI'
-and c.title = 'SI 690 - Internship';
+and c.title = 'SI 690 - Internship (1 credit)';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'PEP Credits' and r.specialization = 'MSI'
+and c.title = 'SI 690 - Internship (2 credits)';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'PEP Credits' and r.specialization = 'MSI'
+and c.title = 'SI 690 - Internship (3 credits)';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'PEP Credits' and r.specialization = 'MSI'
+and c.title = 'SI 690 - Internship (4 credits)';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'PEP Credits' and r.specialization = 'MSI'
+and c.title = 'SI 690 - Internship (5 credits)';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'PEP Credits' and r.specialization = 'MSI'
+and c.title = 'SI 690 - Internship (6 credits)';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'PEP Credits' and r.specialization = 'MSI'
@@ -340,19 +363,19 @@ SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Re
 and c.title = 'SI 588 - Fundamentals of Human Behavior';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming' and r.specialization = 'HCI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming (HCI)' and r.specialization = 'HCI'
 and c.title = 'SI 539 - Design of Complex Websites';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming' and r.specialization = 'HCI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming (HCI)' and r.specialization = 'HCI'
 and c.title = 'SI 543 - Programming I (Java)';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming' and r.specialization = 'HCI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming (HCI)' and r.specialization = 'HCI'
 and c.title = 'SI 664 - Database Application Design';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Statistics' and r.specialization = 'HCI'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Statistics (HCI)' and r.specialization = 'HCI'
 and c.title = 'SI 544 - Introduction to Statistics and Data Analysis';
 
 INSERT INTO Fulfills(r_id, class_id)
@@ -436,19 +459,19 @@ SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'To
 and c.title = 'SI 694 - Advanced Project and Social Computing Design';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming' and r.specialization = 'IAR'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming (IAR)' and r.specialization = 'IAR'
 and c.title = 'SI 539 - Design of Complex Websites';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming' and r.specialization = 'IAR'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming (IAR)' and r.specialization = 'IAR'
 and c.title = 'SI 543 - Programming I (Java)';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming' and r.specialization = 'IAR'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming (IAR)' and r.specialization = 'IAR'
 and c.title = 'SI 664 - Database Application Design';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Statistics' and r.specialization = 'IAR'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Statistics (IAR)' and r.specialization = 'IAR'
 and c.title = 'SI 544 - Introduction to Statistics and Data Analysis';
 
 INSERT INTO Fulfills(r_id, class_id)
