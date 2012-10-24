@@ -1,5 +1,48 @@
 use itaps;
 
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 580 - Understanding Records and Archives: Principles and Practices', 'http://si.umich.edu/class/fall-2012/understanding-records-and-archives-principles-and-practices', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 528 - Records Management: Principles and Practices', 'http://si.umich.edu/class/fall-2012/records-management-principles-and-practices', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 581 - Preserving Information', 'http://si.umich.edu/class/fall-2012/preservation-administration', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 629 - Access Systems for Archival Materials', 'http://si.umich.edu/class/fall-2012/access-systems-archival-materials', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 632 - Appraisal of Archives', 'http://si.umich.edu/class/winter-2012/appraisal-archives', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 637 - Research Seminar on Archives and Institutions of Social Memory', 'http://si.umich.edu/class/fall-2012/research-seminar-archives-and-institutions-social-memory', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 640 - Digital Libraries and Archives', 'http://si.umich.edu/class/fall-2011/digital-libraries-and-archives', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 655 - Management of Electronic Records', 'http://si.umich.edu/class/fall-2011/networks', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 603 - Economics of Sustainable Digital Preservation', 'http://si.umich.edu/class/fall-2012/economics-sustainable-digital-information', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 625 - Digital Preservation', 'http://si.umich.edu/class/winter-2012/digital-preservation', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 639 - Web Archiving', 'http://si.umich.edu/class/winter-2011/web-archiving', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 651 - Physical Treatment Processes for Preservation Administrators', 'http://si.umich.edu/class/fall-2012/physical-treatment-processes-preservation-administrators', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 675 - Digitization for Preservation ', 'http://si.umich.edu/class/winter-2012/digitization-preservation', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 678 - Preserving Sound and Motion', 'http://si.umich.edu/class/winter-2012/preserving-sound-and-motion', 1.5, 0);
+
 INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 508 - Networks: Theory and Application', 'http://si.umich.edu/class/fall-2011/networks', 3, 0);
 
