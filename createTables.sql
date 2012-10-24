@@ -13,12 +13,14 @@ user_id INT AUTO_INCREMENT PRIMARY KEY,
 username VARCHAR(128) NOT NULL,
 password VARCHAR(128) NOT NULL,
 specialization VARCHAR(128) NOT NULL,
+second_spec VARCHAR(128),
 year INT(4),
 UNIQUE(username) );
 
 CREATE TABLE Manually_Entered_Class(
 class_id INT AUTO_INCREMENT PRIMARY KEY,
 title VARCHAR(128) NOT NULL,
+link VARCHAR(2000),
 credits DECIMAL NOT NULL,
 pep_credits DECIMAL );
 

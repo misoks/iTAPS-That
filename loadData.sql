@@ -167,7 +167,7 @@ INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 694 - Advanced Project and Social Computing Design', 'http://si.umich.edu/class/fall-2012/advanced-project-and-social-computing-design', 3, 0);
 
 INSERT INTO Class(title, link, credits, pep_credits)
-VALUES ('SI 539 - Design of Complex Web Sites', 'http://si.umich.edu/class/fall-2012/design-complex-websites', 3, 0);
+VALUES ('SI 539 - Design of Complex Websites', 'http://si.umich.edu/class/fall-2012/design-complex-websites', 3, 0);
 
 INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 543 - Programming I (Java)', 'http://si.umich.edu/class/fall-2012/programming-i', 3, 0);
