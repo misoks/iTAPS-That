@@ -175,6 +175,15 @@ VALUES('HCI', 'Programming', 6);
 INSERT INTO Requirements(specialization, description, credits)
 VALUES('HCI', 'Statistics', 3);
 
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('IAR', 'Total IAR Credits', 12);
+
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('IAR', 'Programming', 3);
+
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('IAR', 'Statistics', 3);
+
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Foundations' and r.specialization = 'MSI'
 and c.title = 'SI 500 - Information in Social Systems: Collections, Flows, and Processing';
