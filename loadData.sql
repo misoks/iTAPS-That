@@ -502,3 +502,63 @@ and c.title = 'SI 760 - Language and Information';
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IAR Credits' and r.specialization = 'IAR'
 and c.title = 'SI 767 - Advanced Natural Language Processing and Information Retrieval';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
+and c.title = 'SI 580 - Understanding Records and Archives: Principles and Practices';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
+and c.title = 'SI 528 - Records Management: Principles and Practices';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
+and c.title = 'SI 581 - Preserving Information';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
+and c.title = 'SI 629 - Access Systems for Archival Materials';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
+and c.title = 'SI 632 - Appraisal of Archives';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
+and c.title = 'SI 637 - Research Seminar on Archives and Institutions of Social Memory';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
+and c.title = 'SI 640 - Digital Libraries and Archives';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
+and c.title = 'SI 655 - Management of Electronic Records';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
+and c.title = 'SI 601 - Data Manipulation';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
+and c.title = 'SI 603 - Economics of Sustainable Digital Preservation';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
+and c.title = 'SI 625 - Digital Preservation';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
+and c.title = 'SI 639 - Web Archiving';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
+and c.title = 'SI 651 - Physical Treatment Processes for Preservation Administrators';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
+and c.title = 'SI 675 - Digitization for Preservation';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
+and c.title = 'SI 678 - Preserving Sound and Motion';
