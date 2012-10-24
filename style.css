@@ -1,5 +1,17 @@
-html {}
+html {
+    background-color: gold;
+}
 
 body {
     font-family: Helvetica, Arial, sans-serif;
+    margin: 5%;
+    padding: 5%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 80%;
+    background-color: white;
+}
+
+h1 {
+    color: darkblue;
 }
