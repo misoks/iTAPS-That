@@ -227,6 +227,10 @@ VALUES('IAR', 'Programming', 3);
 INSERT INTO Requirements(specialization, description, credits)
 VALUES('IAR', 'Statistics', 3);
 
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('ARM', 'Total ARM Credits', 15);
+
+
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Foundations' and r.specialization = 'MSI'
 and c.title = 'SI 500 - Information in Social Systems: Collections, Flows, and Processing';
