@@ -15,3 +15,16 @@ body {
 h1 {
     color: darkblue;
 }
+
+.caption {
+    font-style: italic;
+    color: gray;
+}
+
+.course-title {
+    width: 200px;
+}
+
+.course-credits {
+    width: 50px;
+}
