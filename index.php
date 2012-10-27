@@ -38,7 +38,6 @@
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td><input type="text" class="course-prefix" name="cognate_prefix"></td>
             <td><input type="text" class="course-title" name="cognate_coursetitle"></td>
             <td><input type="text" class="course-credits" name="cognate_credits"></td>
         </tr>
@@ -78,7 +77,6 @@
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td><input type="text" class="course-prefix" name="addtnl_prefix"></td>
             <td><input type="text" class="course-title" name="addtnl_coursetitle"></td>
             <td><input type="text" class="course-credits" name="addtnl_credits"></td>
         </tr>

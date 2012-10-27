@@ -124,7 +124,7 @@ else if(!isset($_SESSION['userid'])){
 page to find out.</p>
 <p>Disclaimer: Be sure to check with an academic advisor to see which requirements a class fulfills.</p>
 </form>
-<form method="get" action="http://localhost/si664/itaps/report.php">
+<form method="get" action="report.php">
 <p><input type="submit" value="Generate Report"/></p>
 </form>
 <a href="logout.php">Logout</a>

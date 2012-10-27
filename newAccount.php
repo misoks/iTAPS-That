@@ -45,7 +45,7 @@ if ( isset($_POST['username']) && isset($_POST['password'])
 <p>Username:
 <input type="text" name="username"></p>
 <p>Password:
-<input type="text" name="password"></p>
+<input type="password" name="password"></p>
 <p>Specialization:
 <select name="specialization">
 <option value=-1>Select</option>
