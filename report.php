@@ -3,7 +3,7 @@ session_start();
 require_once "db.php";
 
  include_once('header.php');
- 
+ $running_total = 0;
 if(isset($_SESSION['userid'])){
 	$user_id = $_SESSION['userid'];
 	$user_program = $_SESSION['specialization'];
@@ -23,6 +23,7 @@ if(isset($_SESSION['userid'])){
 	$cq_row = mysql_fetch_row($cq_result);
 	$me_cq_row = mysql_fetch_row($me_cq_result);
 	$total_credits = $cq_row[0] + $me_cq_row[0];
+	$running_total = $running_total + $total_credits;
 	echo "<p>You have completed ".htmlentities($total_credits)." total credits and have ";
 	echo htmlentities(48-$total_credits)." remaining. Classes you have submitted on the 
 	    previous page are saved and appear on this report with a check mark next to them. 
@@ -36,7 +37,7 @@ if(isset($_SESSION['userid'])){
 		// Getting a version of the requirement name without spaces for naming tables in HTML and JS
 		$req_arr = explode(' ',trim($requirement_name));
         $requirement_id = $req_arr[0];
-        
+    
 		$credits = $row[2];
 		$taken_credits = 0.0;
 		echo "<h2>".htmlentities($requirement_name)."</h2>";
@@ -50,8 +51,8 @@ if(isset($_SESSION['userid'])){
 		$tcq_result = mysql_query($taken_class_query);
 		$num_rows = mysql_num_rows($tcq_result);
 		if ( $num_rows > 0 ) {
-            echo '<h3>Manually Entered Classes</h3><table border=1px id="manual"><tbody><tr><th class="taken-check">Taken?</th>
-            <th class="course-title">Course Title</th><th class="credits">Credits</th><th class="pep">PEP</th></tr>';
+            echo '<h3>Manually Entered Classes</h3><table border=1px id="'.$requirement_id.'-manual"><tr><thead><th class="taken-check">Taken?</th>
+            <th class="course-title">Course</th><th class="credits">Credits</th><th class="pep">PEP</th></thead></tr><tbody>';
             while($row2 = mysql_fetch_row($tcq_result)){
                 $taken_credits = $taken_credits + $row2[3];
                 echo "<tr><td>";
@@ -84,8 +85,8 @@ if(isset($_SESSION['userid'])){
 									c1.credits, c1.pep_credits FROM Class c1, Takes t WHERE t.class_id =
 									c1.class_id and t.user_id = '$user_id' and c1.class_id = c.class_id)";
 		$rcq_result = mysql_query($remaining_class_query);
-		echo '<table border=1px id="'.$requirement_id.'"><tbody><tr><th class="taken-check">Taken?</th>
-		<th class="course-title">Course Title</th><th class="credits">Credits</th><th class="pep">PEP</th></tr>';
+		echo '<table border=1px id="'.$requirement_id.'"><thead><tr><th class="taken-check">Taken?</th>
+		<th class="course-title">Course</th><th class="credits">Credits</th><th class="pep">PEP</th></tr></thead><tbody>';
 		while($row3 = mysql_fetch_row($rcq_result)){
 			echo "<tr><td>";
 			echo '<input type="checkbox" name="'.$requirement_id.'" value="not taken">';
@@ -102,8 +103,8 @@ if(isset($_SESSION['userid'])){
 			echo(htmlentities($row3[4]));
 			echo("</td></tr>\n");
 		}
-		//echo '<button onlick="countCheckboxes('.'report'.', '.$requirement_id.')">Click me</button>';
 		echo'</tbody></table>';
+		//echo'<button onclick="table_map('.$requirement_id.')">Map Table</button>';
 	}
 	echo "</form>";
 }
@@ -111,9 +112,10 @@ else if(!isset($_SESSION['userid'])){
 	header('Location: login.php');
 }
 ?>
-<br/>
-<a href="manual.php">Forgot to add a class? Go back!</a>
-<br/>
-<a href="logout.php">Logout</a>
+
+
+<p><a href="manual.php">Forgot to add a class? Go back!</a></p>
+
+<p><a href="logout.php">Logout</a></p>
 
 <?php include_once('footer.php'); ?>
