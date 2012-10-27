@@ -48,26 +48,29 @@ if(isset($_SESSION['userid'])){
 								WHERE m.class_id = t1.class_id AND t1.user_id = '$user_id' AND 
 								m.class_id = f1.class_id AND f1.r_id = '$requirement'";
 		$tcq_result = mysql_query($taken_class_query);
-		echo '<table border=1px id="manual"><tbody><tr><th class="taken-check">Taken?</th>
-		<th class="course-title">Course Title</th><th class="credits">Credits</th><th class="pep">PEP</th></tr>';
-		while($row2 = mysql_fetch_row($tcq_result)){
-			$taken_credits = $taken_credits + $row2[3];
-			echo "<tr><td>";
-			echo '<input type="checkbox" value="taken" checked>';
-			echo('</td><td class="course-title">');
-			if($row2[2] != NULL){
-				echo '<a href="'.htmlentities($row2[2]).'">'.htmlentities($row2[1]).'</a>';
-			}
-			else{
-				echo(htmlentities($row2[1]));
-			}
-			echo("</td><td>");
-			echo(htmlentities($row2[3]));
-			echo("</td><td>");
-			echo(htmlentities($row2[4]));
-			echo("</td></tr>\n");
-		}
-		echo '</table>';
+		$num_rows = mysql_num_rows($tcq_result);
+		if ( $num_rows > 0 ) {
+            echo '<h3>Manually Entered Classes</h3><table border=1px id="manual"><tbody><tr><th class="taken-check">Taken?</th>
+            <th class="course-title">Course Title</th><th class="credits">Credits</th><th class="pep">PEP</th></tr>';
+            while($row2 = mysql_fetch_row($tcq_result)){
+                $taken_credits = $taken_credits + $row2[3];
+                echo "<tr><td>";
+                echo '<input type="checkbox" value="taken" checked>';
+                echo('</td><td class="course-title">');
+                if($row2[2] != NULL){
+                    echo '<a href="'.htmlentities($row2[2]).'">'.htmlentities($row2[1]).'</a>';
+                }
+                else{
+                    echo(htmlentities($row2[1]));
+                }
+                echo("</td><td>");
+                echo(htmlentities($row2[3]));
+                echo("</td><td>");
+                echo(htmlentities($row2[4]));
+                echo("</td></tr>\n");
+            }
+            echo '</table>';
+        }
 		$remaining_credits = $credits - $taken_credits;
 		if($remaining_credits < 0){
 			$remaining_credits = 0;

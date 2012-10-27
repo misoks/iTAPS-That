@@ -2,7 +2,6 @@
 require_once "db.php";
 session_start();
 include_once('header.php');
-
 if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
     $class_id = mysql_real_escape_string($_POST['class_id']);
     $userid = mysql_real_escape_string($_SESSION['userid']);
@@ -12,7 +11,6 @@ if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
     mysql_query($sql);
     return;
     }
-	
 else if ( isset($_POST['course_number']) && isset($_POST['title']) 
      && isset($_POST['credits']) && isset($_POST['pep_credits']) 
 	 && is_numeric($_POST['credits']) && is_numeric($_POST['pep_credits'])
@@ -45,7 +43,6 @@ else if ( isset($_POST['course_number']) && isset($_POST['title'])
 	header( 'Location: manual.php' ) ;
    return;
   }
-  
 else if ( isset($_POST['course_number']) && isset($_POST['title']) 
      && isset($_POST['credits']) && isset($_POST['pep_credits'])&& isset($_SESSION['userid'])
 	 && (!is_numeric($_POST['credits']) || !is_numeric($_POST['pep_credits']))) {
