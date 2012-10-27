@@ -20,6 +20,8 @@ if(isset($_SESSION['userid'])){
 	$cq_result = mysql_query($credits_query);
 	$me_cq_result = mysql_query($me_credits_query);
 	echo '<h1>iTAPS Report</h1><form id="report">';
+	
+	
 	$cq_row = mysql_fetch_row($cq_result);
 	$me_cq_row = mysql_fetch_row($me_cq_result);
 	$total_credits = $cq_row[0] + $me_cq_row[0];
@@ -41,6 +43,8 @@ if(isset($_SESSION['userid'])){
 		$credits = $row[2];
 		$taken_credits = 0.0;
 		echo "<h2>".htmlentities($requirement_name)."</h2>";
+		
+		// Manually entered courses
 		$taken_class_query = "SELECT c.class_id, c.title, c.link, c.credits, c.pep_credits
 								FROM Class c, Takes t, Fulfills f WHERE c.class_id = t.class_id
 								AND t.user_id = '$user_id' AND c.class_id = f.class_id AND f.r_id
@@ -72,6 +76,9 @@ if(isset($_SESSION['userid'])){
             }
             echo '</table>';
         }
+        
+        
+        // Credit requirements
 		$remaining_credits = $credits - $taken_credits;
 		if($remaining_credits < 0){
 			$remaining_credits = 0;
@@ -79,6 +86,9 @@ if(isset($_SESSION['userid'])){
 		echo "<p>";
 		echo htmlentities($requirement_name)." requires a minimum of ".htmlentities($credits)." credits.";
 		echo "You have completed ".htmlentities($taken_credits)." credits and have ".htmlentities($remaining_credits)." remaining.</p>";
+		
+		
+		// Classes from database
 		$remaining_class_query = "SELECT DISTINCT c.class_id, c.title, c.link, c.credits, c.pep_credits
 									FROM Class c, Fulfills f WHERE c.class_id = f.class_id and 
 									f.r_id = '$requirement' AND NOT EXISTS(SELECT c1.class_id, c1.title,
