@@ -212,9 +212,6 @@ INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 624 - Media for Children and Young Adults', 'http://www.si.umich.edu/class/fall-2012/media-children-and-young-adults', 3, 0);
 
 INSERT INTO Class(title, link, credits, pep_credits)
-VALUES ('SI 631 - Content Management Systems', 'http://www.si.umich.edu/class/fall-2012/content-management-systems', 1.5, 0);
-
-INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 633 - History of Books and Printing', 'http://www.si.umich.edu/class/fall-2011/history-books-printing', 3, 0);
 
 INSERT INTO Class(title, link, credits, pep_credits)
