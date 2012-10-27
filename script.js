@@ -3,16 +3,15 @@
 // pass in the name of the form as 'formname'
 // pass in the name of the checkbox group as 'groupname'
  
-FUNCTION countCheckboxes(formname, groupname){
-   VAR totalChecked= 0;
-   VAR max = formname.ckbox.length;
+function countCheckboxes(formname, groupname){
+    var totalChecked = 0;
+    var max = formname.ckbox.length;
  
-   FOR (VAR idx = 0; idx < max; idx++) {
-      IF (EVAL("document." + formname + "." + groupname + "[" + idx + "].checked") == TRUE) {
-      totalChecked+= 1;
-   }
-}
- 
-  RETURN totalChecked;
+    for (var idx = 0; idx < max; idx++) {
+        if (eval("document." + formname + "." + groupname + "[" + idx + "].checked") == TRUE) {
+        totalChecked+= 1;
+        }
+    }
+    return totalChecked;
 }
  
