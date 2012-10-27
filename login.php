@@ -26,6 +26,10 @@ if ( isset($_SESSION['userid']) ) {
    return;
 }
 ?>
+
+<?php include_once('header.php'); ?>
+
+
 <p>Login</p>
 <form method="post">
 <p>Username:
@@ -34,3 +38,5 @@ if ( isset($_SESSION['userid']) ) {
 <input type="password" name="password"></p>
 <p><input type="submit" value="Login"/>
 </form>
+
+<?php include_once('footer.php'); ?>

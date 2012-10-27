@@ -32,13 +32,8 @@ if ( isset($_POST['username']) && isset($_POST['password'])
 	}
 
 ?>
-<html>
-<head>
-    <title>Create an Account - iTAPS That</title>
-    <link rel=stylesheet href="style.css" type="text/css" media="screen" />
-</head>
 
-<body>
+<?php include_once('header.php'); ?>
 
 <p>Create an Account</p>
 <form method="post">
@@ -85,5 +80,4 @@ if ( isset($_POST['username']) && isset($_POST['password'])
 <input type="submit" value="Submit"/>
 </form>
 
-</body>
-</html>
+<?php include_once('footer.php'); ?>

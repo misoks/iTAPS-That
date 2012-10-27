@@ -1,6 +1,9 @@
 <?php
 session_start();
 require_once "db.php";
+
+ include_once('header.php');
+ 
 if(isset($_SESSION['userid'])){
 	$user_id = $_SESSION['userid'];
 	$user_program = $_SESSION['specialization'];
@@ -44,7 +47,6 @@ if(isset($_SESSION['userid'])){
 		$tcq_result = mysql_query($taken_class_query);
 		while($row2 = mysql_fetch_row($tcq_result)){
 			$taken_credits = $taken_credits + $row2[3];
-			echo '<table border="1">'."\n";
 			echo "<tr><td>";
 			echo '<input type="checkbox" value="taken" checked>';
 			echo("</td><td>");
@@ -59,23 +61,22 @@ if(isset($_SESSION['userid'])){
 			echo("</td><td>");
 			echo(htmlentities($row2[4]));
 			echo("</td></tr>\n");
-			echo'</table>';
 		}
 		$remaining_credits = $credits - $taken_credits;
 		if($remaining_credits < 0){
 			$remaining_credits = 0;
 		}	
-		echo "<p/>";
+		echo "<p>";
 		echo htmlentities($requirement_name)." requires a minimum of ".htmlentities($credits)." credits.";
-		echo "You have completed ".htmlentities($taken_credits)." credits and have ".htmlentities($remaining_credits)." remaining.";
+		echo "You have completed ".htmlentities($taken_credits)." credits and have ".htmlentities($remaining_credits)." remaining.</p>";
 		$remaining_class_query = "SELECT DISTINCT c.class_id, c.title, c.link, c.credits, c.pep_credits
 									FROM Class c, Fulfills f WHERE c.class_id = f.class_id and 
 									f.r_id = '$requirement' AND NOT EXISTS(SELECT c1.class_id, c1.title,
 									c1.credits, c1.pep_credits FROM Class c1, Takes t WHERE t.class_id =
 									c1.class_id and t.user_id = '$user_id' and c1.class_id = c.class_id)";
 		$rcq_result = mysql_query($remaining_class_query);
+		echo "<table id=$requirement_name>";
 		while($row3 = mysql_fetch_row($rcq_result)){
-			echo '<table border="1">'."\n";
 			echo "<tr><td>";
 			echo '<input type="checkbox" value="not taken">';
 			echo("</td><td>");
@@ -90,8 +91,8 @@ if(isset($_SESSION['userid'])){
 			echo("</td><td>");
 			echo(htmlentities($row3[4]));
 			echo("</td></tr>\n");
-			echo'</table>';
 		}
+		echo'</table>';
 	}
 }
 else if(!isset($_SESSION['userid'])){
@@ -102,3 +103,5 @@ else if(!isset($_SESSION['userid'])){
 <a href="manual.php">Forgot to add a class? Go back!</a>
 <br/>
 <a href="logout.php">Logout</a>
+
+<?php include_once('footer.php'); ?>

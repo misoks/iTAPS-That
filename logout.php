@@ -3,17 +3,9 @@ session_start();
 unset($_SESSION['userid']);
 ?>
 
-<html>
-<head>
-    <title>Logout - iTAPS That</title>
-    <link rel=stylesheet href="style.css" type="text/css" media="screen" />
-</head>
-
-<body>
+<?php include_once('header.php'); ?>
 
 <p>Logged out...</p>
 <p><a href="login.php">Login Again</a></p>
 
-</body>
-
-</html>
+<?php include_once('footer.php'); ?>

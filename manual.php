@@ -69,6 +69,9 @@ else if(!isset($_SESSION['userid'])){
 		echo "<option value=".htmlentities($row[0]).">".htmlentities($row[1])."</option>";
 	}
 ?>
+
+<?php include_once('header.php'); ?>
+
 <p><input type="submit" value="Submit"/></p>
 </form>
 <p/>
@@ -128,3 +131,5 @@ page to find out.</p>
 <p><input type="submit" value="Generate Report"/></p>
 </form>
 <a href="logout.php">Logout</a>
+
+<?php include_once('footer.php'); ?>

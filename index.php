@@ -1,16 +1,4 @@
-<?php
-
-
-?>
-
-<html>
-
-<head>
-    <title>iTAPS That Project</title>
-    <link rel=stylesheet href="style.css" type="text/css" media="screen" />
-</head>
-
-<body>
+<?php include_once('header.php'); ?>
 
     <h1>iTAPS That: A Digital Tracking and Planning Sheet</h1>
     <h2>All Specializations</h2>    
@@ -88,6 +76,5 @@
         </tr>
     </table>
     <h2>Total Credits: 48+</h2>
-</body>
 
-</html>
+<?php include_once('footer.php'); ?>
