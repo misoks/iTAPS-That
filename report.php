@@ -23,14 +23,12 @@ if(isset($_SESSION['userid'])){
 	$cq_row = mysql_fetch_row($cq_result);
 	$me_cq_row = mysql_fetch_row($me_cq_result);
 	$total_credits = $cq_row[0] + $me_cq_row[0];
-	echo "You have completed ".htmlentities($total_credits)." total credits and have ";
-	echo htmlentities(48-$total_credits)." remaining.";
-	echo "<br/>";
-	echo "Classes you have submitted on the previous page are saved and appear on this";
-	echo " report with a check mark next to them. <br/> Below these appear classes that you have not";
-	echo " yet taken. When you select them on this report, your credit totals will ";
-	echo "be<br/>updated here, but these classes will not be saved unless you enter them in ";
-	echo "on the course entry page.";
+	echo "<p>You have completed ".htmlentities($total_credits)." total credits and have ";
+	echo htmlentities(48-$total_credits)." remaining. Classes you have submitted on the 
+	    previous page are saved and appear on this report with a check mark next to them. 
+	    Below that are classes that you have not yet taken. When you select them on 
+	    this report, your credit totals will be updated here, but these classes will not 
+	    be saved unless you enter them in on the course entry page.</p>";
 	while($row = mysql_fetch_row($result)){
 		$requirement = $row[0];
 		$requirement_name = $row[1];
@@ -50,12 +48,13 @@ if(isset($_SESSION['userid'])){
 								WHERE m.class_id = t1.class_id AND t1.user_id = '$user_id' AND 
 								m.class_id = f1.class_id AND f1.r_id = '$requirement'";
 		$tcq_result = mysql_query($taken_class_query);
-		echo '<table id="manual">';
+		echo '<table border=1px id="manual"><tbody><tr><th class="taken-check">Taken?</th>
+		<th class="course-title">Course Title</th><th class="credits">Credits</th><th class="pep">PEP</th></tr>';
 		while($row2 = mysql_fetch_row($tcq_result)){
 			$taken_credits = $taken_credits + $row2[3];
 			echo "<tr><td>";
 			echo '<input type="checkbox" value="taken" checked>';
-			echo("</td><td>");
+			echo('</td><td class="course-title">');
 			if($row2[2] != NULL){
 				echo '<a href="'.htmlentities($row2[2]).'">'.htmlentities($row2[1]).'</a>';
 			}
@@ -82,11 +81,12 @@ if(isset($_SESSION['userid'])){
 									c1.credits, c1.pep_credits FROM Class c1, Takes t WHERE t.class_id =
 									c1.class_id and t.user_id = '$user_id' and c1.class_id = c.class_id)";
 		$rcq_result = mysql_query($remaining_class_query);
-		echo "<table id=$requirement_id>";
+		echo '<table border=1px id="'.$requirement_id.'"><tbody><tr><th class="taken-check">Taken?</th>
+		<th class="course-title">Course Title</th><th class="credits">Credits</th><th class="pep">PEP</th></tr>';
 		while($row3 = mysql_fetch_row($rcq_result)){
 			echo "<tr><td>";
 			echo '<input type="checkbox" name="'.$requirement_id.'" value="not taken">';
-			echo("</td><td>");
+			echo('</td><td class="course-title">');
 			if($row3[2] != NULL){
 				echo '<a href="'.htmlentities($row3[2]).'">'.htmlentities($row3[1]).'</a>';
 			}
@@ -100,7 +100,7 @@ if(isset($_SESSION['userid'])){
 			echo("</td></tr>\n");
 		}
 		//echo '<button onlick="countCheckboxes('.'report'.', '.$requirement_id.')">Click me</button>';
-		echo'</table>';
+		echo'</tbody></table>';
 	}
 	echo "</form>";
 }

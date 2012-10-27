@@ -1,6 +1,7 @@
 <?php
 require_once "db.php";
 session_start();
+include_once('header.php');
 
 if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
     $class_id = mysql_real_escape_string($_POST['class_id']);
@@ -56,8 +57,9 @@ else if(!isset($_SESSION['userid'])){
 	header('Location: login.php');
 }
 ?>
+<h1>Add Your Classes</h1>
 
-<h1>Select a Class</h1>
+<h2>Select a Class</h2>
 <form method="post">
 <select name= "class_id">
 <option value=-1>Select</option>
@@ -70,17 +72,17 @@ else if(!isset($_SESSION['userid'])){
 	}
 ?>
 
-<?php include_once('header.php'); ?>
+
 
 <p><input type="submit" value="Submit"/></p>
 </form>
 <p/>
-<h1>Search for a Class</h1>
+<h2>Search for a Class</h2>
 <form method="post">
 <p><input type="text" name="search">
 <input type="submit" value="Submit"/>
 <p/>
-<h1>Can't find a class? Enter a new one here!</h1>
+<h2>Can't find a class? Enter a new one here!</h2>
 <form method="post">
 <p>Course #:
 <input type="text" name="course_number"> example:<i> SI 539</i></p>

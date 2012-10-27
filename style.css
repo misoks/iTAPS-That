@@ -11,10 +11,49 @@ body {
     width: 80%;
     background-color: white;
 }
-
+p {
+    line-height: 1.2em;
+}
 h1 {
     color: darkblue;
 }
+h2 {
+    margin-top: 1.5em;
+}
+
+/*---Table---*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid gray;
+    text-align: center;
+}
+th {
+    padding: 15px 0 7px 0;
+}
+td {
+    padding-top: 2px;
+}
+.taken-check {
+    width: 5%;
+    font-size: 0;
+    text-align: center;
+}
+input[type="checkbox"] {
+    margin: 10px;
+    width: 20px;
+}
+th.course-title, 
+td.course-title {
+    width: 70%;
+    text-align: left;
+    padding-left: 10px;
+}
+.credits,
+.pep {
+    width: 10%;
+}
+
 
 .caption {
     font-style: italic;
