@@ -193,6 +193,54 @@ VALUES ('SI 690 - Internship (6 credits)', 'http://si.umich.edu/careers/practica
 INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 681 - Internship/Field Seminar', 'http://si.umich.edu/careers/practical-engagement-program', 6, 6);
 
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 535 - Dead Media', 'http://www.si.umich.edu/class/sync-56', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 647 - Information Resources and Services', 'http://www.si.umich.edu/class/fall-2012/information-resources-and-services', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 754 - Data Curation', 'http://www.si.umich.edu/class/fall-2012/data-curation', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 586 - Music Bibliography', 'http://www.si.umich.edu/class/sync-60', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 620 - Collection Development and Management', 'http://www.si.umich.edu/class/sync', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 624 - Media for Children and Young Adults', 'http://www.si.umich.edu/class/fall-2012/media-children-and-young-adults', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 631 - Content Management Systems', 'http://www.si.umich.edu/class/fall-2012/content-management-systems', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 633 - History of Books and Printing', 'http://www.si.umich.edu/class/fall-2011/history-books-printing', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 641 - Information Literacy for Teaching and Learning', 'http://www.si.umich.edu/class/fall-2012/information-literacy-teaching-and-learning', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 643 - Professional Practice in Libraries and Information Centers', 'http://www.si.umich.edu/class/sync-1', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 653 - Evidence-Based Health Informatics Practice', 'http://www.si.umich.edu/class/sync-41', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 666 - Organization of Information Resources', 'http://www.si.umich.edu/class/fall-2012/organization-information-resources', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('EDUC 402 - Reading and Writing in Content Areas', 'http://www.soe.umich.edu/academics/courses/EDUC_402', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('EDUC 606 - Developmental and Psychological Perspectives on Education', 'http://www.soe.umich.edu/academics/courses/EDUC_606', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('EDUC 649 - Foundational Perspectives on Educational Reform', 'http://www.soe.umich.edu/academics/courses/EDUC_649', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('EDUC 650 - Student Teaching in School Media Center', 'http://www.soe.umich.edu/academics/courses/EDUC_650', 6, 6);
+
 
 INSERT INTO Requirements(specialization, description, credits)
 VALUES('MSI', 'Foundations', 9);
@@ -585,3 +633,230 @@ and c.title = 'SI 675 - Digitization for Preservation';
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
 and c.title = 'SI 678 - Preserving Sound and Motion';
+
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total PI Credits' and r.specialization = 'PI'
+and c.title = 'SI 581 - Preserving Information';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total PI Credits' and r.specialization = 'PI'
+and c.title = 'SI 535 - Dead Media';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total PI Credits' and r.specialization = 'PI'
+and c.title = 'SI 601 - Data Manipulation';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total PI Credits' and r.specialization = 'PI'
+and c.title = 'SI 603 - Economics of Sustainable Digital Information';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total PI Credits' and r.specialization = 'PI'
+and c.title = 'SI 625 - Digital Preservation';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total PI Credits' and r.specialization = 'PI'
+and c.title = 'SI 639 - Web Archiving';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total PI Credits' and r.specialization = 'PI'
+and c.title = 'SI 651 - Physical Treatment Processes for Preservation Administrators';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total PI Credits' and r.specialization = 'PI'
+and c.title = 'SI 675 - Digitization for Preservation';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total PI Credits' and r.specialization = 'PI'
+and c.title = 'SI 678 - Preserving Sound and Motion';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total PI Credits' and r.specialization = 'PI'
+and c.title = 'SI 690 - Internship (1 credit)';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total PI Credits' and r.specialization = 'PI'
+and c.title = 'SI 690 - Internship (2 credits)';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total PI Credits' and r.specialization = 'PI'
+and c.title = 'SI 690 - Internship (3 credits)';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total PI Credits' and r.specialization = 'PI'
+and c.title = 'SI 681 - Internship/Field Seminar';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total PI Credits' and r.specialization = 'PI'
+and c.title = 'SI 754 - Data Curation';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 647 - Information Resources and Services';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 531 - Human Interaction in Information Retrieval';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 539 - Design of Complex Web Sites';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 551 - Information-Seeking Behavior';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 581 - Preserving Information';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 586 - Music Bibliography';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 620 - Collection Development and Management';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 623 - Research Methods for Information Professionals';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 624 - Media for Children and Young Adults';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 626 - Management of Nonprofit Libraries and Information Services';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 629 - Access Systems for Archival Materials';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 631 - Content Management Systems';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 633 - History of Books and Printing';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 638 - School Library Media Management';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 639 - Web Archiving';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 640 - Digital Libraries and Archives';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 641 - Information Literacy for Teaching and Learning';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 643 - Professional Practice in Libraries and Information Centers';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 650 - Information Retrieval';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 653 - Evidence-Based Health Informatics Practice';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 658 - Information Architecture';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 663 - Entrepreneurship in the Information Industry';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 664 - Database Application Design';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 665 - Online Searching and Databases';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
+and c.title = 'SI 666 - Organization of Information Resources';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
+and c.title = 'SI 620 - Collection Development and Management';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
+and c.title = 'SI 624 - Media for Children and Young Adults';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
+and c.title = 'SI 638 - School Library Media Management';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
+and c.title = 'SI 643 - Professional Practice in Libraries and Information Centers';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
+and c.title = 'SI 647 - Information Resources and Services';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
+and c.title = 'SI 666 - Organization of Information Resources';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
+and c.title = 'SI 641 - Information Literacy for Teaching and Learning';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
+and c.title = 'EDUC 402 - Reading and Writing in Content Areas';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
+and c.title = 'EDUC 606 - Developmental and Psychological Perspectives on Education';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
+and c.title = 'EDUC 649 - Foundational Perspectives on Educational Reform';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
+and c.title = 'SI 641 - Information Literacy for Teaching and Learning';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
+and c.title = 'EDUC 650 - Student Teaching in School Media Center';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
+and c.title = 'SI 690 - Internship in School Media Center (1 credit)';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
+and c.title = 'SI 690 - Internship in School Media Center (2 credits)';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
+and c.title = 'SI 690 - Internship in School Media Center (3 credits)';
+
+
+
+
+
+
+
+
+
+
