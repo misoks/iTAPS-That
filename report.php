@@ -19,7 +19,7 @@ if(isset($_SESSION['userid'])){
 						WHERE m.class_id = t.class_id and t.user_id = '$user_id'";
 	$cq_result = mysql_query($credits_query);
 	$me_cq_result = mysql_query($me_credits_query);
-	echo '<h1>ITAPS Report</h1><form id="report">';
+	echo '<h1>iTAPS Report</h1><form id="report">';
 	$cq_row = mysql_fetch_row($cq_result);
 	$me_cq_row = mysql_fetch_row($me_cq_result);
 	$total_credits = $cq_row[0] + $me_cq_row[0];
