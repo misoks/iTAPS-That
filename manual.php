@@ -1,7 +1,7 @@
 <?php
 require_once "db.php";
 session_start();
-include_once('header.php');
+
 if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
     $class_id = mysql_real_escape_string($_POST['class_id']);
     $userid = mysql_real_escape_string($_SESSION['userid']);
@@ -11,6 +11,7 @@ if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
     mysql_query($sql);
     return;
     }
+	
 else if ( isset($_POST['course_number']) && isset($_POST['title']) 
      && isset($_POST['credits']) && isset($_POST['pep_credits']) 
 	 && is_numeric($_POST['credits']) && is_numeric($_POST['pep_credits'])
@@ -43,6 +44,7 @@ else if ( isset($_POST['course_number']) && isset($_POST['title'])
 	header( 'Location: manual.php' ) ;
    return;
   }
+  
 else if ( isset($_POST['course_number']) && isset($_POST['title']) 
      && isset($_POST['credits']) && isset($_POST['pep_credits'])&& isset($_SESSION['userid'])
 	 && (!is_numeric($_POST['credits']) || !is_numeric($_POST['pep_credits']))) {
@@ -54,32 +56,29 @@ else if(!isset($_SESSION['userid'])){
 	header('Location: login.php');
 }
 ?>
-<h1>Add Your Classes</h1>
 
-<h2>Select a Class</h2>
+<h1>Select a Class</h1>
 <form method="post">
 <select name= "class_id">
 <option value=-1>Select</option>
 <?php
-  $user_program = $_SESSION['specialization'];
+	$user_program = $_SESSION['specialization'];
 	$sql_3 = "SELECT class_id, title FROM class";
 	$result = mysql_query($sql_3);
 	while($row = mysql_fetch_row($result)){
 		echo "<option value=".htmlentities($row[0]).">".htmlentities($row[1])."</option>";
 	}
 ?>
-
-
-
 <p><input type="submit" value="Submit"/></p>
 </form>
 <p/>
-<h2>Search for a Class</h2>
-<form method="post">
+<h1>Search for a Class</h1>
+<form method="post" action="search.php">
 <p><input type="text" name="search">
 <input type="submit" value="Submit"/>
+</form>
 <p/>
-<h2>Can't find a class? Enter a new one here!</h2>
+<h1>Can't find a class? Enter a new one here!</h1>
 <form method="post">
 <p>Course #:
 <input type="text" name="course_number"> example:<i> SI 539</i></p>
@@ -126,9 +125,7 @@ else if(!isset($_SESSION['userid'])){
 page to find out.</p>
 <p>Disclaimer: Be sure to check with an academic advisor to see which requirements a class fulfills.</p>
 </form>
-<form method="get" action="report.php">
+<form method="get" action="http://localhost/si664/itaps/report.php">
 <p><input type="submit" value="Generate Report"/></p>
 </form>
 <a href="logout.php">Logout</a>
-
-<?php include_once('footer.php'); ?>
