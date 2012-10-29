@@ -15,9 +15,6 @@ if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
    
 <h1>Select a Class</h1>
 <form method="post">
-
-
-
 <?php
 	if(isset($_POST['search'])){
 		$search = mysql_real_escape_string($_POST['search']);
