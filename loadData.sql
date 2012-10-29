@@ -238,6 +238,14 @@ VALUES ('EDUC 649 - Foundational Perspectives on Educational Reform', 'http://ww
 INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('EDUC 650 - Student Teaching in School Media Center', 'http://www.soe.umich.edu/academics/courses/EDUC_650', 6, 6);
 
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 683 - Reputation Systems', 'http://si.umich.edu/class/fall-2012/understanding-records-and-archives-principles-and-practices', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 646 - Information Economics', 'http://si.umich.edu/class/fall-2012/understanding-records-and-archives-principles-and-practices', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 652 - Electronic Commerce', 'http://si.umich.edu/class/fall-2012/understanding-records-and-archives-principles-and-practices', 3, 0);
 
 INSERT INTO Requirements(specialization, description, credits)
 VALUES('MSI', 'Foundations', 9);
@@ -278,6 +286,20 @@ VALUES('IAR', 'Statistics (IAR)', 3);
 INSERT INTO Requirements(specialization, description, credits)
 VALUES('ARM', 'Total ARM Credits', 15);
 
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('SC', 'Total SC Credits', 12);
+
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('SC', 'Statistics (SC)', 3);
+
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('SC', 'Programming (SC)', 3);
+
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('IEM', 'Total IEM Credits', 12);
+
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('IEM', 'Statistics (IEM)', 3);
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Foundations' and r.specialization = 'MSI'
@@ -848,7 +870,106 @@ INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
 and c.title = 'SI 690 - Internship in School Media Center (3 credits)';
 
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
+and c.title = 'SI 529 - eCommunities: Analysis and Design of Online Interaction Environments';
 
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
+and c.title = 'SI 534 - Theories of Social Influence';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
+and c.title = 'SI 583 - Recommender Systems';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
+and c.title = 'SI 601 - Data Manipulation';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
+and c.title = 'SI 608 - Networks: Theory and Application';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
+and c.title = 'SI 618 - Exploratory Data Analysis';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where
+r.description = 'Total SC Credits' and r.specialization = 'SC'
+and c.title = 'SI 631 - Content Management Systems';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
+and c.title = 'SI 683 - Reputation Systems';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
+and c.title = 'SI 686 - User-Generated Content';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
+and c.title = 'SI 689 - Computer-Supported Cooperative Work';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
+and c.title = 'SI 694 - Advanced Project and Social Computing Design';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
+and c.title = 'SI 539 – Design of Complex Web Sites';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
+and c.title = 'SI 543 – Programming I (Java)';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
+and c.title = 'SI 664 – Database Application Design’;
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
+and c.title = 'SI 544 – Introduction to Statistics and Data Analysis’;
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
+and c.title = 'SI 562 - Microeconomics';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
+and c.title = 'SI 563 - Game Theory';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
+and c.title = 'SI 534 - Theories of Social Influence';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
+and c.title = 'SI 583 - Recommender Systems';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
+and c.title = 'SI 617 - Choice Architecture';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
+and c.title = 'SI 646 – Information Economics’;
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
+and c.title = 'SI 652 – Electronic Commerce’;
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
+and c.title = 'SI 683 – Reputation Systems';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
+and c.title = 'SI 686 - User-Generated Content';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
+and c.title = 'SI 544 - Introduction to Statistics and Data Analysis';
 
 
 
