@@ -263,7 +263,7 @@ INSERT INTO Requirements(specialization, description, credits)
 VALUES('MSI', 'Cognate', 3);
 
 INSERT INTO Requirements(specialization, description, credits)
-VALUES('HCI', 'Required - 622, 682, 688', 9);
+VALUES('HCI', 'Required - 622, 582, 588', 9);
 
 INSERT INTO Requirements(specialization, description, credits)
 VALUES('HCI', 'Total HCI Credits', 15);
