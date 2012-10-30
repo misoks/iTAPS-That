@@ -25,6 +25,13 @@ if ( isset($_SESSION['userid']) ) {
    header('Location: manual.php');
    return;
 }
+
+
+
+
+
+
+
 ?>
 
 <?php include_once('header.php'); ?>
