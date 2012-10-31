@@ -8,6 +8,10 @@ credits DOUBLE NOT NULL,
 pep_credits DOUBLE,
 UNIQUE(title) );
 
+CREATE TABLE Users(
+user_level INT,
+UNIQUE(user_level) );
+
 CREATE TABLE Student(
 user_id INT AUTO_INCREMENT PRIMARY KEY,
 username VARCHAR(128) NOT NULL,
