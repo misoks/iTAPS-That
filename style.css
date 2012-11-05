@@ -21,7 +21,22 @@ h2 {
     margin-top: 1.5em;
 }
 
-/*---Table---*/
+/*---HEADER---*/
+
+#title {
+
+}
+#navigation ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+#navigation li {
+    display: inline;
+    margin-right: 1em;
+}
+
+
+/*---REPORT TABLE---*/
 table {
     width: 100%;
     border-collapse: collapse;
@@ -53,8 +68,6 @@ td.course-title {
 .pep {
     width: 10%;
 }
-
-
 .caption {
     font-style: italic;
     color: gray;

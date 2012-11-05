@@ -1,4 +1,6 @@
 <?php
+include_once('header.php');
+
 $username = $_SESSION['username'];
 //connect to db
 $db = mysql_connect("localhost","kdsoltis", "sql1user") or die('Fail message');//change to your username/password to test on your machine
@@ -19,6 +21,6 @@ if(isset($_SESSION['username']) && isset($_SESSION['user_level']){
 		 <h1>Login with Admin Access<h1>";
 		exit();
 	}else{
-	echo "<a href = 'manual.php'> Login was unsuccessful </a>
+	echo "<a href = 'manual.php'> Login was unsuccessful </a>";
 	exit();
 ?>
