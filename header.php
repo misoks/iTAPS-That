@@ -20,15 +20,19 @@ function navLink($url, $linktext) {
 
 <body>
 
-<div id="site-name">
-    <a href="index.php">iTaps That</a>
+<div id="header">
+    <div id="site-name">
+        <a href="index.php">iTaps That</a>
+    </div>
+    
+    <div id="navigation">
+        <ul>
+            <li><?php navLink('report.php', 'My Report'); ?>
+            <li><?php navLink('manual.php', 'Enter Classes'); ?>
+            <li><?php if ($_SESSION['userid']) { 
+                echo '<a href="logout.php">Log Out</a>'; } else { echo '<a href="login.php">Log In</a>'; } ?>
+        </ul>  
+    </div>
 </div>
 
-<div id="navigation">
-    <ul>
-        <li><?php navLink('report.php', 'My Report'); ?>
-        <li><?php navLink('manual.php', 'Enter Classes'); ?>
-        <li><?php if ($_SESSION['userid']) { 
-            echo '<a href="logout.php">Log Out</a>'; } else { echo '<a href="login.php">Log In</a>'; } ?>
-    </ul>  
-</div>
+<div id="content">

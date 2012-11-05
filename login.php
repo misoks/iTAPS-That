@@ -37,7 +37,7 @@ if ( isset($_SESSION['userid']) ) {
 <?php include_once('header.php'); ?>
 
 
-<p>Login</p>
+<h2>Login</h2>
 <form method="post">
 <p>Username:
 <input type="text" name="username"></p>

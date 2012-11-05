@@ -5,11 +5,13 @@ html {
 body {
     font-family: Helvetica, Arial, sans-serif;
     margin: 5%;
-    padding: 5%;
     border: 1px solid gray;
-    border-radius: 5px;
-    width: 80%;
+
+    width: 90%;
     background-color: white;
+}
+body, #header, #footer {
+    border-radius: 5px;
 }
 p {
     line-height: 1.2em;
@@ -21,10 +23,32 @@ h2 {
     margin-top: 1.5em;
 }
 
+
+
 /*---HEADER---*/
 
-#title {
-
+#header {
+    padding: 3% 5%;
+    background-color: whitesmoke;
+    overflow: hidden;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+#site-name {
+    display: inline;
+    float: left;
+}
+#site-name a {
+    color: black;
+    text-decoration: none;
+    font-size: 4em;
+    font-weight: bold;
+    text-align: center;
+}
+#navigation {
+    display: inline;
+    float: right;
+    margin-top: 10px;
 }
 #navigation ul {
     list-style-type: none;
@@ -35,6 +59,44 @@ h2 {
     margin-right: 1em;
 }
 
+
+/*---CONTENT---*/
+#content {
+    padding: 2% 5%;
+}
+
+/*---ADD CLASSES PAGE---*/
+
+#enter-classes {
+    border: 0px;
+    margin-bottom: 30px;
+}
+#enter-classes td {
+    vertical-align: middle;
+}
+#select-class,
+#search-class {
+    width: 45%;
+}
+#or {
+    width: 10%;
+    font-size: 1.2em;
+}
+#manual-entry {
+    background-color: #efefef;
+    border: 1px solid black;
+    padding: 20px;
+}
+#manual-entry h2 {
+    margin-top: .5em;
+}
+.save-button {
+    font-size: 2em;
+    text-align: center;
+    margin-left: 45%;
+    cursor: pointer;
+    margin-top: 20px;
+}
 
 /*---REPORT TABLE---*/
 table {
@@ -79,4 +141,22 @@ td.course-title {
 
 .course-credits {
     width: 50px;
+}
+
+/*---FOOTER---*/
+
+#footer {
+    border-top: 1px solid lightgray;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    margin-top: 40px;
+    text-align: center;
+    color: darkgray;
+    font-size: .75em;
+    background-color: whitesmoke;
+    padding: 30px;
+
+}
+#footer p {
+    margin: 0;
 }

@@ -124,8 +124,7 @@ else if(!isset($_SESSION['userid'])){
 ?>
 
 
-<p><a href="manual.php">Forgot to add a class? Go back!</a></p>
+<p><a href="manual.php">Add more classes</a></p>
 
-<p><a href="logout.php">Logout</a></p>
 
 <?php include_once('footer.php'); ?>

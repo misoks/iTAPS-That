@@ -58,77 +58,84 @@ else if(!isset($_SESSION['userid'])){
 }
 ?>
 <h1>Enter Classes</h1>
-<h2>Select a Class</h2>
-<form method="post">
-<select name= "class_id">
-<option value=-1>Select</option>
-<?php
-	$user_program = $_SESSION['specialization'];
-	$sql_3 = "SELECT class_id, title FROM class";
-	$result = mysql_query($sql_3);
-	while($row = mysql_fetch_row($result)){
-		echo "<option value=".htmlentities($row[0]).">".htmlentities($row[1])."</option>";
-	}
-?>
-<p><input type="submit" value="Submit"/></p>
-</form>
-<p/>
-<h2>Search for a Class</h2>
-<form method="post" action="search.php">
-<p><input type="text" name="search">
-<input type="submit" value="Submit"/>
-</form>
-<p/>
-<h2>Can't find a class? Enter a new one here!</h2>
-<form method="post">
-<p>Course #:
-<input type="text" name="course_number"> example:<i> SI 539</i></p>
-<p>Title:
-<input type="text" name="title"><i> Design of Complex Websites</i></p>
-<p>Credits:
-<input type="text" name="credits"><i> 3</i></p>
-<p>PEP Credits:
-<input type="text" name="pep_credits"><i> 0</i></p>
-<p>Select which requirement this class fulfills:</p>
-<select name="requirement">
-<option value=-1>Select</option>
-<?php
-    $user_program = $_SESSION['specialization'];
-	$user_second_program = $_SESSION['second_specialization'];
-	$sql3 = "SELECT r.r_id, r.description from Requirements r WHERE
-				r.specialization = '$user_program' or r.specialization = 'MSI'
-				or r.specialization = '$user_second_program'";
-	$result = mysql_query($sql3);
-	while($row = mysql_fetch_row($result)){
-		echo "<option value=".htmlentities($row[0]).">".htmlentities($row[1])."</option>";
-	}
-	echo "</select>";
-?>
-<p>Optional: Select a second requirement this class also fulfills:</p>
-<select name="second_requirement">
-<option value=-1>Select</option>
-<?php
-	$user_program = $_SESSION['specialization'];
-    $user_second_program = $_SESSION['second_specialization'];
-	$sql4 = "SELECT r.r_id, r.description from Requirements r WHERE
-				r.specialization = '$user_program' or r.specialization = 'MSI'
-				or r.specialization = '$user_second_program'";
-	$result1 = mysql_query($sql4);
-	while($row = mysql_fetch_row($result1)){
-		echo "<option value=".htmlentities($row[0]).">".htmlentities($row[1])."</option>";
-	}
-	echo "</select>";
-?>
-<p><input type="submit" value="Submit"/>
-<br/>
-<p>Not sure which requirement this class fulfills? Check the
-<a href="http://www.si.umich.edu/academics/msi/msi-degree-components">MSI Degree Components</a>
-page to find out.</p>
-<p>Disclaimer: Be sure to check with an academic advisor to see which requirements a class fulfills.</p>
-</form>
+<table id="enter-classes">
+<tr>
+    <td id="select-class">
+        <h2>Select a Class</h2>
+        <form method="post">
+        <select name= "class_id">
+        <option value=-1>Select</option>
+        <?php
+            $user_program = $_SESSION['specialization'];
+            $sql_3 = "SELECT class_id, title FROM class";
+            $result = mysql_query($sql_3);
+            while($row = mysql_fetch_row($result)){
+                echo "<option value=".htmlentities($row[0]).">".htmlentities($row[1])."</option>";
+            }
+        ?>
+        <p><input type="submit" value="Submit"/></p>
+        </form>
+    </td>
+    <td id="or">- or -</td>
+    <td id="search-class">
+        <h2>Search for a Class</h2>
+        <form method="post" action="search.php">
+        <p><input type="text" name="search">
+        <input type="submit" value="Submit"/>
+        </form>
+        <p/>
+    </td>
+</tr></table>
+<div id="manual-entry">
+    <h2>Can't find a class? Enter a new one here!</h2>
+    <form method="post">
+        <p>Course #:
+        <input type="text" name="course_number"> example:<i> SI 539</i></p>
+        <p>Title:
+        <input type="text" name="title"><i> Design of Complex Websites</i></p>
+        <p>Credits:
+        <input type="text" name="credits"><i> 3</i></p>
+        <p>PEP Credits:
+        <input type="text" name="pep_credits"><i> 0</i></p>
+        <p>Select which requirement this class fulfills:</p>
+        <select name="requirement">
+        <option value=-1>Select</option>
+        <?php
+            $user_program = $_SESSION['specialization'];
+            $user_second_program = $_SESSION['second_specialization'];
+            $sql3 = "SELECT r.r_id, r.description from Requirements r WHERE
+                        r.specialization = '$user_program' or r.specialization = 'MSI'
+                        or r.specialization = '$user_second_program'";
+            $result = mysql_query($sql3);
+            while($row = mysql_fetch_row($result)){
+                echo "<option value=".htmlentities($row[0]).">".htmlentities($row[1])."</option>";
+            }
+            echo "</select>";
+        ?>
+        <p>Optional: Select a second requirement this class also fulfills:</p>
+        <select name="second_requirement">
+        <option value=-1>Select</option>
+        <?php
+            $user_program = $_SESSION['specialization'];
+            $user_second_program = $_SESSION['second_specialization'];
+            $sql4 = "SELECT r.r_id, r.description from Requirements r WHERE
+                        r.specialization = '$user_program' or r.specialization = 'MSI'
+                        or r.specialization = '$user_second_program'";
+            $result1 = mysql_query($sql4);
+            while($row = mysql_fetch_row($result1)){
+                echo "<option value=".htmlentities($row[0]).">".htmlentities($row[1])."</option>";
+            }
+            echo "</select>";
+        ?>
+        <p><input type="submit" value="Enter Class"/>
+    </form>
+    <p>Not sure which requirement this class fulfills? Check the
+        <a href="http://www.si.umich.edu/academics/msi/msi-degree-components">MSI Degree Components</a>
+        page to find out.</p>
+    <p>Disclaimer: Be sure to check with an academic advisor to see which requirements a class fulfills.</p>
+</div>
 <form method="get" action="report.php">
-<p><input type="submit" value="Generate Report"/></p>
+<p><input class="save-button" type="submit" value="Save"/></p>
 </form>
-<a href="logout.php">Logout</a>
 
 <?php include_once('footer.php'); ?>
