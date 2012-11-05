@@ -20,6 +20,7 @@ function navLink($url, $linktext) {
 
 <body>
 
+<div id="container">
 <div id="header">
     <div id="site-name">
         <a href="index.php">iTAPS That</a>
@@ -31,7 +32,6 @@ function navLink($url, $linktext) {
                 <li><?php navLink('report.php', 'My Report'); ?>
                 <li><?php navLink('manual.php', 'Enter Classes'); ?>
                 <li><?php navLink('logout.php', 'Log Out'); ?>
-            
             <?php } else { ?>
                 <li><?php navLink('newAccount.php', 'Create an Account');?>
                 <li><?php navLink('login.php', 'Log In'); ?>

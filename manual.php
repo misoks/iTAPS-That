@@ -6,7 +6,7 @@ include_once('header.php');
 if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
     $class_id = mysql_real_escape_string($_POST['class_id']);
     $userid = mysql_real_escape_string($_SESSION['userid']);
-    $sql = "INSERT INTO takes (class_id, user_id)
+    $sql = "INSERT INTO Takes (class_id, user_id)
             VALUES ('$class_id', '$userid')";
 	header( 'Location: manual.php' ) ;
     mysql_query($sql);
@@ -67,7 +67,7 @@ else if(!isset($_SESSION['userid'])){
         <option value=-1>Select</option>
         <?php
             $user_program = $_SESSION['specialization'];
-            $sql_3 = "SELECT class_id, title FROM class";
+            $sql_3 = "SELECT class_id, title FROM Class";
             $result = mysql_query($sql_3);
             while($row = mysql_fetch_row($result)){
                 echo "<option value=".htmlentities($row[0]).">".htmlentities($row[1])."</option>";

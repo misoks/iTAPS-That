@@ -4,6 +4,12 @@ function tally(){
     $('#total_checked button').replaceWith(num_checked);
 }
 
+function entered_courses(title) {
+    var entered = new Array();
+    entered[] = title;
+    return entered;
+}
+
 //Mapping table contents
 function table_map(table_id) {
     var columns = $('#'+table_id+' thead th').map(function() {

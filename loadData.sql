@@ -970,11 +970,3 @@ and c.title = 'SI 686 - User-Generated Content';
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
 and c.title = 'SI 544 - Introduction to Statistics and Data Analysis';
-
-
-
-
-
-
-
-

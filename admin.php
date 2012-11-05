@@ -10,7 +10,7 @@ while($row = mysql_fetch_array($get))
 {
 	$admin = $row['user_level'];
 }
-if(isset($_SESSION['username']) && isset($_SESSION['user_level']){
+if (isset($_SESSION['username']) && isset($_SESSION['user_level'])) {
 	$username = $_SESSION['username'];
 	if($_SESSION['user_level'] == 0) {
 	echo "<a href='login.php'>Log in</a> | <a href='logout.php'>Log out</a>
@@ -23,4 +23,8 @@ if(isset($_SESSION['username']) && isset($_SESSION['user_level']){
 	}else{
 	echo "<a href = 'manual.php'> Login was unsuccessful </a>";
 	exit();
+    }
+}
 ?>
+
+<?php include_once('footer.php'); ?>

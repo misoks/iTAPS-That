@@ -6,7 +6,7 @@ session_start();
 if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
     $class_id = mysql_real_escape_string($_POST['class_id']);
     $userid = mysql_real_escape_string($_SESSION['userid']);
-    $sql = "INSERT INTO takes (class_id, user_id)
+    $sql = "INSERT INTO Takes (class_id, user_id)
             VALUES ('$class_id', '$userid')";
 	header( 'Location: manual.php' ) ;
     mysql_query($sql);

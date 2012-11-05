@@ -1,16 +1,8 @@
-html {
-    background-color: gold;
-}
+/*---GLOBAL---*/
 
 body {
+    background-color: gold;
     font-family: Helvetica, Arial, sans-serif;
-    margin: 4% 5%;
-    border: 1px solid gray;
-    width: 90%;
-    background-color: white;
-}
-body, #header, #footer {
-    border-radius: 5px;
 }
 p { line-height: 1.2em; }
 h1 { color: #666; }
@@ -19,6 +11,17 @@ a { color: #185e91; }
 a:hover { color: #97accb; }
 a:visited { color: #185e91; }
 
+/*---CONTAINER---*/
+
+#container {
+    margin: 4% 5%;
+    border: 1px solid gray;
+    width: 90%;
+    background-color: white;
+}
+#container, #header, #footer {
+    border-radius: 5px;
+}
 
 /*---HEADER---*/
 
@@ -51,11 +54,22 @@ a:visited { color: #185e91; }
     background-position: top left;
     padding-left: 145px;
 }
-#navigation {
-    display: block;
-    position: absolute;
-    right: 50px;
-    top: 70px;
+
+@media all and (min-width: 1050px) {
+    #navigation {
+        display: block;
+        position: absolute;
+        right: 50px;
+        top: 70px;
+    }
+}
+@media all and (max-width: 1049px) {
+    #navigation {
+        display: block;
+        position: absolute;
+        right: 50px;
+        top: 0px;
+    }
 }
 #navigation ul {
     list-style-type: none;
@@ -72,7 +86,7 @@ a:visited { color: #185e91; }
     background-color: #185e91;
     color: white;
     text-decoration: none;
-    padding: 10px 15px 7px 15px;
+    padding: 10px 15px;
     top: 0;
     transition: all .5s;
     -moz-transition: all .5s;
@@ -89,7 +103,7 @@ a:visited { color: #185e91; }
     background-color: #97accb;
     color: white;
     text-decoration: none;
-    padding: 10px 15px 7px 15px;
+    padding: 10px 15px;
     border-radius: 5px;
 }
 
@@ -126,7 +140,6 @@ a:visited { color: #185e91; }
 }
 .save-button {
     font-size: 2em;
-    text-align: center;
     margin-left: 45%;
     cursor: pointer;
     margin-top: 20px;
