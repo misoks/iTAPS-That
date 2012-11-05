@@ -925,11 +925,11 @@ and c.title = 'SI 543 – Programming I (Java)';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
-and c.title = 'SI 664 – Database Application Design’;
+and c.title = 'SI 664 – Database Application Design';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
-and c.title = 'SI 544 – Introduction to Statistics and Data Analysis’;
+and c.title = 'SI 544 – Introduction to Statistics and Data Analysis';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
@@ -953,11 +953,11 @@ and c.title = 'SI 617 - Choice Architecture';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
-and c.title = 'SI 646 – Information Economics’;
+and c.title = 'SI 646 – Information Economics';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
-and c.title = 'SI 652 – Electronic Commerce’;
+and c.title = 'SI 652 – Electronic Commerce';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
