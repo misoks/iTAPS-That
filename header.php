@@ -2,7 +2,7 @@
 function navLink($url, $linktext) {
     $current = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
     if ($url == $current) {
-        echo $linktext;
+        echo '<span class="selected">'.$linktext.'</span>';
     }
     else {
         echo '<a href="'.$url.'">'.$linktext.'</a>';
@@ -27,10 +27,15 @@ function navLink($url, $linktext) {
     
     <div id="navigation">
         <ul>
-            <li><?php navLink('report.php', 'My Report'); ?>
-            <li><?php navLink('manual.php', 'Enter Classes'); ?>
-            <li><?php if ($_SESSION['userid']) { 
-                echo '<a href="logout.php">Log Out</a>'; } else { echo '<a href="login.php">Log In</a>'; } ?>
+            <?php if ($_SESSION['userid']) { ?>
+                <li><?php navLink('report.php', 'My Report'); ?>
+                <li><?php navLink('manual.php', 'Enter Classes'); ?>
+                <li><?php navLink('logout.php', 'Log Out'); ?>
+            
+            <?php } else { ?>
+                <li><?php navLink('newAccount.php', 'Create an Account');?>
+                <li><?php navLink('login.php', 'Log In'); ?>
+            <?php } ?>
         </ul>  
     </div>
 </div>

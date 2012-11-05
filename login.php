@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "db.php";
+include_once('header.php');
 
 if ( isset($_POST['username']) && isset($_POST['password'])) {
    $u = mysql_real_escape_string($_POST['username']);
@@ -27,14 +28,9 @@ if ( isset($_SESSION['userid']) ) {
 }
 
 
-
-
-
-
-
 ?>
 
-<?php include_once('header.php'); ?>
+
 
 
 <h2>Login</h2>
