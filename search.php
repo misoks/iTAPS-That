@@ -1,5 +1,6 @@
 <?php
 require_once "db.php";
+include_once('header.php');
 session_start();
 
 if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
@@ -13,7 +14,7 @@ if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
     }
 ?>
    
-<h1>Select a Class</h1>
+<h2>Select a Class</h2>
 <form method="post">
 <?php
 	if(isset($_POST['search'])){
@@ -33,5 +34,7 @@ if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
 	}
 		
 ?>
-<p><input type="submit" value="Submit"/></p>
+<p><input type="submit" value="Add Class"/></p>
 </form>
+
+<?php include_once('footer.php'); ?>

@@ -4,7 +4,7 @@ html {
 
 body {
     font-family: Helvetica, Arial, sans-serif;
-    margin: 5%;
+    margin: 4% 5%;
     border: 1px solid gray;
     width: 90%;
     background-color: white;
@@ -28,7 +28,8 @@ a:visited { color: #185e91; }
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     position: relative;
-    height: 145px;
+    height: 170px;
+    border-bottom: 1px dotted gray;
 }
 #site-name {
     display: block;
@@ -38,8 +39,8 @@ a:visited { color: #185e91; }
 }
 #site-name a {
     display: block;
-    height: 25px;
-    padding: 50px 0;
+    height: 35px;
+    padding: 45px 0;
     color: black;
     text-decoration: none;
     font-size: 3em;
@@ -95,7 +96,7 @@ a:visited { color: #185e91; }
 
 /*---CONTENT---*/
 #content {
-    padding: 2% 5%;
+    padding: 1% 5%;
 }
 
 /*---ADD CLASSES PAGE---*/
@@ -131,7 +132,7 @@ a:visited { color: #185e91; }
     margin-top: 20px;
 }
 
-/*---REPORT TABLE---*/
+/*---REPORT---*/
 table {
     width: 100%;
     border-collapse: collapse;
@@ -175,6 +176,15 @@ td.course-title {
 .course-credits {
     width: 50px;
 }
+#add-more {
+    text-align: center;
+    font-size: 1.4em;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+#add-more a:hover {
+    color: #97accb;
+}
 
 /*---FOOTER---*/
 
@@ -182,7 +192,7 @@ td.course-title {
     border-top: 1px solid lightgray;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-    margin-top: 40px;
+    margin-top: 20px;
     text-align: center;
     color: darkgray;
     font-size: .75em;

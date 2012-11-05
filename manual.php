@@ -73,7 +73,7 @@ else if(!isset($_SESSION['userid'])){
                 echo "<option value=".htmlentities($row[0]).">".htmlentities($row[1])."</option>";
             }
         ?>
-        <p><input type="submit" value="Submit"/></p>
+        <p><input type="submit" value="Add Class"/></p>
         </form>
     </td>
     <td id="or">- or -</td>
@@ -81,7 +81,7 @@ else if(!isset($_SESSION['userid'])){
         <h2>Search for a Class</h2>
         <form method="post" action="search.php">
         <p><input type="text" name="search">
-        <input type="submit" value="Submit"/>
+        <input type="submit" value="Search"/>
         </form>
         <p/>
     </td>

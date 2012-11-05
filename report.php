@@ -1,8 +1,8 @@
 <?php
 session_start();
 require_once "db.php";
+include_once('header.php');
 
- include_once('header.php');
  $running_total = 0;
 if(isset($_SESSION['userid'])){
 	$user_id = $_SESSION['userid'];
@@ -124,7 +124,7 @@ else if(!isset($_SESSION['userid'])){
 ?>
 
 
-<p><a href="manual.php">Add more classes</a></p>
+<p id="add-more"><a href="manual.php">Add More Classes</a></p>
 
 
 <?php include_once('footer.php'); ?>

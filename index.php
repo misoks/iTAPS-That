@@ -13,5 +13,6 @@ include_once('header.php');
     the classes you've taken, and we'll show you your credits, requirements, and options to
     make sure you know what to take to stay on track.</p>
     
+    <p style="text-align: center;"><img src="images/destroy.jpg"></p>
 
 <?php include_once('footer.php'); ?>
