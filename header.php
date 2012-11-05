@@ -22,7 +22,7 @@ function navLink($url, $linktext) {
 
 <div id="header">
     <div id="site-name">
-        <a href="index.php">iTaps That</a>
+        <a href="index.php">iTAPS That</a>
     </div>
     
     <div id="navigation">
