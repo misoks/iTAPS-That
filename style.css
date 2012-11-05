@@ -181,13 +181,22 @@ td.course-title {
     font-style: italic;
     color: gray;
 }
-
 .course-title {
     width: 200px;
 }
 
 .course-credits {
     width: 50px;
+}
+.total {
+    text-align: right;
+    padding-right: 10px;
+}
+.total-row {
+    height: 35px;
+    font-weight: bold;
+    background-color: whitesmoke;
+
 }
 #add-more {
     text-align: center;
@@ -197,6 +206,18 @@ td.course-title {
 }
 #add-more a:hover {
     color: #97accb;
+}
+.completed {
+    color: limegreen;
+    font-weight: bold;
+}
+#total-credits {
+    text-align: right;
+    font-weight: bold;
+    padding-right: 5px;
+}
+#total-credits span {
+    font-size: 2em;
 }
 
 /*---FOOTER---*/
