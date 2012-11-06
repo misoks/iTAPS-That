@@ -56,7 +56,7 @@ if(isset($_SESSION['userid'])){
 		$tcq_result = mysql_query($taken_class_query);
 		$num_rows = mysql_num_rows($tcq_result);
 		if ( $num_rows > 0 ) {
-            echo '<h3>Already Taken</h3><table border=1px id="'.$requirement_id.'-manual"><tr><thead><th class="taken-check">Taken?</th>
+            echo '<h3>Already Taken</h3><table border=1px id="'.$requirement_id.'" class="taken"><tr><thead><th class="taken-check">Taken?</th>
             <th class="course-title">Course</th><th class="credits">Credits</th><th class="pep">PEP</th></thead></tr><tbody>';
             while($row2 = mysql_fetch_row($tcq_result)){
                 $taken_credits = $taken_credits + $row2[3];
@@ -113,7 +113,7 @@ if(isset($_SESSION['userid'])){
 		$rcq_result = mysql_query($remaining_class_query);
 		$num_rows = mysql_num_rows($rcq_result);
 		if ( $num_rows > 0 ) {
-            echo '<table border=1px id="'.$requirement_id.'"><thead><tr><th class="taken-check">Taken?</th>
+            echo '<table border=1px id="'.$requirement_id.'-untaken" class="untaken"><thead><tr><th class="taken-check">Taken?</th>
             <th class="course-title">Course</th><th class="credits">Credits</th><th class="pep">PEP</th></tr></thead><tbody>';
             while($row3 = mysql_fetch_row($rcq_result)){
                 echo "<tr><td>";
