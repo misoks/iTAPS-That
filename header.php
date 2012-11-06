@@ -28,7 +28,7 @@ function navLink($url, $linktext) {
     
     <div id="navigation">
         <ul>
-            <?php if ($_SESSION['userid']) { ?>
+            <?php if (isset($_SESSION['userid'])) { ?>
                 <li><?php navLink('report.php', 'My Report'); ?>
                 <li><?php navLink('manual.php', 'Enter Classes'); ?>
                 <li><?php navLink('logout.php', 'Log Out'); ?>
