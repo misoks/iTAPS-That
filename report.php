@@ -42,6 +42,7 @@ if(isset($_SESSION['userid'])){
     
 		$credits = $row[2];
 		$taken_credits = 0.0;
+		echo '<div id="requirement-block">';
 		echo "<h2>".htmlentities($requirement_name)."</h2>";
 		
 		// Manually entered courses
@@ -121,7 +122,7 @@ if(isset($_SESSION['userid'])){
                 echo(htmlentities($row3[4]));
                 echo("</td></tr>\n");
             }
-            echo'</tbody></table>';
+            echo'</tbody></table></div>';
             //echo'<button onclick="table_map('.$requirement_id.')">Map Table</button>';
 		}
 	}
