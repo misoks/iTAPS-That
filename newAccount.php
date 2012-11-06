@@ -45,7 +45,7 @@ if ( isset($_POST['username']) && isset($_POST['password'])
 <select name="specialization">
 <option value=-1>Select</option>
 <?php
-	$sql3 = "SELECT DISTINCT r.specialization FROM Requirements r";
+	$sql3 = "SELECT DISTINCT r.specialization FROM Requirements r WHERE r.specialization != 'MSI' ";
 	$result = mysql_query($sql3);
 	while($row = mysql_fetch_row($result)){
 		echo "<option value=".htmlentities($row[0]).">".htmlentities($row[0])."</option>";
@@ -57,7 +57,7 @@ if ( isset($_POST['username']) && isset($_POST['password'])
 <select name="second_specialization">
 <option value=-1>Select</option>
 <?php
-	$sql3 = "SELECT DISTINCT r.specialization FROM Requirements r";
+	$sql3 = "SELECT DISTINCT r.specialization FROM Requirements r WHERE r.specialization != 'MSI' ";
 	$result = mysql_query($sql3);
 	while($row = mysql_fetch_row($result)){
 		echo "<option value=".htmlentities($row[0]).">".htmlentities($row[0])."</option>";
