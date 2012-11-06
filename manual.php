@@ -11,7 +11,7 @@ if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
     mysql_query($sql);
     $course_title = get_title($class_id);
 	movePage('manual.php', "$course_title successfully added!", 'success');
-    //return;
+    return;
     }
 	
 else if ( isset($_POST['course_number']) && isset($_POST['title']) 
@@ -93,14 +93,24 @@ else if(!isset($_SESSION['userid'])){
 <div id="manual-entry">
     <h2>Can't find a class? Enter one manually!</h2>
     <form method="post">
-        <p>Course #:
-        <input type="text" name="course_number"> example:<i> SI 539</i></p>
-        <p>Title:
-        <input type="text" name="title"><i> Design of Complex Websites</i></p>
-        <p>Credits:
-        <input type="text" name="credits"><i> 3</i></p>
-        <p>PEP Credits:
-        <input type="text" name="pep_credits"><i> 0</i></p>
+        <table>
+            <tr>
+                <td class="label">Course #:</td>
+                <td class="input"><input type="text" name="course_number" class="course"><em class="example"> e.g. SI 539</em></td>
+            </tr>
+            <tr>
+                <td class="label">Title:</td>
+                <td class="input"><input type="text" name="title" class="title"><em class="example"> e.g. Design of Complex Websites</em></td>
+            </tr>
+            <tr>
+                <td class="label">Credits:</td>
+                <td class="input"><input type="text" name="credits" class="credits"><em class="example"> e.g. 3</em></td>
+            </tr>
+            <tr>
+                <td class="label">PEP Credits:</td>
+                <td class="input"><input type="text" name="pep_credits" class="credits" value="0"><em class="example"> e.g. 0</em></td>
+            </tr>
+        </table>
         <p>Select which requirement this class fulfills:</p>
         <select name="requirement">
         <option value=-1>Select</option>
@@ -139,7 +149,7 @@ else if(!isset($_SESSION['userid'])){
     <p>Disclaimer: Be sure to check with an academic advisor to see which requirements a class fulfills.</p>
 </div>
 <form method="get" action="report.php">
-<p><input class="save-button" type="submit" value="Save"/></p>
+<p><input class="save-button" type="submit" value="View Report"/></p>
 </form>
 
 <?php include_once('footer.php'); ?>

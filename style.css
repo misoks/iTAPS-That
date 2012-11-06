@@ -13,6 +13,7 @@ a:visited { color: #185e91; }
 
 strong {font-weight: bold;}
 em { font-style: italic;}
+.example { color: gray; }
 
 /* ================ STATUS MESSAGES ================ */
 .message {
@@ -154,10 +155,20 @@ em { font-style: italic;}
 }
 .save-button {
     font-size: 2em;
-    margin-left: 45%;
+    margin-left: 40%;
     cursor: pointer;
     margin-top: 20px;
 }
+#manual-entry table { border: 0px;}
+#manual-entry .label {
+    text-align: right;
+    padding-right: 10px;
+    width: 15%;
+}
+#manual-entry .input { text-align: left; }
+#manual-entry input.course { width: 70px; }
+#manual-entry input.title { width: 200px; }
+#manual-entry input.credits { width: 40px; }
 
 /* ================ REPORT ================ */
 #requirement-block {
