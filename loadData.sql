@@ -98,6 +98,9 @@ INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 601 - Data Manipulation', 'http://si.umich.edu/class/winter-2012/data-manipulation', 1.5, 0);
 
 INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 618 - Exploratory Data Analysis', 'http://www.si.umich.edu/class/winter-2012/exploratory-data-analysis', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 622 - Needs Assessment and Usability Evaluation ', 'http://si.umich.edu/class/winter-2012/evaluation-systems-and-services-0', 3, 3);
 
 INSERT INTO Class(title, link, credits, pep_credits)
