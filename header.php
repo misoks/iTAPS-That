@@ -22,7 +22,7 @@
         <ul>
             <?php if (isset($_SESSION['userid'])) { ?>
                 <li><?php navLink('report.php', 'My Report'); ?>
-                <li><?php navLink('manual.php', 'Enter Classes'); ?>
+                <li><?php navLink('manual.php', 'Add Classes'); ?>
                 <li><?php navLink('logout.php', 'Log Out'); ?>
             <?php } else { ?>
                 <li><?php navLink('newAccount.php', 'Create an Account');?>
@@ -42,5 +42,4 @@ if(isset($_GET['msg'])) {
         echo "<p class='message $type'>$msg</p>";
     }
 }
-
- ?>
+?>

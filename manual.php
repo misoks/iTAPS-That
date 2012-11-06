@@ -57,7 +57,7 @@ else if(!isset($_SESSION['userid'])){
 	header('Location: login.php');
 }
 ?>
-<h1>Enter Classes</h1>
+<h1>Add Classes</h1>
 <p>Use this page to enter the classes you've already taken or are currently taking, either 
     by selecting them from the drop-down, searching for them by course number or title, or
     manually entering courses you can't find. The courses you enter will appear in 

@@ -28,12 +28,19 @@ if(isset($_SESSION['userid'])){
 	$running_total = $running_total + $total_credits;
 	$total_remaining = 48 - $total_credits;
 	if ($total_remaining < 0) { $total_remaining = 0; }
-	
-	echo "<p>You have completed ".htmlentities($total_credits)." total credits and have ";
-	echo htmlentities($total_remaining)." still to complete.</p>
-	    <p>Classes you have submitted on the previous page are saved and appear on this 
+	echo "<p>Classes you have submitted on the <a href='manual.php'>Add Classes</a> page are saved and appear on this 
 	    report with a check mark next to them. Below them are classes that you have not 
 	    yet taken that can help you fulfill your requirements.</p>";
+	/*if ($total_remaining == 0) {
+	    echo "<p class='summary completed'>You have completed ".htmlentities($total_credits)." credits and thus your 
+	    overall MSI credit requirement! Check below to see if you still have any requirements
+	    left to fulfill.";
+	}
+	else {
+	    echo "<p class='summary uncompleted'>You have completed ".htmlentities($total_credits)." total credits and have ";
+	    echo htmlentities($total_remaining)." still to complete.</p>";
+	}*/
+	
 	while($row = mysql_fetch_row($result)){
 		$requirement = $row[0];
 		$requirement_name = $row[1];
@@ -93,7 +100,7 @@ if(isset($_SESSION['userid'])){
 			$remaining_credits = 0;
 		}
 		if ($remaining_credits == 0) {
-		    echo "<p class='summary completed'> You have completed this requirement! </p>";
+		    echo "<p class='summary completed'> You have completed the $requirement_name_mod requirement! </p>";
 		}
 		else {
             echo "<p class='summary uncompleted'>";
@@ -139,7 +146,14 @@ else if(!isset($_SESSION['userid'])){
 }
 ?>
 
-<?php echo '<div id="total-credits">Total MSI Credits: <span>'.htmlentities($total_credits)."/48</span></div>"; ?>
+<?php echo '<div id="total-credits">Total MSI Credits: ';
+if ($total_credits > 48) {
+    echo '<span class="completed">'.htmlentities($total_credits)."/48</span></div>"; 
+}
+else {
+    echo '<span class="uncompleted">'.htmlentities($total_credits)."/48</span></div>"; 
+}
+?>
 <p id="add-more"><a href="manual.php">Add More Classes</a></p>
 
 
