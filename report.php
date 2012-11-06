@@ -75,7 +75,16 @@ if(isset($_SESSION['userid'])){
                 echo(htmlentities($row2[4]));
                 echo("</td></tr>\n");
             }
-            echo '<tr class="total-row"><td></td><td class="total">Total:</td><td>'.$taken_credits.' / '.$credits.'</td><td></td></tr>';
+            if ( $taken_credits >= $credits ) {
+                echo '<tr class="total-row complete">';
+            }
+            else if ( $taken_credits > 0 && $taken_credits < $credits ) {
+                echo '<tr class="total-row partial">';
+            }
+            else {
+                echo '<tr class="total-row none">';
+            }
+            echo '<td></td><td class="total">Total:</td><td>'.$taken_credits.' / '.$credits.'</td><td></td></tr>';
             echo '</table>';
         }
         
@@ -122,9 +131,10 @@ if(isset($_SESSION['userid'])){
                 echo(htmlentities($row3[4]));
                 echo("</td></tr>\n");
             }
-            echo'</tbody></table></div>';
+            echo'</tbody></table>';
             //echo'<button onclick="table_map('.$requirement_id.')">Map Table</button>';
 		}
+		echo '</div>';
 	}
 	echo "</form>";
 }

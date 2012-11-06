@@ -146,6 +146,10 @@ a:visited { color: #185e91; }
 }
 
 /*---REPORT---*/
+#requirement-block {
+    padding-bottom: 20px;
+    border-bottom: 1px dotted black;
+}
 table {
     width: 100%;
     border-collapse: collapse;
@@ -196,7 +200,14 @@ td.course-title {
     height: 35px;
     font-weight: bold;
     background-color: whitesmoke;
-
+}
+.complete {
+    background-color: lightgreen;
+    border: green 1px solid;
+}
+.partial {
+    background-color: #fdb09e;
+    border: red 1px solid;
 }
 #add-more {
     text-align: center;

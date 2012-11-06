@@ -3,6 +3,27 @@ require_once "db.php";
 session_start();
 include_once('header.php');
 
+function strtrim($str, $maxlen=40, $elli='...', $maxoverflow=5) {
+    global $CONF;
+    if (strlen($str) > $maxlen) {
+        if ($CONF["BODY_TRIM_METHOD_STRLEN"]) {
+            return substr($str, 0, $maxlen);
+        }
+        $output = NULL;
+        $body = explode(" ", $str);
+        $body_count = count($body);
+        $i=0;
+        do {
+            $output .= $body[$i]." ";
+            $thisLen = strlen($output);
+            $cycle = ($thisLen < $maxlen && $i < $body_count-1 && ($thisLen+strlen($body[$i+1])) < $maxlen+$maxoverflow?true:false);
+            $i++;
+        } while ($cycle);
+        return $output.$elli;
+    }
+    else return $str;
+}
+
 if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
     $class_id = mysql_real_escape_string($_POST['class_id']);
     $userid = mysql_real_escape_string($_SESSION['userid']);
@@ -70,7 +91,7 @@ else if(!isset($_SESSION['userid'])){
             $sql_3 = "SELECT class_id, title FROM Class";
             $result = mysql_query($sql_3);
             while($row = mysql_fetch_row($result)){
-                echo "<option value=".htmlentities($row[0]).">".htmlentities($row[1])."</option>";
+                echo "<option value=".htmlentities($row[0]).">".strtrim(htmlentities($row[1]))."</option>";
             }
         ?>
         <p><input type="submit" value="Add Class"/></p>
