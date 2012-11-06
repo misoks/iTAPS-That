@@ -56,7 +56,7 @@ if(isset($_SESSION['userid'])){
 		$tcq_result = mysql_query($taken_class_query);
 		$num_rows = mysql_num_rows($tcq_result);
 		if ( $num_rows > 0 ) {
-            echo '<h3>Already Taken</h3><table border=1px id="'.$requirement_id.'" class="taken"><tr><thead><th class="taken-check">Taken?</th>
+            echo '<table border=1px id="'.$requirement_id.'" class="taken"><tr><thead><th class="taken-check">Taken?</th>
             <th class="course-title">Course</th><th class="credits">Credits</th><th class="pep">PEP</th></thead></tr><tbody>';
             while($row2 = mysql_fetch_row($tcq_result)){
                 $taken_credits = $taken_credits + $row2[3];
@@ -96,10 +96,10 @@ if(isset($_SESSION['userid'])){
 			$remaining_credits = 0;
 		}
 		if ($remaining_credits == 0) {
-		    echo "<p class='completed'> You have completed this requirement! </p>";
+		    echo "<p class='summary completed'> You have completed this requirement! </p>";
 		}
 		else {
-            echo "<p>";
+            echo "<p class='summary uncompleted'>";
           //  echo htmlentities($requirement_name)." requires a minimum of ".htmlentities($credits)." credits.";
             echo "You need ".htmlentities($remaining_credits)." more $requirement_name_mod credits.</p>";
 		}

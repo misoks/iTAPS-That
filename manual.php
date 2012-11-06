@@ -108,7 +108,7 @@ else if(!isset($_SESSION['userid'])){
     </td>
 </tr></table>
 <div id="manual-entry">
-    <h2>Can't find a class? Enter a new one here!</h2>
+    <h2>Can't find a class? Enter one manually!</h2>
     <form method="post">
         <p>Course #:
         <input type="text" name="course_number"> example:<i> SI 539</i></p>
