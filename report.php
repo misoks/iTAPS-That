@@ -43,7 +43,7 @@ if(isset($_SESSION['userid'])){
 		echo '<div id="requirement-block">';
 		echo "<h2>".htmlentities($requirement_name)."</h2>";
 		
-		// Manually entered courses
+		// ALL courses a user has taken 
 		$taken_class_query = "SELECT c.class_id, c.title, c.link, c.credits, c.pep_credits
 								FROM Class c, Takes t, Fulfills f WHERE c.class_id = t.class_id
 								AND t.user_id = '$user_id' AND c.class_id = f.class_id AND f.r_id
@@ -58,7 +58,7 @@ if(isset($_SESSION['userid'])){
         while($row2 = mysql_fetch_row($tcq_result)){
             $taken_credits = $taken_credits + $row2[3];
             echo "<tr><td>";
-            echo '<input type="checkbox" value="taken" checked>';
+            echo '<input type="checkbox" value="taken" checked disabled>';
             echo('</td><td class="course-title">');
             if($row2[2] != NULL){
                 echo '<a href="'.htmlentities($row2[2]).'">'.htmlentities($row2[1]).'</a>';
