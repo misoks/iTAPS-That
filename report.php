@@ -26,10 +26,14 @@ if(isset($_SESSION['userid'])){
 	$me_cq_row = mysql_fetch_row($me_cq_result);
 	$total_credits = $cq_row[0] + $me_cq_row[0];
 	$running_total = $running_total + $total_credits;
+	$total_remaining = 48 - $total_credits;
+	if ($total_remaining < 0) { $total_remaining = 0; }
+	
 	echo "<p>You have completed ".htmlentities($total_credits)." total credits and have ";
-	echo htmlentities(48-$total_credits)." remaining. Classes you have submitted on the 
-	    previous page are saved and appear on this report with a check mark next to them. 
-	    Below them are classes that you have not yet taken that can help you fulfill your requirements.</p>";
+	echo htmlentities($total_remaining)." still to complete.</p>
+	    <p>Classes you have submitted on the previous page are saved and appear on this 
+	    report with a check mark next to them. Below them are classes that you have not 
+	    yet taken that can help you fulfill your requirements.</p>";
 	while($row = mysql_fetch_row($result)){
 		$requirement = $row[0];
 		$requirement_name = $row[1];
@@ -53,7 +57,7 @@ if(isset($_SESSION['userid'])){
 								m.class_id = f1.class_id AND f1.r_id = '$requirement'";
 		$tcq_result = mysql_query($taken_class_query);
 		$num_rows = mysql_num_rows($tcq_result);
-        echo '<table border=1px id="'.$requirement_id.'" class="taken"><tr><thead><th class="taken-check">Taken?</th>
+        echo '<table border=1px id="'.htmlentities($requirement_id).'" class="taken"><tr><thead><th class="taken-check">Taken?</th>
         <th class="course-title">Course</th><th class="credits">Credits</th><th class="pep">PEP</th></thead></tr><tbody>';
         while($row2 = mysql_fetch_row($tcq_result)){
             $taken_credits = $taken_credits + $row2[3];
@@ -78,7 +82,7 @@ if(isset($_SESSION['userid'])){
         else {
             echo '<tr class="total-row incomplete">';
         }
-        echo '<td></td><td class="total">Total:</td><td>'.$taken_credits.' / '.$credits.'</td><td></td></tr>';
+        echo '<td></td><td class="total">Total:</td><td>'.htmlentities($taken_credits).' / '.htmlentities($credits).'</td><td></td></tr>';
         echo '</table>';
         
         
@@ -106,11 +110,11 @@ if(isset($_SESSION['userid'])){
 		$rcq_result = mysql_query($remaining_class_query);
 		$num_rows = mysql_num_rows($rcq_result);
 		if ( $num_rows > 0 ) {
-            echo '<table border=1px id="'.$requirement_id.'-untaken" class="untaken"><thead><tr><th class="taken-check">Taken?</th>
+            echo '<table border=1px id="'.htmlentities($requirement_id).'-untaken" class="untaken"><thead><tr><th class="taken-check">Taken?</th>
             <th class="course-title">Course</th><th class="credits">Credits</th><th class="pep">PEP</th></tr></thead><tbody>';
             while($row3 = mysql_fetch_row($rcq_result)){
                 echo "<tr><td>";
-                echo '<input type="checkbox" name="'.$requirement_id.'" value="not taken">';
+                echo '<input type="checkbox" name="'.htmlentities($requirement_id).'" value="not taken">';
                 echo('</td><td class="course-title">');
                 if($row3[2] != NULL){
                     echo '<a href="'.htmlentities($row3[2]).'">'.htmlentities($row3[1]).'</a>';
@@ -125,7 +129,6 @@ if(isset($_SESSION['userid'])){
                 echo("</td></tr>\n");
             }
             echo'</tbody></table>';
-            //echo'<button onclick="table_map('.$requirement_id.')">Map Table</button>';
 		}
 		echo '</div>';
 	}

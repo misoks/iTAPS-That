@@ -3,35 +3,15 @@ require_once "db.php";
 session_start();
 include_once('header.php');
 
-function strtrim($str, $maxlen=40, $elli='...', $maxoverflow=5) {
-    global $CONF;
-    if (strlen($str) > $maxlen) {
-        if ($CONF["BODY_TRIM_METHOD_STRLEN"]) {
-            return substr($str, 0, $maxlen);
-        }
-        $output = NULL;
-        $body = explode(" ", $str);
-        $body_count = count($body);
-        $i=0;
-        do {
-            $output .= $body[$i]." ";
-            $thisLen = strlen($output);
-            $cycle = ($thisLen < $maxlen && $i < $body_count-1 && ($thisLen+strlen($body[$i+1])) < $maxlen+$maxoverflow?true:false);
-            $i++;
-        } while ($cycle);
-        return $output.$elli;
-    }
-    else return $str;
-}
-
 if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
     $class_id = mysql_real_escape_string($_POST['class_id']);
     $userid = mysql_real_escape_string($_SESSION['userid']);
     $sql = "INSERT INTO Takes (class_id, user_id)
             VALUES ('$class_id', '$userid')";
-	header( 'Location: manual.php' ) ;
     mysql_query($sql);
-    return;
+    $course_title = get_title($class_id);
+	movePage('manual.php', "$course_title successfully added!", 'success');
+    //return;
     }
 	
 else if ( isset($_POST['course_number']) && isset($_POST['title']) 
@@ -63,15 +43,14 @@ else if ( isset($_POST['course_number']) && isset($_POST['title'])
 				FROM Manually_Entered_Class m WHERE m.title = '$f'";
 		mysql_query($sql5);
 	}
-	header( 'Location: manual.php' ) ;
+	movePage('manual.php', "$n - $t successfully added!", 'success');
    return;
   }
   
 else if ( isset($_POST['course_number']) && isset($_POST['title']) 
      && isset($_POST['credits']) && isset($_POST['pep_credits'])&& isset($_SESSION['userid'])
 	 && (!is_numeric($_POST['credits']) || !is_numeric($_POST['pep_credits']))) {
-	$_SESSION['error'] = 'Error, values for credits and PEP credits must be numeric.';
-	header( 'Location: manual.php' ) ;
+	movePage('manual.php', "Error, values for credits and PEP credits must be numeric.", 'error');
 	return;
 }
 else if(!isset($_SESSION['userid'])){
@@ -79,6 +58,10 @@ else if(!isset($_SESSION['userid'])){
 }
 ?>
 <h1>Enter Classes</h1>
+<p>Use this page to enter the classes you've already taken or are currently taking, either 
+    by selecting them from the drop-down, searching for them by course number or title, or
+    manually entering courses you can't find. The courses you enter will appear in 
+    <a href="report.php">your report</a>.</p>
 <table id="enter-classes">
 <tr>
     <td id="select-class">

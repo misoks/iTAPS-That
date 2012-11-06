@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once "db.php";
-
+include_once('header.php'); 
 if ( isset($_POST['username']) && isset($_POST['password'])
 	&& ($_POST['specialization'] != -1) && ($_POST['year'] != -1)){
    $u = mysql_real_escape_string($_POST['username']);
@@ -16,26 +16,26 @@ if ( isset($_POST['username']) && isset($_POST['password'])
 				VALUES('$u', '$p', '$s', '$s2', '$y')";
    $result = mysql_query($sql);
    if ( $result === FALSE ) {
-      echo "<p>Account creation failed. Please enter a different username</p>\n";
-	  echo '<a href="newAccount.php">Return...</a>';
+      movePage('newAccount.php', "Sorry, that username has already been taken.", 'error');
       unset($_SESSION['userid']);
+      include_once('footer.php');
    } else { 
-      echo "<p>Account creation succeeded.</p>";
-	  echo '<a href="login.php">Continue...</a>';
+        movePage('login.php', "Account creation succeeded!", 'success');
+	  include_once('footer.php');
    }
    return;
    }
    else if(isset($_POST['username']) && isset($_POST['password'])
 	&& (($_POST['specialization'] == -1) || ($_POST['year'] == -1))){
-	 echo "<p>Account creation failed. Please check to see that you completed all required fields.</p>\n";
+	 movePage('newAccount.php', "Please complete all the required fields.", 'error');
       unset($_SESSION['userid']);
 	}
 
 ?>
 
-<?php include_once('header.php'); ?>
 
-<p>Create an Account</p>
+
+<h2>Create an Account</h2>
 <form method="post">
 <p>Username:
 <input type="text" name="username"></p>

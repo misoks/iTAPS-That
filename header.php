@@ -1,13 +1,5 @@
 <?php
-function navLink($url, $linktext) {
-    $current = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
-    if ($url == $current) {
-        echo '<span class="selected">'.$linktext.'</span>';
-    }
-    else {
-        echo '<a href="'.$url.'">'.$linktext.'</a>';
-    }
-}
+@include("functions.php");
 ?>
 <html>
 
@@ -41,3 +33,14 @@ function navLink($url, $linktext) {
 </div>
 
 <div id="content">
+
+<?php 
+if(isset($_GET['msg'])) {
+    $msg = htmlspecialchars($_GET['msg']);
+    if ($msg) {
+        $type = htmlspecialchars($_GET['type']);
+        echo "<p class='message $type'>$msg</p>";
+    }
+}
+
+ ?>

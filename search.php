@@ -8,10 +8,11 @@ if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
     $userid = mysql_real_escape_string($_SESSION['userid']);
     $sql = "INSERT INTO Takes (class_id, user_id)
             VALUES ('$class_id', '$userid')";
-	header( 'Location: manual.php' ) ;
     mysql_query($sql);
+    $course_title = get_title($class_id);
+	movePage('manual.php', "$course_title successfully added!", 'success');
     return;
-    }
+}
 ?>
    
 <h2>Select a Class</h2>

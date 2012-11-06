@@ -11,14 +11,15 @@ if ( isset($_POST['username']) && isset($_POST['password'])) {
    $result = mysql_query($sql);
    $row = mysql_fetch_row($result);	
    if ( $row === FALSE ) {
-      echo "<p>Login incorrect.</p>\n";
+      movePage('login.php', "The username and/or password you entered is incorrect.", 'error');
       unset($_SESSION['userid']);
+      include_once('footer.php');
    } else { 
-      echo "<p>Login success.</p>";
-	  echo '<a href="manual.php">Continue...</a>';
-      $_SESSION['userid'] = htmlentities($row[0]);
+        $_SESSION['userid'] = htmlentities($row[0]);
 	  $_SESSION['specialization'] = htmlentities($row[1]);
 	  $_SESSION['second_specialization'] = htmlentities($row[2]);
+	  movePage('manual.php');
+	  include_once('footer.php');
    }
    return;
 }
@@ -29,8 +30,6 @@ if ( isset($_SESSION['userid']) ) {
 
 
 ?>
-
-
 
 
 <h2>Login</h2>
