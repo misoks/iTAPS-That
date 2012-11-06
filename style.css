@@ -205,7 +205,7 @@ td.course-title {
     background-color: #c4e59c;
     border: green 1px solid;
 }
-.partial {
+.incomplete {
     background-color: #fdb09e;
     border: red 1px solid;
 }

@@ -29,9 +29,7 @@ if(isset($_SESSION['userid'])){
 	echo "<p>You have completed ".htmlentities($total_credits)." total credits and have ";
 	echo htmlentities(48-$total_credits)." remaining. Classes you have submitted on the 
 	    previous page are saved and appear on this report with a check mark next to them. 
-	    Below that are classes that you have not yet taken. When you select them on 
-	    this report, your credit totals will be updated here, but these classes will not 
-	    be saved unless you enter them in on the course entry page.</p>";
+	    Below them are classes that you have not yet taken that can help you fulfill your requirements.</p>";
 	while($row = mysql_fetch_row($result)){
 		$requirement = $row[0];
 		$requirement_name = $row[1];
@@ -55,38 +53,33 @@ if(isset($_SESSION['userid'])){
 								m.class_id = f1.class_id AND f1.r_id = '$requirement'";
 		$tcq_result = mysql_query($taken_class_query);
 		$num_rows = mysql_num_rows($tcq_result);
-		if ( $num_rows > 0 ) {
-            echo '<table border=1px id="'.$requirement_id.'" class="taken"><tr><thead><th class="taken-check">Taken?</th>
-            <th class="course-title">Course</th><th class="credits">Credits</th><th class="pep">PEP</th></thead></tr><tbody>';
-            while($row2 = mysql_fetch_row($tcq_result)){
-                $taken_credits = $taken_credits + $row2[3];
-                echo "<tr><td>";
-                echo '<input type="checkbox" value="taken" checked>';
-                echo('</td><td class="course-title">');
-                if($row2[2] != NULL){
-                    echo '<a href="'.htmlentities($row2[2]).'">'.htmlentities($row2[1]).'</a>';
-                }
-                else{
-                    echo(htmlentities($row2[1]));
-                }
-                echo("</td><td>");
-                echo(htmlentities($row2[3]));
-                echo("</td><td>");
-                echo(htmlentities($row2[4]));
-                echo("</td></tr>\n");
+        echo '<table border=1px id="'.$requirement_id.'" class="taken"><tr><thead><th class="taken-check">Taken?</th>
+        <th class="course-title">Course</th><th class="credits">Credits</th><th class="pep">PEP</th></thead></tr><tbody>';
+        while($row2 = mysql_fetch_row($tcq_result)){
+            $taken_credits = $taken_credits + $row2[3];
+            echo "<tr><td>";
+            echo '<input type="checkbox" value="taken" checked>';
+            echo('</td><td class="course-title">');
+            if($row2[2] != NULL){
+                echo '<a href="'.htmlentities($row2[2]).'">'.htmlentities($row2[1]).'</a>';
             }
-            if ( $taken_credits >= $credits ) {
-                echo '<tr class="total-row complete">';
+            else{
+                echo(htmlentities($row2[1]));
             }
-            else if ( $taken_credits > 0 && $taken_credits < $credits ) {
-                echo '<tr class="total-row partial">';
-            }
-            else {
-                echo '<tr class="total-row none">';
-            }
-            echo '<td></td><td class="total">Total:</td><td>'.$taken_credits.' / '.$credits.'</td><td></td></tr>';
-            echo '</table>';
+            echo("</td><td>");
+            echo(htmlentities($row2[3]));
+            echo("</td><td>");
+            echo(htmlentities($row2[4]));
+            echo("</td></tr>\n");
         }
+        if ( $taken_credits >= $credits ) {
+            echo '<tr class="total-row complete">';
+        }
+        else {
+            echo '<tr class="total-row incomplete">';
+        }
+        echo '<td></td><td class="total">Total:</td><td>'.$taken_credits.' / '.$credits.'</td><td></td></tr>';
+        echo '</table>';
         
         
         // Credit requirements
