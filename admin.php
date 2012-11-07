@@ -35,7 +35,7 @@ if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
 		}else{
 			echo '<a href="manual.php">Go Back</a>';
 	}		
-
+?>
 <p><input type="submit" value="Add Class"/></p>
 </form>
 
