@@ -1,8 +1,8 @@
 <?php
+$_SESSION(start);
 $username = $_SESSION['username'];
 //connect to db
-$db = mysql_connect("localhost","kdsoltis", "sql1user") or die('Fail message');//change to your username/password to test on your machine
-mysql_select_db("itaps") or die("Fail message");//create itaps db and run createTables, loadData before using these php files
+require_once "db.php";
 include_once('header.php');
 
 if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
