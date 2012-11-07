@@ -27,12 +27,11 @@ if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
 		
 		while($row = mysql_fetch_row($result)){
 			echo '<input type = "radio" value ="'.htmlentities($row[0]).'" name ="class_id">'.htmlentities($row[1]).'<br>';
-		}
-	}else if ($result){
+		}if ($result){
 		if(mysql_num_rows($result) == 0);
-		echo "Your search returned no results.<br>";	
-	}else{
-		echo '<a href="manual.php">Go Back</a>';
+			echo "Your search returned no results.<br>";	
+		}else{
+			echo '<a href="manual.php">Go Back</a>';
 	}		
 ?>
 <p><input type="submit" value="Add Class"/></p>
