@@ -1,5 +1,5 @@
 <?php
-$_SESSION(start);
+session_start();
 $username = $_SESSION['username'];
 //connect to db
 require_once "db.php";
