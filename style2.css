@@ -127,8 +127,11 @@ em { font-style: italic;}
     padding-left: 20px;
     font-size: 4em;
     font-style: italic;
+    /*color: rgba(0,168,255,0.5);
+    text-shadow: 3px 3px 0 rgba(255,0,180,0.5); 
+    font-family: 'Arial Black';*/
     text-shadow: 1px 1px 0px #ddd, 3px 3px 0px #999;
-    color: /*#6a6763*/ black;
+    color: #6a6763 black;
 }
 #navigation {
     clear: both;
