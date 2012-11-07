@@ -34,8 +34,11 @@
 
 <div id="content">
 
-<?php 
-if(isset($_GET['msg'])) {
+<?php
+
+//Fix so you don't get warnings for blank variables
+ 
+if(isset($_GET['msg']) && isset($_GET['type']) {
     $msg = htmlspecialchars($_GET['msg']);
     if ($msg) {
         $type = htmlspecialchars($_GET['type']);
