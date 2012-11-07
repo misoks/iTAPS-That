@@ -1,10 +1,45 @@
 <?php
-include_once('header.php');
-
 $username = $_SESSION['username'];
 //connect to db
 $db = mysql_connect("localhost","kdsoltis", "sql1user") or die('Fail message');//change to your username/password to test on your machine
 mysql_select_db("itaps") or die("Fail message");//create itaps db and run createTables, loadData before using these php files
+include_once('header.php');
+
+if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
+    $class_id = mysql_real_escape_string($_POST['class_id']);
+    $userid = mysql_real_escape_string($_SESSION['userid']);
+    $sql = "INSERT INTO Takes (class_id, user_id)
+            VALUES ('$class_id', '$userid')";
+    mysql_query($sql);
+    $course_title = get_title($class_id);
+	movePage('manual.php', "$course_title successfully added!", 'success');
+    return;
+}
+?>
+   
+<h2>Select a Class</h2>
+<form method="post">
+<?php
+	if(isset($_POST['search'])){
+		$search = mysql_real_escape_string($_POST['search']);
+		$searchstring = '%'.$search.'%';
+		$userprogram = $_SESSION['specialization'];
+		$sql2 = "SELECT class_id, title from Class where title LIKE '$searchstring'";
+		$result = mysql_query($sql2);
+
+		while($row = mysql_fetch_row($result)){
+			echo '<input type = "radio" value ="'.htmlentities($row[0]).'" name ="class_id">'.htmlentities($row[1]).'<br>';
+		}if ($result){
+		if(mysql_num_rows($result) == 0);
+			echo "Your search returned no results.<br>";	
+		}else{
+			echo '<a href="manual.php">Go Back</a>';
+	}		
+
+<p><input type="submit" value="Add Class"/></p>
+</form>
+
+
 $get = mysql_query("SELECT * FROM users WHERE user_level='1' AND user_level='0'");
 while($row = mysql_fetch_array($get)) 
 {
