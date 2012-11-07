@@ -40,7 +40,7 @@ if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
 </form>
 
 
-$get = mysql_query("SELECT * FROM users WHERE user_level='1' AND user_level='0'");
+/* $get = mysql_query("SELECT * FROM users WHERE user_level='1' AND user_level='0'");
 while($row = mysql_fetch_array($get)) 
 {
 	$admin = $row['user_level'];
@@ -60,6 +60,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_level'])) {
 	exit();
     }
 }
-?>
+?> */
 
 <?php include_once('footer.php'); ?>
