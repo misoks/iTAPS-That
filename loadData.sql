@@ -290,6 +290,12 @@ INSERT INTO Requirements(specialization, description, credits)
 VALUES('ARM', 'Total ARM Credits', 15);
 
 INSERT INTO Requirements(specialization, description, credits)
+VALUES('ARM', 'Required - 580', 3);
+
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('ARM', 'Optional PI Credits', 3);
+
+INSERT INTO Requirements(specialization, description, credits)
 VALUES('SC', 'Total SC Credits', 12);
 
 INSERT INTO Requirements(specialization, description, credits)
@@ -302,7 +308,28 @@ INSERT INTO Requirements(specialization, description, credits)
 VALUES('IEM', 'Total IEM Credits', 12);
 
 INSERT INTO Requirements(specialization, description, credits)
+VALUES('IEM', 'Required - 562 and 563', 3);
+
+INSERT INTO Requirements(specialization, description, credits)
 VALUES('IEM', 'Statistics (IEM)', 3);
+
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('LIS', 'Total LIS Credits', 15);
+
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('LIS', 'Required LIS Courses', 18);
+
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('SLM', 'Total SLM Credits', 24);
+
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('SLM', 'Required SLM Courses', 24);
+
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('PI', 'Total PI Credits', 12);
+
+INSERT INTO Requirements(specialization, description, credits)
+VALUES('PI', 'Required - 581', 3);
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Foundations' and r.specialization = 'MSI'
@@ -628,6 +655,38 @@ INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
 and c.title = 'SI 655 - Management of Electronic Records';
 
+/*-----See note below-----*/
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Optional PI Credits' and r.specialization = 'ARM'
+and c.title = 'SI 601 - Data Manipulation';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Optional PI Credits' and r.specialization = 'ARM'
+and c.title = 'SI 603 - Economics of Sustainable Digital Preservation';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Optional PI Credits' and r.specialization = 'ARM'
+and c.title = 'SI 625 - Digital Preservation';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Optional PI Credits' and r.specialization = 'ARM'
+and c.title = 'SI 639 - Web Archiving';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Optional PI Credits' and r.specialization = 'ARM'
+and c.title = 'SI 651 - Physical Treatment Processes for Preservation Administrators';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Optional PI Credits' and r.specialization = 'ARM'
+and c.title = 'SI 675 - Digitization for Preservation';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Optional PI Credits' and r.specialization = 'ARM'
+and c.title = 'SI 678 - Preserving Sound and Motion';
+
+/* Only 3 credits from Optional PI Credits can count toward Total ARM Credits */
+
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
 and c.title = 'SI 601 - Data Manipulation';
@@ -656,6 +715,12 @@ INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total ARM Credits' and r.specialization = 'ARM'
 and c.title = 'SI 678 - Preserving Sound and Motion';
 
+/*-------------*/
+
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required - 580' and r.specialization = 'ARM'
+and c.title = 'SI 580 - Understanding Records and Archives: Principles and Practices';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total PI Credits' and r.specialization = 'PI'
@@ -712,6 +777,10 @@ and c.title = 'SI 681 - Internship/Field Seminar';
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total PI Credits' and r.specialization = 'PI'
 and c.title = 'SI 754 - Data Curation';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required - 581' and r.specialization = 'PI'
+and c.title = 'SI 581 - Preserving Information';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total LIS Credits' and r.specialization = 'LIS'
@@ -814,6 +883,30 @@ SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'To
 and c.title = 'SI 666 - Organization of Information Resources';
 
 INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required LIS Courses' and r.specialization = 'LIS'
+and c.title = 'SI 647 - Information Resources and Services';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required LIS Courses' and r.specialization = 'LIS'
+and c.title = 'SI 620 - Collection Development and Management';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required LIS Courses' and r.specialization = 'LIS'
+and c.title = 'SI 626 - Management of Nonprofit Libraries and Information Services';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required LIS Courses' and r.specialization = 'LIS'
+and c.title = 'SI 643 - Professional Practice in Libraries and Information Centers';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required LIS Courses' and r.specialization = 'LIS'
+and c.title = 'SI 665 - Online Searching and Databases';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required LIS Courses' and r.specialization = 'LIS'
+and c.title = 'SI 666 - Organization of Information Resources';
+
+INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
 and c.title = 'SI 620 - Collection Development and Management';
 
@@ -855,10 +948,6 @@ and c.title = 'EDUC 649 - Foundational Perspectives on Educational Reform';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
-and c.title = 'SI 641 - Information Literacy for Teaching and Learning';
-
-INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
 and c.title = 'EDUC 650 - Student Teaching in School Media Center';
 
 INSERT INTO Fulfills(r_id, class_id)
@@ -871,6 +960,46 @@ and c.title = 'SI 690 - Internship in School Media Center (2 credits)';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
+and c.title = 'SI 690 - Internship in School Media Center (3 credits)';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required SLM Courses' and r.specialization = 'SLM'
+and c.title = 'SI 620 - Collection Development and Management';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required SLM Courses' and r.specialization = 'SLM'
+and c.title = 'SI 624 - Media for Children and Young Adults';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required SLM Courses' and r.specialization = 'SLM'
+and c.title = 'SI 638 - School Library Media Management';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required SLM Courses' and r.specialization = 'SLM'
+and c.title = 'SI 643 - Professional Practice in Libraries and Information Centers';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required SLM Courses' and r.specialization = 'SLM'
+and c.title = 'SI 647 - Information Resources and Services';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required SLM Courses' and r.specialization = 'SLM'
+and c.title = 'SI 666 - Organization of Information Resources';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required SLM Courses' and r.specialization = 'SLM'
+and c.title = 'SI 641 - Information Literacy for Teaching and Learning';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required SLM Courses' and r.specialization = 'SLM'
+and c.title = 'SI 690 - Internship in School Media Center (1 credit)';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required SLM Courses' and r.specialization = 'SLM'
+and c.title = 'SI 690 - Internship in School Media Center (2 credits)';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required SLM Courses' and r.specialization = 'SLM'
 and c.title = 'SI 690 - Internship in School Media Center (3 credits)';
 
 INSERT INTO Fulfills(r_id, class_id)
@@ -933,6 +1062,14 @@ and c.title = 'SI 664 – Database Application Design';
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
 and c.title = 'SI 544 – Introduction to Statistics and Data Analysis';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required - 562 and 563' and r.specialization = 'IEM'
+and c.title = 'SI 562 - Microeconomics';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required - 562 and 563' and r.specialization = 'IEM'
+and c.title = 'SI 563 - Game Theory';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
