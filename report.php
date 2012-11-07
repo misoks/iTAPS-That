@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "db.php";
+$page_title = "My Report";
 include_once('header.php');
 
  $running_total = 0;
@@ -64,7 +65,7 @@ if(isset($_SESSION['userid'])){
 								m.class_id = f1.class_id AND f1.r_id = '$requirement'";
 		$tcq_result = mysql_query($taken_class_query);
 		$num_rows = mysql_num_rows($tcq_result);
-        echo '<table border=1px id="'.htmlentities($requirement_id).'" class="taken"><tr><thead><th class="taken-check">Taken?</th>
+        echo '<table border=0px id="'.htmlentities($requirement_id).'" class="taken"><tr><thead><th class="taken-check">Taken?</th>
         <th class="course-title">Course</th><th class="credits">Credits</th><th class="pep">PEP</th></thead></tr><tbody>';
         while($row2 = mysql_fetch_row($tcq_result)){
             $taken_credits = $taken_credits + $row2[3];
@@ -79,7 +80,7 @@ if(isset($_SESSION['userid'])){
             }
             echo("</td><td>");
             echo(htmlentities($row2[3]));
-            echo("</td><td>");
+            echo("</td><td class='last-col'>");
             echo(htmlentities($row2[4]));
             echo("</td></tr>\n");
         }
@@ -89,7 +90,7 @@ if(isset($_SESSION['userid'])){
         else {
             echo '<tr class="total-row incomplete">';
         }
-        echo '<td></td><td class="total">Total:</td><td>'.htmlentities($taken_credits).' / '.htmlentities($credits).'</td><td></td></tr>';
+        echo '<td></td><td class="total">Total:</td><td>'.htmlentities($taken_credits).' / '.htmlentities($credits).'</td><td class="last-col"></td></tr>';
         echo '</table>';
         
         
@@ -117,7 +118,7 @@ if(isset($_SESSION['userid'])){
 		$rcq_result = mysql_query($remaining_class_query);
 		$num_rows = mysql_num_rows($rcq_result);
 		if ( $num_rows > 0 ) {
-            echo '<table border=1px id="'.htmlentities($requirement_id).'-untaken" class="untaken"><thead><tr><th class="taken-check">Taken?</th>
+            echo '<table border=0px id="'.htmlentities($requirement_id).'-untaken" class="untaken"><thead><tr><th class="taken-check">Taken?</th>
             <th class="course-title">Course</th><th class="credits">Credits</th><th class="pep">PEP</th></tr></thead><tbody>';
             while($row3 = mysql_fetch_row($rcq_result)){
                 echo "<tr><td>";
@@ -131,7 +132,7 @@ if(isset($_SESSION['userid'])){
                 }
                 echo("</td><td>");
                 echo(htmlentities($row3[3]));
-                echo("</td><td>");
+                echo("</td><td class='last-col'>");
                 echo(htmlentities($row3[4]));
                 echo("</td></tr>\n");
             }

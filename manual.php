@@ -1,6 +1,7 @@
 <?php
 require_once "db.php";
 session_start();
+$page_title = "Add Classes";
 include_once('header.php');
 
 if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
@@ -62,9 +63,8 @@ else if(!isset($_SESSION['userid'])){
     by selecting them from the drop-down, searching for them by course number or title, or
     manually entering courses you can't find. The courses you enter will appear in 
     <a href="report.php">your report</a>.</p>
-<table id="enter-classes">
-<tr>
-    <td id="select-class">
+<div id="enter-classes">
+<div id="select-class">
         <h2>Select a Class</h2>
         <form method="post">
         <select name= "class_id">
@@ -79,17 +79,17 @@ else if(!isset($_SESSION['userid'])){
         ?>
         <p><input type="submit" value="Add Class"/></p>
         </form>
-    </td>
-    <td id="or">- or -</td>
-    <td id="search-class">
+    </div>
+    <div id="or">- or -</div>
+    <div id="search-class">
         <h2>Search for a Class</h2>
         <form method="post" action="search.php">
         <p><input type="text" name="search">
         <input type="submit" value="Search"/>
         </form>
         <p/>
-    </td>
-</tr></table>
+    </div>
+</div>
 <div id="manual-entry">
     <h2>Can't find a class? Enter one manually!</h2>
     <form method="post">
@@ -148,8 +148,6 @@ else if(!isset($_SESSION['userid'])){
         page to find out.</p>
     <p>Disclaimer: Be sure to check with an academic advisor to see which requirements a class fulfills.</p>
 </div>
-<form method="get" action="report.php">
-<p><input class="save-button" type="submit" value="View Report"/></p>
-</form>
+<p id="view-report"><a href="report.php">View Report</a></p>
 
 <?php include_once('footer.php'); ?>

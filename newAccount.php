@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "db.php";
+$page_title = "Create an Account";
 include_once('header.php'); 
 if ( isset($_POST['username']) && isset($_POST['password'])
 	&& ($_POST['specialization'] != -1) && ($_POST['year'] != -1)){
@@ -35,7 +36,7 @@ if ( isset($_POST['username']) && isset($_POST['password'])
 
 
 
-<h2>Create an Account</h2>
+<h1>Create an Account</h1>
 <form method="post">
 <p>Username:
 <input type="text" name="username"></p>

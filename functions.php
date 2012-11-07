@@ -1,10 +1,12 @@
 <?php
 
+//Redirects and can passes a status message to the header of the new page
 function movePage($url, $msg, $type) {
     //Types: 'success' or 'error'
     header ("Location: $url?msg=$msg&type=$type");
 } 
 
+//Finds the title of a course based on its ID
 function get_title($id) {
     $sql = "SELECT title t FROM Class WHERE class_id = $id";
     $result = mysql_query($sql);
@@ -44,6 +46,5 @@ function strtrim($str, $maxlen=40, $elli='...', $maxoverflow=5) {
     }
     else return $str;
 }
-
 
 ?>

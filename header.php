@@ -4,19 +4,24 @@
 <html>
 
 <head>
-    <title>iTAPS That Project</title>
-    <link rel=stylesheet href="style.css" type="text/css" media="screen" />
+    <title><?php echo "$page_title - "; ?>iTAPS That</title>
+    <link rel=stylesheet href="style2.css" type="text/css" media="screen" />
     <script type="text/javascript" src="script.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 
-<body>
+<?php 
+    $title_short = str_replace(' ', '-', $page_title);
+    echo "<body id='$title_short'>"; 
+?>
 
 <div id="container">
 <div id="header">
-    <div id="site-name">
-        <a href="index.php">iTAPS That</a>
-    </div>
+    <div id="bar">&nbsp;</div>
+    <a id="title" href="index.php">
+        <img src="images/logosmall.png">
+        <div id="title-text">iTAPS That</div>
+    </a>
     
     <div id="navigation">
         <ul>
@@ -33,11 +38,8 @@
 </div>
 
 <div id="content">
-
-<?php
-
-//Fix so you don't get warnings for blank variables
- 
+<div id="header-space"></div>
+<?php 
 if(isset($_GET['msg']) && isset($_GET['type'])) {
     $msg = htmlspecialchars($_GET['msg']);
     if ($msg) {

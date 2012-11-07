@@ -1,6 +1,7 @@
 <?php 
 require_once "db.php";
 session_start();
+$page_title = "Home";
 include_once('header.php'); 
 ?>
 

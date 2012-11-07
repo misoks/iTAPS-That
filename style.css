@@ -29,10 +29,23 @@ em { font-style: italic;}
 /* ================ CONTAINER ================ */
 
 #container {
-    margin: 4% 5%;
     border: 1px solid black;
-    width: 90%;
     background-color: #f2f1f1
+}
+@media all and (max-width: 1099px) {
+    #container {
+        margin: 4% 5%;
+        width: 90%;
+    }
+}
+@media all and (min-width: 1100px) {
+    #container {
+        margin: 4% 0;
+        position: absolute;
+        left: 50%;
+        margin-left: -500px;
+        width: 1000px;
+    }
 }
 #container, #header, #footer {
     border-radius: 10px;
@@ -97,7 +110,9 @@ em { font-style: italic;}
     margin-right: 1em;
     font-size: 1.1em;
 }
-#navigation li a {
+#navigation li a,
+#view-report a,
+#add-more a {
     display: inline-block;
     background-color: gold;
     color: black;
@@ -111,7 +126,9 @@ em { font-style: italic;}
     -o-transition: all .5s ease;
     border-radius: 5px;
 }
-#navigation li a:hover {
+#navigation li a:hover,
+#view-report a:hover,
+#add-more a:hover {
     background-color: #97accb;
 }
 #navigation li .selected {
@@ -214,14 +231,14 @@ td.course-title {
 
 
 /*---Other---*/
+
+
+#view-report,
 #add-more {
     text-align: center;
     font-size: 1.4em;
     margin-top: 30px;
     margin-bottom: 0;
-}
-#add-more a:hover {
-    color: #97accb;
 }
 .completed { color: limegreen; }
 .uncompleted { color: red; }

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "db.php";
+$page_title = "Log In";
 include_once('header.php');
 
 if ( isset($_POST['username']) && isset($_POST['password'])) {
@@ -32,13 +33,13 @@ if ( isset($_SESSION['userid']) ) {
 ?>
 
 
-<h2>Login</h2>
+<h1>Log In</h1>
 <form method="post">
 <p>Username:
 <input type="text" name="username"></p>
 <p>Password:
 <input type="password" name="password"></p>
-<p><input type="submit" value="Login"/>
+<p><input type="submit" value="Log In"/>
 </form>
 
 <?php include_once('footer.php'); ?>
