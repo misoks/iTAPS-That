@@ -17,7 +17,7 @@ if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
 }
 ?>
    
-<h2>Select a Class</h2>
+<h>Select a Class</h>
 <form method="post">
 <?php
 	if(isset($_POST['search'])){
