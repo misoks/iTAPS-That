@@ -4,7 +4,22 @@ session_start();
 $page_title = "Add Classes";
 include_once('header.php');
 
-if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
+if(isset($_POST['delete']) && $_POST['delete'] != -1) {
+	$class_id = mysql_real_escape_string($_POST['delete']);
+	$userid = mysql_real_escape_string($_SESSION['userid']);
+	$sql = "DELETE FROM Takes  WHERE user_id = '$userid' and class_id = '$class_id'";
+	mysql_query($sql);
+	$course_title = get_title($class_id);
+	if(mysql_affected_rows() == 1){
+		movePage('manual.php',"$course_title successfully removed!", 'success');
+	}
+	else{
+		movePage('manual.php',"$course_title was not able to be removed. Please try again.", 'error');
+	}
+	return;
+}
+
+else if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
     $class_id = mysql_real_escape_string($_POST['class_id']);
     $userid = mysql_real_escape_string($_SESSION['userid']);
     $sql = "INSERT INTO Takes (class_id, user_id)
@@ -18,7 +33,7 @@ if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
 else if ( isset($_POST['course_number']) && isset($_POST['title']) 
      && isset($_POST['credits']) && isset($_POST['pep_credits']) 
 	 && is_numeric($_POST['credits']) && is_numeric($_POST['pep_credits'])
-	 && isset($_POST['requirement']) && isset($_SESSION['userid'])) {
+	 && isset($_POST['requirement']) && isset($_SESSION['userid']) ) {
    $n = mysql_real_escape_string($_POST['course_number']);
    $t = mysql_real_escape_string($_POST['title']);
    $c = mysql_real_escape_string($_POST['credits']);
@@ -37,8 +52,8 @@ else if ( isset($_POST['course_number']) && isset($_POST['title'])
 				SELECT '$r', m.class_id
 				FROM Manually_Entered_Class m WHERE m.title = '$f'";
 	mysql_query($sql4);
-	if(isset($_SESSION['second_requirement'])){
-		$r2  = $_SESSION['second_requirement'];
+	if(isset($_POST['second_requirement'])){ //and second_requirement isnt empty
+		$r2  = $_POST['second_requirement'];
 		$sql5 = "INSERT INTO Fulfills(r_id, class_id)
 				SELECT '$r2', m.class_id
 				FROM Manually_Entered_Class m WHERE m.title = '$f'";
@@ -63,8 +78,9 @@ else if(!isset($_SESSION['userid'])){
     by selecting them from the drop-down, searching for them by course number or title, or
     manually entering courses you can't find. The courses you enter will appear in 
     <a href="report.php">your report</a>.</p>
-<div id="enter-classes">
-<div id="select-class">
+<table id="enter-classes">
+<tr>
+    <td id="select-class">
         <h2>Select a Class</h2>
         <form method="post">
         <select name= "class_id">
@@ -79,17 +95,37 @@ else if(!isset($_SESSION['userid'])){
         ?>
         <p><input type="submit" value="Add Class"/></p>
         </form>
-    </div>
-    <div id="or">- or -</div>
-    <div id="search-class">
+    </td>
+    <td id="or">- or -</td>
+    <td id="search-class">
         <h2>Search for a Class</h2>
         <form method="post" action="search.php">
         <p><input type="text" name="search">
         <input type="submit" value="Search"/>
         </form>
         <p/>
-    </div>
-</div>
+    </td>
+	<td id="added-classes">
+		<h2>View/Remove My Classes</h2>
+		<form method="post">
+		<select name= "delete">
+		<option value=-1>View/Select</option>
+		<?php
+			$userid = $_SESSION['userid'];
+			$sql_myclasses = "SELECT c.class_id, c.title FROM Class c, Takes t
+								WHERE c.class_id = t.class_id and t.user_id = 
+								'$userid' UNION SELECT m.class_id, m.title from 
+								Manually_Entered_Class m, Takes t1 WHERE m.class_id =
+								t1.class_id and t1.user_id = '$userid'";
+			$result = mysql_query($sql_myclasses);
+			while($row = mysql_fetch_row($result)){
+				echo "<option value=".htmlentities($row[0]).">".strtrim(htmlentities($row[1]))."</option>";
+			}
+		?>
+		<p><input type="submit" value="Delete"/></p>
+		</form>
+	</td>
+</tr></table>
 <div id="manual-entry">
     <h2>Can't find a class? Enter one manually!</h2>
     <form method="post">
