@@ -21,7 +21,21 @@ if ( isset($_POST['username']) && isset($_POST['password'])
       unset($_SESSION['userid']);
       include_once('footer.php');
    } else { 
-        movePage('login.php', "Account creation succeeded!", 'success');
+        $sql = "SELECT s.user_id, s.specialization, s.second_spec FROM Student s
+              WHERE username = '$u' AND password='$p'";
+        $result = mysql_query($sql);
+        $row = mysql_fetch_row($result);	
+		if(htmlentities($row[0]) == 1){
+			$_SESSION['admin'] = true;
+			movePage('admin.php');
+		}
+		else{
+			$_SESSION['userid'] = htmlentities($row[0]);
+			$_SESSION['specialization'] = htmlentities($row[1]);
+			$_SESSION['second_specialization'] = htmlentities($row[2]);
+			movePage('manual.php');
+		}
+        movePage('manual.php', "Account creation succeeded!", 'success');
 	  include_once('footer.php');
    }
    return;
