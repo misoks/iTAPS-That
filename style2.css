@@ -102,7 +102,7 @@ em { font-style: italic;}
 }
 #title img {
     float: left;
-    padding: 0px 10px;
+    padding: 0px;
     /*filter: grayscale(100%);
     -webkit-filter: grayscale(100%); 
     -moz-filter: grayscale(100%);
