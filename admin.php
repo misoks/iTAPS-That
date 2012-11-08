@@ -28,7 +28,7 @@ if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
 		$result = mysql_query($sql2);
 
 		while($row = mysql_fetch_row($result)){
-			echo '<input type = "checkbox" value ="'.htmlentities($row[0]).'" name ="class_id">'.htmlentities($row[1]).'<br>';
+			echo '<input type = "radio" value ="'.htmlentities($row[0]).'" name ="class_id">'.htmlentities($row[1]).'<br>';
 		}if ($result){
 		if(mysql_num_rows($result) == 0);
 			echo "Your search returned no results.<br>";	
