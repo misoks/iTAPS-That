@@ -11,6 +11,11 @@ function get_title($id) {
     $sql = "SELECT title t FROM Class WHERE class_id = $id";
     $result = mysql_query($sql);
     $row = mysql_fetch_row($result);
+	if(mysql_num_rows() == 0){
+		$sql = "SELECT m.title FROM Manually_Entered_Class m WHERE class_id = $id";
+		$result = mysql_query($sql);
+		$row = mysql_fetch_row($result);
+	}
     return htmlentities($row[0]);
 }
     
