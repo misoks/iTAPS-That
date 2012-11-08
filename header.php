@@ -35,6 +35,10 @@
             <?php } ?>
         </ul>  
     </div>
+    <?php if (isset($_SESSION['userid'])) { 
+            echo "<div id='greeting'>".greeting()."</div>";
+        }
+    ?>
 </div>
 
 <div id="content">

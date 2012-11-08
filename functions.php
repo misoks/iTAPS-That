@@ -6,6 +6,25 @@ function movePage($url, $msg, $type) {
     header ("Location: $url?msg=$msg&type=$type");
 } 
 
+//Sets a greeting message for logged in users
+function greeting() {
+    $id = $_SESSION['userid'];
+    $sql = "SELECT u.username FROM Student u where user_id = $id";
+    $result = mysql_query($sql);
+    $row = mysql_fetch_row($result);
+    $username = htmlentities($row[0]);
+    
+    $messages = array();
+    $messages[] = "How are those PEP credits lookin'?";
+    $messages[] = "Finished your Management requirement yet?";
+    $messages[] = "Is there a SISA Happy Hour tonight?";
+    $messages[] = "It's only two years, you can do it.";
+    $messages[] = "Hope this is helping your information overload.";
+    $messages[] = "It's not about the grades, it's about the journey.";
+    $num = rand(0, 5);
+    return "<span id='user'>Welcome back, $username!</span><br><span id='msg'>$messages[$num]</span>";
+}
+
 //Finds the title of a course based on its ID
 function get_title($id) {
     if ($id < 999 ) {

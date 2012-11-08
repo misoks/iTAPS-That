@@ -1,18 +1,10 @@
 /* ================ GLOBAL ================ */
 @font-face {
-	font-family: Mission;
-	src: url('fonts/mission_script.otf');
-}
-@font-face {
-	font-family: Geared;
-	src: url('fonts/GearedSlab.ttf');
-}
-@font-face {
 	font-family: Museo;
 	src: url('fonts/Museo.ttf');
 }
 
-html {-webkit-font-smoothing: antialiased; -moz-font-smoothing: antialiased}
+html {-webkit-font-smoothing: antialiased; -moz-font-smoothing: antialiased;}
 body {
     background-color: #e6e0da;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -87,8 +79,7 @@ em { font-style: italic;}
     position: absolute;
     top: 0;
     height: 15px;
-    width: 100%;
-    
+    width: 100%;   
 }
 #title {
     display: block;
@@ -174,7 +165,7 @@ em { font-style: italic;}
     -o-transition: padding 0.5s ease 0s;
     -ms-transition: padding 0.5s ease 0s;
     text-decoration: none;
-    text-shadow: 1px 1px 1px rgba(255,255,255, .4);
+    text-shadow: 1px 1px 1px rgba(255,255,255, .3);
 }
 #navigation a:hover {
     background-color: #97accb;
@@ -192,6 +183,21 @@ em { font-style: italic;}
     background-color: #97accb;
     padding-top: 13px;
     text-shadow: 1px 1px 1px rgba(255,255,255, .4);
+}
+#greeting {
+    position: absolute;
+    right: 7%;
+    margin-right: 40px;
+    top: 60px;
+    font-style: italic;
+    text-align: right;
+}
+#greeting #user {
+    font-weight: bold;
+}
+#greeting #msg {
+    font-size: .8em;
+    color: gray;
 }
 
 
@@ -221,7 +227,7 @@ em { font-style: italic;}
     min-width: 350px;
 }
 #select-class { float: left; width: 45%; min-width: 380px;}
-#search-class {float: left; width: 45%; min-width: 350px;}
+#search-class {float: left; width: 40%; min-width: 250px;}
 #or {
     width: 10%;
     min-width: 60px;
@@ -259,7 +265,7 @@ em { font-style: italic;}
 }
 #added-classes .list-item input {
     margin: 0;
-    position: absolute; left: 0; top: 5px;
+    position: absolute; left: 3px; top: 2px;
 }
 #manual-entry {
     background-color: #fafafa;
