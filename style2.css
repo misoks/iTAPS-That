@@ -229,6 +229,38 @@ em { font-style: italic;}
     float: left;
     padding: 55px 0px;
 }
+#added-classes {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-bottom: 4px solid gold; border-top: 4px solid gold;
+}
+#added-classes .two-col-list {
+    text-align: left;
+    width: 100%;
+    -moz-column-count: 2;
+    -webkit-column-count: 2; 
+    column-count: 2;
+}
+#added-classes .list-item {
+    position: relative;
+    margin-bottom: 10px;
+    -webkit-column-break-inside:avoid;
+    -moz-column-break-inside:avoid;
+    -o-column-break-inside:avoid;
+    -ms-column-break-inside:avoid;
+    break-inside:avoid;
+    display: inline-block;
+    width: 100%;
+}
+#added-classes .list-item span {
+    display: block;
+    margin-left: 30px;
+    line-height: 1.2em;
+}
+#added-classes .list-item input {
+    margin: 0;
+    position: absolute; left: 0; top: 5px;
+}
 #manual-entry {
     background-color: #fafafa;
     border: 1px solid black;
@@ -258,7 +290,6 @@ em { font-style: italic;}
 /* ================ REPORT ================ */
 #requirement-block {
     padding-bottom: 20px;
-    border-bottom: 1px dotted black;
 }
 
 /*---Tables---*/
@@ -297,7 +328,7 @@ td.course-title {
 .course-title { width: 200px; }
 .course-credits { width: 50px; }
 .total { text-align: right; padding-right: 10px; }
-.total-row { height: 35px; font-weight: bold; }
+.total-row { height: 35px; font-weight: bold; background-color: #efefef;}
 .complete { background-color: #c4e59c; }
 .incomplete { background-color: #fdb09e; border: 0px;}
 

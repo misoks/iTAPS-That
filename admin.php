@@ -17,7 +17,7 @@ if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
 }
 ?>
    
-<h>Select a Class</h>
+<h1>Select a Class</h1>
 <form method="post">
 <?php
 	if(isset($_POST['search'])){
@@ -60,6 +60,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_level'])) {
 	exit();
     }
 }
-?> */
+?>*/
 
 <?php include_once('footer.php'); ?>

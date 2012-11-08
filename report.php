@@ -142,7 +142,7 @@ if(isset($_SESSION['userid'])){
 	}
 	//classes that dont fulfill any requirements should show up here
 	echo "<h2>Other Classes</h2>";
-	
+	$taken_credits = 0;
 	$otherclasses_sql = "(SELECT c.class_id, c.title, c.link, c.credits, c.pep_credits FROM Class c,
 							Takes t WHERE c.class_id = t.class_id and t.user_id = '$user_id' and 
 							c.class_id NOT IN (SELECT f.class_id FROM Fulfills f,
@@ -173,7 +173,7 @@ if(isset($_SESSION['userid'])){
             echo(htmlentities($row5[4]));
             echo("</td></tr>\n");
         }
-        echo '<td></td><td class="total">Total:</td><td>'.htmlentities($taken_credits).' / 0</td><td></td></tr>';
+        echo '<tr class="total-row"><td></td><td class="total">Total:</td><td>'.htmlentities($taken_credits).'</td><td></td></tr>';
         echo '</table>';
 	
 	echo "</form>";

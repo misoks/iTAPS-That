@@ -7,14 +7,14 @@ include_once('header.php');
 if(isset($_POST['delete']) && $_POST['delete'] != -1) {
 	$class_id = mysql_real_escape_string($_POST['delete']);
 	$userid = mysql_real_escape_string($_SESSION['userid']);
-	$sql = "DELETE FROM Takes  WHERE user_id = '$userid' and class_id = '$class_id'";
+	$sql = "DELETE FROM Takes WHERE user_id = '$userid' and class_id = '$class_id'";
 	mysql_query($sql);
 	$course_title = get_title($class_id);
-	if(mysql_affected_rows() == 1){
-		movePage('manual.php',"$course_title successfully removed!", 'success');
+	if(mysql_affected_rows() == -1){
+	    movePage('manual.php',"$course_title was not able to be removed. Please try again.", 'error');
 	}
-	else{
-		movePage('manual.php',"$course_title was not able to be removed. Please try again.", 'error');
+	else {
+		movePage('manual.php',"$course_title successfully removed!", 'success');
 	}
 	return;
 }
@@ -78,9 +78,8 @@ else if(!isset($_SESSION['userid'])){
     by selecting them from the drop-down, searching for them by course number or title, or
     manually entering courses you can't find. The courses you enter will appear in 
     <a href="report.php">your report</a>.</p>
-<table id="enter-classes">
-<tr>
-    <td id="select-class">
+<div id="enter-classes">
+    <div id="select-class">
         <h2>Select a Class</h2>
         <form method="post">
         <select name= "class_id">
@@ -95,37 +94,37 @@ else if(!isset($_SESSION['userid'])){
         ?>
         <p><input type="submit" value="Add Class"/></p>
         </form>
-    </td>
-    <td id="or">- or -</td>
-    <td id="search-class">
+    </div>
+    <div id="or">- or -</div>
+    <div id="search-class">
         <h2>Search for a Class</h2>
         <form method="post" action="search.php">
         <p><input type="text" name="search">
         <input type="submit" value="Search"/>
         </form>
         <p/>
-    </td>
-	<td id="added-classes">
-		<h2>View/Remove My Classes</h2>
+    </div>
+</div>
+<div id="added-classes">
+		<h2>Added Classes</h2>
 		<form method="post">
-		<select name= "delete">
-		<option value=-1>View/Select</option>
-		<?php
-			$userid = $_SESSION['userid'];
-			$sql_myclasses = "SELECT c.class_id, c.title FROM Class c, Takes t
-								WHERE c.class_id = t.class_id and t.user_id = 
-								'$userid' UNION SELECT m.class_id, m.title from 
-								Manually_Entered_Class m, Takes t1 WHERE m.class_id =
-								t1.class_id and t1.user_id = '$userid'";
-			$result = mysql_query($sql_myclasses);
-			while($row = mysql_fetch_row($result)){
-				echo "<option value=".htmlentities($row[0]).">".strtrim(htmlentities($row[1]))."</option>";
-			}
-		?>
-		<p><input type="submit" value="Delete"/></p>
+		    <div class="two-col-list">
+            <?php
+                $userid = $_SESSION['userid'];
+                $sql_myclasses = "SELECT c.class_id, c.title FROM Class c, Takes t
+                                    WHERE c.class_id = t.class_id and t.user_id = 
+                                    '$userid' UNION SELECT m.class_id, m.title from 
+                                    Manually_Entered_Class m, Takes t1 WHERE m.class_id =
+                                    t1.class_id and t1.user_id = '$userid'";
+                $result = mysql_query($sql_myclasses);
+                while($row = mysql_fetch_row($result)){
+                    echo "<div class='list-item'><input type='radio' name='delete' value='$row[0]'><span>".htmlentities($row[1]).'</span></div>';
+                }
+            ?>
+            </div>
+		<p><input type="submit" value="Remove"/></p>
 		</form>
-	</td>
-</tr></table>
+	</div>
 <div id="manual-entry">
     <h2>Can't find a class? Enter one manually!</h2>
     <form method="post">
