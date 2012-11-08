@@ -21,7 +21,7 @@ if(isset($_SESSION['userid'])){
 	$cq_result = mysql_query($credits_query);
 	$me_cq_result = mysql_query($me_credits_query);
 	echo '<h1>My Report</h1><form id="report">';
-	
+	echo '<h3 class="overview-spec">'.get_specialization().'</h3>';
 	
 	$cq_row = mysql_fetch_row($cq_result);
 	$me_cq_row = mysql_fetch_row($me_cq_result);

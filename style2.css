@@ -298,6 +298,9 @@ em { font-style: italic;}
 }
 
 /*---Tables---*/
+
+.overview-spec { text-align: center; margin-top: 0em; }
+
 #my-report table {
     width: 100%;
     border-collapse: collapse;

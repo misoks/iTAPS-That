@@ -25,7 +25,23 @@ function greeting() {
     return "<span id='user'>Welcome back, $username!</span><br><span id='msg'>$messages[$num]</span>";
 }
 
-//Finds the title of a course based on its ID
+//Returns the user's specialization(s)
+function get_specialization() {
+    $id = $_SESSION['userid'];
+    $sql = "SELECT u.specialization, u.second_spec FROM Student u where user_id = $id";
+    $result = mysql_query($sql);
+    $row = mysql_fetch_row($result);
+    $spec1 = htmlentities($row[0]);
+    $spec2 = htmlentities($row[1]);
+    if ($spec2 == 'None' ) {
+        return "Specialization: $spec1";
+    }
+    else {
+        return "Specializations: $spec1, $spec2";
+    }
+}
+
+//Returns the title of a course based on its ID
 function get_title($id) {
     if ($id < 999 ) {
         $sql = "SELECT c.title FROM Class c WHERE class_id = $id";
