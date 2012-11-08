@@ -140,6 +140,42 @@ if(isset($_SESSION['userid'])){
 		}
 		echo '</div>';
 	}
+	//classes that dont fulfill any requirements should show up here
+	echo "<h2>Other Classes</h2>";
+	
+	$otherclasses_sql = "(SELECT c.class_id, c.title, c.link, c.credits, c.pep_credits FROM Class c,
+							Takes t WHERE c.class_id = t.class_id and t.user_id = '$user_id' and 
+							c.class_id NOT IN (SELECT f.class_id FROM Fulfills f,
+							Requirements r WHERE f.r_id = r.r_id and (r.specialization = 'MSI' or
+							r.specialization = '$user_program' or r.specialization = '$user_second_program')))
+							UNION (SELECT m.class_id, m.title, m.link, m.credits, m.pep_credits FROM 
+							Manually_Entered_Class m, Takes t WHERE m.class_id = t.class_id and t.user_id = '$user_id' and 
+							m.class_id NOT IN (SELECT f.class_id FROM Fulfills f,
+							Requirements r WHERE f.r_id = r.r_id and (r.specialization = 'MSI' or
+							r.specialization = '$user_program' or r.specialization = '$user_second_program')))";
+	$other_class_result = mysql_query($otherclasses_sql);
+	echo '<table border=0px id="other" class="taken"><tr><thead><th class="taken-check">Taken?</th>
+        <th class="course-title">Course</th><th class="credits">Credits</th><th class="pep">PEP</th></thead></tr><tbody>';
+        while($row5 = mysql_fetch_row($other_class_result)){
+            $taken_credits = $taken_credits + $row5[3];
+            echo "<tr><td>";
+            echo '<input type="checkbox" value="taken" checked disabled>';
+            echo('</td><td class="course-title">');
+            if($row5[2] != NULL){
+                echo '<a href="'.htmlentities($row5[2]).'">'.htmlentities($row5[1]).'</a>';
+            }
+            else{
+                echo(htmlentities($row5[1]));
+            }
+            echo("</td><td>");
+            echo(htmlentities($row5[3]));
+            echo("</td><td>");
+            echo(htmlentities($row5[4]));
+            echo("</td></tr>\n");
+        }
+        echo '<td></td><td class="total">Total:</td><td>'.htmlentities($taken_credits).' / 0</td><td></td></tr>';
+        echo '</table>';
+	
 	echo "</form>";
 }
 else if(!isset($_SESSION['userid'])){
