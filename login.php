@@ -16,10 +16,16 @@ if ( isset($_POST['username']) && isset($_POST['password'])) {
       unset($_SESSION['userid']);
       include_once('footer.php');
    } else { 
-        $_SESSION['userid'] = htmlentities($row[0]);
-	  $_SESSION['specialization'] = htmlentities($row[1]);
-	  $_SESSION['second_specialization'] = htmlentities($row[2]);
-	  movePage('manual.php');
+		if(htmlentities($row[0]) == 1){
+			$_SESSION['admin'] = true;
+			movePage('admin.php');
+		}
+		else{
+			$_SESSION['userid'] = htmlentities($row[0]);
+			$_SESSION['specialization'] = htmlentities($row[1]);
+			$_SESSION['second_specialization'] = htmlentities($row[2]);
+			movePage('manual.php');
+		}
 	  include_once('footer.php');
    }
    return;
@@ -39,7 +45,7 @@ if ( isset($_SESSION['userid']) ) {
 <input type="text" name="username"></p>
 <p>Password:
 <input type="password" name="password"></p>
-<p><input type="submit" value="Log In"/>
+<p><input type="submit" value="Login"/>
 </form>
 
 <?php include_once('footer.php'); ?>
