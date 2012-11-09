@@ -4,17 +4,20 @@
 <html>
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title><?php echo "$page_title - "; ?>iTAPS That</title>
     <link rel=stylesheet href="style2.css" type="text/css" media="screen" />
-    <script type="text/javascript" src="script.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="script/script.js"></script>
+    <script src="script/jquery.scrollTo.js"></script>
+    <script src="script/jquery.localscroll.js"></script>
 </head>
 
 <?php 
     $title_short = str_replace(' ', '-', $page_title);
     echo "<body id='$title_short'>"; 
 ?>
-
+<a name="top"></a>
 <div id="container">
 <div id="header">
     <div id="bar">&nbsp;</div>

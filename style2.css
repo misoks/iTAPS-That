@@ -14,7 +14,8 @@ body {
 p { line-height: 1.2em; }
 h1, h2, h3, #title-text { font-family: Museo;}
 h1 { font-size: 2em; color: #444; text-align: center;}
-h2 { font-size: 1.7em; margin-top: 1.5em; }
+h2 { font-size: 1.7em; margin-top: 1.5em; border-bottom: 1px solid whitesmoke }
+h2 a, h2 a:hover { color: black; }
 a { color: #185e91; }
 a:hover { color: #97accb; }
 
@@ -293,8 +294,70 @@ em { font-style: italic;}
 
 
 /* ================ REPORT ================ */
+
+#report-menu .persp-box {
+    width: 220px;
+    background-color: #97accb;
+    transform: perspective( 400px ) rotateY( 15deg );
+    -webkit-transform: perspective( 400px ) rotateY( 15deg );
+    -moz-transform: perspective( 400px ) rotateY( 15deg );
+    padding: 0px; padding-top: 0;
+}
+.fixed {
+    position: fixed;
+    left: 4%;
+    top: 10px;
+}
+.absolute {
+    position: absolute;
+    left: 4%;
+    top: 150px;
+}
+#report-body {
+    padding-left: 160px;
+}
+#report-menu {
+}
+#report-menu h3 {
+    padding-top: 1em;
+    margin-bottom: 0;
+    padding-left: 15px;
+    padding-bottom: .5em;
+    padding-right: 15px;
+    border-bottom: 2px solid rgba(0,0,0, 0.3);
+}
+#report-menu ul {
+    margin: 0; padding: 0;
+    list-style-type: none;
+}
+#report-menu li {
+    margin: 0; 
+}
+#report-menu li a {
+    text-decoration: none;
+    display: block;
+    padding: 7px 20px 7px 15px;
+    color: black;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+#report-menu li a:hover {
+    color: black;
+}
+#report-menu li:first-child a {
+    padding-top: 14px;
+}
+#report-menu li:last-child a {
+    border-bottom: 0px;
+    padding-bottom: 14px;
+}
+
+
 #requirement-block {
     padding-bottom: 20px;
+    position: relative;
+}
+.top-link {
+    position: absolute; right: 20px; top: .5em;
 }
 
 /*---Tables---*/
@@ -306,6 +369,9 @@ em { font-style: italic;}
     border-collapse: collapse;
     border: 1px solid #eee;
     text-align: center;
+}
+#my-report table.untaken tr {
+    height: 35px;
 }
 #my-report th { padding: 15px 0 7px 0; border-bottom: 3px solid gold; }
 #my-report td { padding-top: 2px; border-right: 1px solid #ddd; }
@@ -337,8 +403,10 @@ td.course-title {
 .course-credits { width: 50px; }
 .total { text-align: right; padding-right: 10px; }
 .total-row { height: 35px; font-weight: bold; background-color: #efefef;}
-.complete { background-color: #c4e59c; }
-.incomplete { background-color: #fdb09e; border: 0px;}
+.complete { background-color: #c4e59c;}
+.complete:hover { background-color: #a9d278;}
+.incomplete { background-color: #fdb09e;}
+.incomplete:hover { background-color: #e8866f;}
 
 
 /*---Other---*/

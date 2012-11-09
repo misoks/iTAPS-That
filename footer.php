@@ -1,3 +1,4 @@
+<a name="bottom"></a>
 </div>
 
 <div id="footer">

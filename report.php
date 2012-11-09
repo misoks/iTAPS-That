@@ -3,6 +3,7 @@ session_start();
 require_once "db.php";
 $page_title = "My Report";
 include_once('header.php');
+include_once('report_menu.php');
 
  $running_total = 0;
 if(isset($_SESSION['userid'])){
@@ -20,6 +21,7 @@ if(isset($_SESSION['userid'])){
 						WHERE m.class_id = t.class_id and t.user_id = '$user_id'";
 	$cq_result = mysql_query($credits_query);
 	$me_cq_result = mysql_query($me_credits_query);
+	echo '<div id="report-body">';
 	echo '<h1>My Report</h1><form id="report">';
 	echo '<h3 class="overview-spec">'.get_specialization().'</h3>';
 	
@@ -53,7 +55,8 @@ if(isset($_SESSION['userid'])){
 		$credits = $row[2];
 		$taken_credits = 0.0;
 		echo '<div id="requirement-block">';
-		echo "<h2>".htmlentities($requirement_name)."</h2>";
+		echo '<h2><a name="'.htmlentities($requirement_id).'">'.htmlentities($requirement_name)."</a></h2>";
+		echo '<a class="top-link" href="#top">Top</a>';
 		
 		// ALL courses a user has taken 
 		$taken_class_query = "SELECT c.class_id, c.title, c.link, c.credits, c.pep_credits
@@ -65,7 +68,7 @@ if(isset($_SESSION['userid'])){
 								m.class_id = f1.class_id AND f1.r_id = '$requirement'";
 		$tcq_result = mysql_query($taken_class_query);
 		$num_rows = mysql_num_rows($tcq_result);
-        echo '<table border=0px id="'.htmlentities($requirement_id).'" class="taken"><tr><thead><th class="taken-check">Taken?</th>
+        echo '<table border=0px class="taken"><tr><thead><th class="taken-check">Taken?</th>
         <th class="course-title">Course</th><th class="credits">Credits</th><th class="pep">PEP</th></thead></tr><tbody>';
         while($row2 = mysql_fetch_row($tcq_result)){
             $taken_credits = $taken_credits + $row2[3];
@@ -86,9 +89,17 @@ if(isset($_SESSION['userid'])){
         }
         if ( $taken_credits >= $credits ) {
             echo '<tr class="total-row complete">';
+            echo '<script>
+                var menuitem = $("#menu-'.$requirement_id.'")
+                menuitem.addClass("complete"); 
+            </script>';
         }
         else {
             echo '<tr class="total-row incomplete">';
+            echo '<script>
+                var menuitem = $("#menu-'.$requirement_id.'")
+                menuitem.addClass("incomplete"); 
+            </script>';
         }
         echo '<td></td><td class="total">Total:</td><td>'.htmlentities($taken_credits).' / '.htmlentities($credits).'</td><td class="last-col"></td></tr>';
         echo '</table>';
@@ -122,7 +133,7 @@ if(isset($_SESSION['userid'])){
             <th class="course-title">Course</th><th class="credits">Credits</th><th class="pep">PEP</th></tr></thead><tbody>';
             while($row3 = mysql_fetch_row($rcq_result)){
                 echo "<tr><td>";
-                echo '<input type="checkbox" name="'.htmlentities($requirement_id).'" value="not taken">';
+                //echo '<input type="checkbox" name="'.htmlentities($requirement_id).'" value="not taken">';
                 echo('</td><td class="course-title">');
                 if($row3[2] != NULL){
                     echo '<a href="'.htmlentities($row3[2]).'">'.htmlentities($row3[1]).'</a>';
@@ -186,12 +197,21 @@ else if(!isset($_SESSION['userid'])){
 <?php echo '<div id="total-credits">Total MSI Credits: ';
 if ($total_credits > 48) {
     echo '<span class="completed">'.htmlentities($total_credits)."/48</span></div>"; 
+    echo '<script>
+                var menuitem = $("#menu-total")
+                menuitem.addClass("complete"); 
+            </script>';
 }
 else {
     echo '<span class="uncompleted">'.htmlentities($total_credits)."/48</span></div>"; 
+    echo '<script>
+                var menuitem = $("#menu-total")
+                menuitem.addClass("incomplete"); 
+        </script>';
 }
 ?>
 <p id="add-more"><a href="manual.php">Add More Classes</a></p>
+</div>
 
 
 <?php include_once('footer.php'); ?>
