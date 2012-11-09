@@ -5,77 +5,108 @@ $page_title = "Admin";
 require_once "db.php";
 include_once('header.php');
 
-if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
-    $class_id = mysql_real_escape_string($_POST['class_id']);
-    $userid = mysql_real_escape_string($_SESSION['userid']);
-    $sql = "INSERT INTO Takes (class_id, user_id)
-            VALUES ('$class_id', '$userid')";
+if ( isset($_POST['title']) && isset($_POST['link']) 
+     && isset($_POST['credits']) && is_numeric($_POST['credits'])
+	 && is_numeric($_POST['pep_credits']) && !(trim($_POST['title'])==='')) {
+    $title = mysql_real_escape_string($_POST['title']);
+	$link = mysql_real_escape_string($_POST['link']);
+	$credits = mysql_real_escape_string($_POST['credits']);
+    $pep_credits = mysql_real_escape_string($_POST['pep_credits']);
+    $sql = "UPDATE Class SET title = '$title', link = '$link',
+              credits = '$credits', pep_credits = '$pep_credits' WHERE class_id='$id'"; 
     mysql_query($sql);
-    $course_title = get_title($class_id);
-    movePage('manual.php', "$course_title successfully added!", 'success');
+    $_SESSION['success'] = 'Record updated';
+    header( 'Location: admin.php' ) ;
     return;
 }
 
+else if(isset($_POST['title']) && ((trim($_POST['title'])==='') )){
+	$_SESSION['error'] = 'Error, check to see that all fields are entered.';
+	header( 'Location: admin.php' );
+}
+else if ( isset($_POST['title']) && isset($_POST['credits']) && (!is_numeric($_POST['credits']))) {
+	$_SESSION['error'] = 'Error, value for credits must be numeric.';
+	header( 'Location: admin.php' );
+	return;
+}
 
-  if(isset($_POST['delete']) && $_POST['delete'] != -1) {	
-    $class_id = mysql_real_escape_string($_POST['delete']);
-    $userid = mysql_real_escape_string($_SESSION['userid']);
- 	 	$sql = "DELETE FROM Takes  WHERE user_id = '$userid' and class_id = '$class_id'";
+if ( isset($_POST['delete']) && isset($_POST['id']) ) {
+    $id = mysql_real_escape_string($_POST['id']);
+    $sql = "DELETE FROM Class WHERE class_id = $id";
     mysql_query($sql);
- 	 	$course_title = get_title($class_id);	
-    if(mysql_affected_rows() == 1){	
-    movePage('manual.php',"$course_title successfully removed!", 'success');
-    }	
-    else{	
-    movePage('manual.php',"$course_title was not able to be removed. Please try again.", 'error');
- 	   }	
+    header( 'Location: admin.php' ) ;
     return;
+}
+if(isset($_GET['id'])){
+	$id = mysql_real_escape_string($_GET['id']);
+	$action = mysql_real_escape_string($_GET['action']);
+
+	if($action == 'edit'){
+		$result = mysql_query("SELECT title, link, credits, pep_credits, class_id 
+			FROM Class WHERE class_id='$id'");
+		$row = mysql_fetch_row($result);
+		if ( $row == FALSE ) {
+			$_SESSION['error'] = 'Bad value for id';
+			header( 'Location: admin.php' ) ;
+			return;
+		}
+		$title = htmlentities($row[0]);
+		$link = htmlentities($row[1]);	
+		$credits = htmlentities($row[2]);
+		$pep_credits = htmlentities($row[3]);
+		$id = htmlentities($row[4]);
+	
+		echo '<p>Edit Class</p>
+		<form method="post">
+		<p>Title:
+		<input type="text" name="title" value="'.$title.'"></p>
+		<p>Link:
+		<input type="text" name="link" value="'.$link.'"></p>	
+		<p>Credits:	
+		<input type="text" name="credits" value="'.$credits.'"></p>
+		<p>Pep Credits:
+		<input type="text" name="pep_credits" value="'.$pep_credits.'"></p>
+		<input type="hidden" name="id" value=".'.$id.'">
+		<p><input type="submit" value="Update"/>
+		<a href="admin.php">Cancel</a></p>
+		</form>';
+	}
+	else if($action == 'delete'){
+		$result = mysql_query("SELECT title , class_id FROM Class WHERE class_id='$id'");
+		$row = mysql_fetch_row($result);
+		if ( $row == FALSE ) {
+			$_SESSION['error'] = 'Bad value for id';
+			header( 'Location: admin.php' ) ;
+			return;
+		}
+
+		echo "<p>Confirm: Deleting $row[0]</p>\n";
+		echo('<form method="post"><input type="hidden" ');
+		echo('name="id" value="'.$row[1].'">'."\n");
+		echo('<input type="submit" value="Delete" name="delete">');
+		echo('<a href="admin.php">Cancel</a>');
+		echo("\n</form>\n");
+	}
 }
 ?>
 
 
-<h1>Select a Class</h1>
-<form method="post">
+
+<h1>Select a class to edit or delete</h1>
+
 <?php
-	if(isset($_POST['search'])){
-		$search = mysql_real_escape_string($_POST['search']);
-		$searchstring = '%'.$search.'%';
-		$userprogram = $_SESSION['specialization'];
-		$sql2 = "SELECT class_id, title from Class where title LIKE '$searchstring'";
-		$result = mysql_query($sql2);
-
-		while($row = mysql_fetch_row($result)){
-			echo '<input type = "checkbox" value ="'.htmlentities($row[0]).'" name ="class_id">'.htmlentities($row[1]).'<br>';
-		}if(mysql_num_rows($result) == 0);
-			echo "Your search returned no results.<br>";	
-		}else{
-			echo '<a href="manual.php">Go Back</a>';
-	}		
+	$sql = "SELECT c.class_id, c.title FROM Class c";
+	$result = mysql_query($sql);
+	echo '<table border="1">'."\n";
+	while($row = mysql_fetch_row($result)){
+	    echo "<tr><td>";
+		echo strtrim(htmlentities($row[1]));
+		echo("</td><td>\n");
+		echo('<a href="admin.php?id='.htmlentities($row[0]).'&action=edit">Edit</a> / ');
+		echo('<a href="admin.php?id='.htmlentities($row[0]).'&action=delete">Delete</a>');
+		echo("</td></tr>\n");
+	}
 ?>
-<p><input type="submit" value="Add Class"/></p>
-</form>
-
-</td>
-<td id="added-classes">
-<h2>View/Remove My Classes</h2>	
-<form method="post">
-<select name= "delete">
-<option value=-1>View/Select</option>
-<?php
-$userid = $_SESSION['userid'];
- 	$sql_myclasses = "SELECT c.class_id, c.title FROM Class c, Takes t
-  WHERE c.class_id = t.class_id and t.user_id = 
- 	'$userid' UNION SELECT m.class_id, m.title from 
-  Manually_Entered_Class m, Takes t1 WHERE m.class_id =
-  t1.class_id and t1.user_id = '$userid'";
-  $result = mysql_query($sql_myclasses);
-  while($row = mysql_fetch_row($result)){
-    echo "<option value=".htmlentities($row[0]).">".strtrim(htmlentities($row[1]))."</option>";
- }
-?>
-p><input type="submit" value="Delete"/></p>
-</form></td></tr></table>
-
 
 
 <?php include_once('footer.php'); ?>
