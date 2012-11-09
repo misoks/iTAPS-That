@@ -25,7 +25,7 @@ else if(isset($_POST['title']) && ((trim($_POST['title'])==='') )){
 	movePage('admin.php', "Make sure you've filled in all fields.", 'error');
 }
 else if ( isset($_POST['title']) && isset($_POST['credits']) && (!is_numeric($_POST['credits'])) && (!is_numeric($_POST['pep_credits']))) {
-	movePage('admin.php', 'Error, value for credits must be numeric.', 'error');
+	movePage('admin.php', 'Error, value for credits and PEP credits must be numeric.', 'error');
 	return;
 }
 
