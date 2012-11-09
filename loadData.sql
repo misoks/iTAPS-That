@@ -1,5 +1,7 @@
-use itaps;
+﻿use itaps;
 
+INSERT INTO Student(username, password, specialization, year)
+VALUES('admin', 'chickennoodlesoup', 'none', 1);
 
 INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 580 - Understanding Records and Archives: Principles and Practices', 'http://si.umich.edu/class/fall-2012/understanding-records-and-archives-principles-and-practices', 3, 0);
