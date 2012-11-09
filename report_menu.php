@@ -18,7 +18,7 @@ if(isset($_SESSION['userid'])){
 
 
 	echo "<div id='report-menu' class='absolute'><div class='persp-box'>
-	    <h3>My Requirements</h3><ul>";
+	    <h3><a href='#top'>My Requirements</a></h3><ul>";
 	while($row = mysql_fetch_row($result)){
 		$requirement = $row[0];
 		$requirement_name = $row[1];
