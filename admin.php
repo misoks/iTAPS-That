@@ -101,8 +101,8 @@ if(isset($_GET['id'])){
 	    echo "<tr><td class='course-title'>";
 		echo htmlentities($row[1]);
 		echo("</td>");
-		echo('<td class="edit"><a href="admin.php?id='.htmlentities($row[0]).'&action=edit"><img src="images/edit.png">Edit</a></td> ');
-		echo('<td class="delete"><a href="admin.php?id='.htmlentities($row[0]).'&action=delete"><img src="images/delete.png">Delete</a></td>');
+		echo('<td class="edit" width = "15%"><a href="admin.php?id='.htmlentities($row[0]).'&action=edit"><center><img src="images/edit.png">Edit</a></td> ');
+		echo('<td class="delete" width = "85%"><a href="admin.php?id='.htmlentities($row[0]).'&action=delete"><img src="images/delete.png">Delete</center></a></td>');
 		echo("</td></tr>\n");
 	}
 	echo '</table>';
