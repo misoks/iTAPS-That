@@ -417,9 +417,9 @@ td.course-title {
 .total { text-align: right; padding-right: 10px; }
 .total-row { height: 35px; font-weight: bold; background-color: #efefef; border-left: 0;}
 .complete { background-color: #c4e59c; border-left: 7px solid #a9d278;}
-.complete:hover { background-color: #a9d278; border-left: 7px solid #80bd36;}
+.complete:hover { border-left: 7px solid #80bd36;}
 .incomplete { background-color: #fdb09e; border-left: 7px solid #e8866f;}
-.incomplete:hover { background-color: #e8866f; border-left: 7px solid #e16244;}
+.incomplete:hover { border-left: 7px solid #e16244;}
 .total-row { height: 35px; font-weight: bold;  border-left: 0;}
 .total-row:hover { border-left: 0; }
 
