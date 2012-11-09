@@ -60,10 +60,10 @@ function get_title($id) {
 function navLink($url, $linktext) {
     $current = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
     if ($url == $current) {
-        echo '<span class="selected">'.$linktext.'</span>';
+        return '<span class="selected">'.$linktext.'</span>';
     }
     else {
-        echo '<a href="'.$url.'">'.$linktext.'</a>';
+        return '<a href="'.$url.'">'.$linktext.'</a>';
     }
 }
 

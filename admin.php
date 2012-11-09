@@ -5,6 +5,8 @@ $page_title = "Admin";
 require_once "db.php";
 include_once('header.php');
 
+echo '<h1>Admin</h1>';
+
 if ( isset($_POST['title']) && isset($_POST['link']) 
      && isset($_POST['credits']) && is_numeric($_POST['credits'])
 	 && is_numeric($_POST['pep_credits']) && !(trim($_POST['title'])==='')) {
@@ -15,26 +17,24 @@ if ( isset($_POST['title']) && isset($_POST['link'])
     $sql = "UPDATE Class SET title = '$title', link = '$link',
               credits = '$credits', pep_credits = '$pep_credits' WHERE class_id='$id'"; 
     mysql_query($sql);
-    $_SESSION['success'] = 'Record updated';
-    header( 'Location: admin.php' ) ;
+    movePage('admin.php', "Class '$title' updated successfully.", 'success');
     return;
 }
 
 else if(isset($_POST['title']) && ((trim($_POST['title'])==='') )){
-	$_SESSION['error'] = 'Error, check to see that all fields are entered.';
-	header( 'Location: admin.php' );
+	movePage('admin.php', "Make sure you've filled in all fields.", 'error');
 }
 else if ( isset($_POST['title']) && isset($_POST['credits']) && (!is_numeric($_POST['credits']))) {
-	$_SESSION['error'] = 'Error, value for credits must be numeric.';
-	header( 'Location: admin.php' );
+	movePage('admin.php', 'Error, value for credits must be numeric.', 'error');
 	return;
 }
 
 if ( isset($_POST['delete']) && isset($_POST['id']) ) {
     $id = mysql_real_escape_string($_POST['id']);
+    $course_title = get_title($id);
     $sql = "DELETE FROM Class WHERE class_id = $id";
     mysql_query($sql);
-    header( 'Location: admin.php' ) ;
+    movePage('admin.php', "$course_title has been deleted.", 'success');
     return;
 }
 if(isset($_GET['id'])){
@@ -46,8 +46,7 @@ if(isset($_GET['id'])){
 			FROM Class WHERE class_id='$id'");
 		$row = mysql_fetch_row($result);
 		if ( $row == FALSE ) {
-			$_SESSION['error'] = 'Bad value for id';
-			header( 'Location: admin.php' ) ;
+		    movePage('admin.php', "Course ID could not be found.", 'error');
 			return;
 		}
 		$title = htmlentities($row[0]);
@@ -56,7 +55,7 @@ if(isset($_GET['id'])){
 		$pep_credits = htmlentities($row[3]);
 		$id = htmlentities($row[4]);
 	
-		echo '<p>Edit Class</p>
+		echo '<h2>Edit Class</h2>
 		<form method="post">
 		<p>Title:
 		<input type="text" name="title" value="'.$title.'"></p>
@@ -68,7 +67,7 @@ if(isset($_GET['id'])){
 		<input type="text" name="pep_credits" value="'.$pep_credits.'"></p>
 		<input type="hidden" name="id" value=".'.$id.'">
 		<p><input type="submit" value="Update"/>
-		<a href="admin.php">Cancel</a></p>
+		<a href="admin.php" class="cancel">Cancel</a></p>
 		</form>';
 	}
 	else if($action == 'delete'){
@@ -80,11 +79,11 @@ if(isset($_GET['id'])){
 			return;
 		}
 
-		echo "<p>Confirm: Deleting $row[0]</p>\n";
+		echo "<p>Are you sure you want to delete $row[0]?</p>\n";
 		echo('<form method="post"><input type="hidden" ');
 		echo('name="id" value="'.$row[1].'">'."\n");
 		echo('<input type="submit" value="Delete" name="delete">');
-		echo('<a href="admin.php">Cancel</a>');
+		echo('<a class="cancel" href="admin.php">Cancel</a>');
 		echo("\n</form>\n");
 	}
 }
@@ -92,21 +91,23 @@ if(isset($_GET['id'])){
 
 
 
-<h1>Select a class to edit or delete</h1>
+<h2>Classes</h2>
 
 <?php
 	$sql = "SELECT c.class_id, c.title FROM Class c";
 	$result = mysql_query($sql);
-	echo '<table border="1">'."\n";
+	echo '<table border="1" id="admin-classes">'."\n";
 	while($row = mysql_fetch_row($result)){
-	    echo "<tr><td>";
-		echo strtrim(htmlentities($row[1]));
-		echo("</td><td>\n");
-		echo('<a href="admin.php?id='.htmlentities($row[0]).'&action=edit">Edit</a> / ');
-		echo('<a href="admin.php?id='.htmlentities($row[0]).'&action=delete">Delete</a>');
+	    echo "<tr><td class='course-title'>";
+		echo htmlentities($row[1]);
+		echo("</td>");
+		echo('<td class="edit"><a href="admin.php?id='.htmlentities($row[0]).'&action=edit"><img src="images/edit.png">Edit</a></td> ');
+		echo('<td class="delete"><a href="admin.php?id='.htmlentities($row[0]).'&action=delete"><img src="images/delete.png">Delete</a></td>');
 		echo("</td></tr>\n");
 	}
+	echo '</table>';
 ?>
 
-
 <?php include_once('footer.php'); ?>
+
+

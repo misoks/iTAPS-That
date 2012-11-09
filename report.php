@@ -5,6 +5,21 @@ $page_title = "My Report";
 include_once('header.php');
 include_once('report_menu.php');
 
+echo '<script>
+$(function() {
+    var fixadent = $("#report-menu"), pos = fixadent.offset();
+    $(window).scroll(function() {
+        if($(this).scrollTop() > (pos.top + 5)) { 
+            fixadent.removeClass("absolute"); 
+            fixadent.addClass("fixed"); 
+        }
+        else if($(this).scrollTop() <= pos.top && fixadent.hasClass("fixed")){ 
+            fixadent.removeClass("fixed"); 
+            fixadent.addClass("absolute"); 
+        }
+    })
+});</script>';
+
  $running_total = 0;
 if(isset($_SESSION['userid'])){
 	$user_id = $_SESSION['userid'];

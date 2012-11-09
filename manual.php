@@ -181,7 +181,6 @@ else if(!isset($_SESSION['userid'])){
     <p>Not sure which requirement this class fulfills? Check the
         <a href="http://www.si.umich.edu/academics/msi/msi-degree-components">MSI Degree Components</a>
         page to find out.</p>
-    <p>Disclaimer: Be sure to check with an academic advisor to see which requirements a class fulfills.</p>
 </div>
 <p id="view-report"><a href="report.php">View Report</a></p>
 

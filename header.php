@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title><?php echo "$page_title - "; ?>iTAPS That</title>
-    <link rel=stylesheet href="style2.css" type="text/css" media="screen" />
+    <link rel=stylesheet href="style.css" type="text/css" media="screen" />
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="script/script.js"></script>
     <script src="script/jquery.scrollTo.js"></script>
@@ -25,17 +25,23 @@
         <img src="images/logosmall.png">
         <div id="title-text">iTAPS That</div>
     </a>
-    
+
     <div id="navigation">
         <ul>
-            <?php if (isset($_SESSION['userid'])) { ?>
-                <li><?php navLink('report.php', 'My Report'); ?>
-                <li><?php navLink('manual.php', 'Add Classes'); ?>
-                <li><?php navLink('logout.php', 'Log Out'); ?>
-            <?php } else { ?>
-                <li><?php navLink('newAccount.php', 'Create an Account');?>
-                <li><?php navLink('login.php', 'Log In'); ?>
-            <?php } ?>
+            <?php 
+            if ($page_title == 'Admin' ) {
+                echo "<li>".navLink('logout.php', 'Log Out'); 
+            }
+            elseif (isset($_SESSION['userid'])) {
+                echo "<li>".navLink('report.php', 'My Report');
+                echo "<li>".navLink('manual.php', 'Add Classes');
+                echo "<li>".navLink('logout.php', 'Log Out');
+            } 
+            else {
+                echo "<li>".navLink('newAccount.php', 'Create an Account');
+                echo "<li>".navLink('login.php', 'Log In'); 
+            }
+            ?>
         </ul>  
     </div>
     <?php if (isset($_SESSION['userid'])) { 
