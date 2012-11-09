@@ -297,11 +297,11 @@ em { font-style: italic;}
 
 #report-menu .persp-box {
     width: 220px;
-    background-color: #97accb;
     transform: perspective( 400px ) rotateY( 15deg );
     -webkit-transform: perspective( 400px ) rotateY( 15deg );
     -moz-transform: perspective( 400px ) rotateY( 15deg );
     padding: 0px; padding-top: 0;
+    background-color: #d7d0ca;
 }
 .fixed {
     position: fixed;
@@ -324,7 +324,9 @@ em { font-style: italic;}
     padding-left: 15px;
     padding-bottom: .5em;
     padding-right: 15px;
-    border-bottom: 2px solid rgba(0,0,0, 0.3);
+    border-bottom: 1px dashed rgba(0,0,0, 0.3);
+    border-left: 7px solid rgba(0,0,0, 0.15);
+    background-color: #97accb;
 }
 #report-menu h3 a, #report-menu h3:hover {
     color: black;
@@ -336,24 +338,31 @@ em { font-style: italic;}
 }
 #report-menu li {
     margin: 0; 
+    border-bottom: 1px dashed rgba(0,0,0, .2);
 }
 #report-menu li a {
     text-decoration: none;
     display: block;
-    padding: 7px 20px 7px 15px;
+    padding: 7px 17px 7px 15px;
     color: black;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+    background-color: #ccc4bd;
+    transition: all ease .3s;
+    -webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    -ms-transition: all ease .3s;
 }
 #report-menu li a:hover {
     color: black;
+    padding-left: 18px;
 }
 #report-menu li:first-child a {
-    padding-top: 14px;
+    padding-top: 10px;
 }
 #report-menu li:last-child a {
     border-bottom: 0px;
-    padding-bottom: 14px;
+    padding-bottom: 10px;
 }
+#report-menu li:last-child {border-bottom: 0px;}
 
 
 #requirement-block {
@@ -406,11 +415,12 @@ td.course-title {
 .course-title { width: 200px; }
 .course-credits { width: 50px; }
 .total { text-align: right; padding-right: 10px; }
-.total-row { height: 35px; font-weight: bold; background-color: #efefef;}
-.complete { background-color: #c4e59c;}
-.complete:hover { background-color: #a9d278;}
-.incomplete { background-color: #fdb09e;}
-.incomplete:hover { background-color: #e8866f;}
+.total-row { height: 35px; font-weight: bold; background-color: #efefef; border-left: 0;}
+.complete { background-color: #c4e59c; border-left: 7px solid #a9d278;}
+.complete:hover { background-color: #a9d278; border-left: 7px solid #80bd36;}
+.incomplete { background-color: #fdb09e; border-left: 7px solid #e8866f;}
+.incomplete:hover { background-color: #e8866f; border-left: 7px solid #e16244;}
+.total-row { height: 35px; font-weight: bold;  border-left: 0;}
 
 
 /*---Other---*/
