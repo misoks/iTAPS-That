@@ -102,11 +102,41 @@ function strtrim($str, $maxlen=40, $elli='...', $maxoverflow=5) {
     else return $str;
 }
 
-function delete_class($class_id) {
-    $userid = mysql_real_escape_string($_SESSION['userid']);    
-    $sql = "DELETE FROM Takes WHERE user_id = $userid and class_id = $class_id";
+function manual_add_class($n, $t, $c, $p, $f, $r, $r2) {
+    $user_id = $_SESSION['userid'];
+    $sql = "INSERT INTO Manually_Entered_Class (title, credits, pep_credits) 
+              VALUES ('$f', '$c', '$p')";
 	mysql_query($sql);
-    $course_title = get_title($class_id);
+	$sql2 = "INSERT INTO Takes(user_id, class_id) 
+				SELECT '$user_id', m.class_id 
+				FROM Manually_Entered_Class m WHERE m.title = '$f'";
+	mysql_query($sql2);
+	$sql4 = "INSERT INTO Fulfills(r_id, class_id)
+				SELECT '$r', m.class_id
+				FROM Manually_Entered_Class m WHERE m.title = '$f'";
+	mysql_query($sql4);
+	if ($r2) {
+		$sql5 = "INSERT INTO Fulfills(r_id, class_id)
+				SELECT '$r2', m.class_id
+				FROM Manually_Entered_Class m WHERE m.title = '$f'";
+		mysql_query($sql5);
+	}
+	movePage('manual.php', "$n - $t successfully added!", 'success'); 
+}
+
+function delete_class($class_id) {
+    $userid = mysql_real_escape_string($_SESSION['userid']);  
+    $course_title = get_title($class_id);  
+    if ($class_id < 999) {
+        $sql = "DELETE FROM Takes WHERE user_id = $userid and class_id = $class_id";
+	    mysql_query($sql);
+    }
+    else {
+        $sql = "DELETE FROM Manually_Entered_Class WHERE class_id = $class_id";
+        mysql_query($sql);
+        $sql2 = "DELETE FROM Takes WHERE user_id = $userid and class_id = $class_id";
+        mysql_query($sql2);
+    }
     if(mysql_affected_rows() == -1 ){
 	    movePage('manual.php',"$course_title was not able to be removed. Please try again.", 'error');
 	}

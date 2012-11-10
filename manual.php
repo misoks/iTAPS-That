@@ -29,28 +29,12 @@ else if ( isset($_POST['course_number']) && isset($_POST['title'])
    $c = mysql_real_escape_string($_POST['credits']);
    $p = mysql_real_escape_string($_POST['pep_credits']);
    $f = $n . " - " . $t;
-   $user_id = $_SESSION['userid'];
    $r = mysql_real_escape_string($_POST['requirement']);
-   $sql = "INSERT INTO Manually_Entered_Class (title, credits, pep_credits) 
-              VALUES ('$f', '$c', '$p')";
-	mysql_query($sql);
-	$sql2 = "INSERT INTO Takes(user_id, class_id) 
-				SELECT '$user_id', m.class_id 
-				FROM Manually_Entered_Class m WHERE m.title = '$f'";
-	mysql_query($sql2);
-	$sql4 = "INSERT INTO Fulfills(r_id, class_id)
-				SELECT '$r', m.class_id
-				FROM Manually_Entered_Class m WHERE m.title = '$f'";
-	mysql_query($sql4);
-	if(isset($_POST['second_requirement'])){ //and second_requirement isnt empty
+   if(isset($_POST['second_requirement'])){ //and second_requirement isnt empty
 		$r2  = $_POST['second_requirement'];
-		$sql5 = "INSERT INTO Fulfills(r_id, class_id)
-				SELECT '$r2', m.class_id
-				FROM Manually_Entered_Class m WHERE m.title = '$f'";
-		mysql_query($sql5);
 	}
-	movePage('manual.php', "$n - $t successfully added!", 'success');
-   return;
+	else { $r2 = FALSE; }
+	manual_add_class($n, $t, $c, $p, $f, $r, $r2);
   }
   
 else if ( isset($_POST['course_number']) && isset($_POST['title']) 
