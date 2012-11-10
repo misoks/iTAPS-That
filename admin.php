@@ -5,7 +5,7 @@ $page_title = "Admin";
 require_once "db.php";
 include_once('header.php');
 
-echo '<h1>Select a Class to Edit as an Administrator</h1>';
+echo '<h1>Administration</h1>';
 
 if ( isset($_POST['title']) && isset($_POST['link']) 
      && isset($_POST['credits']) && is_numeric($_POST['credits'])
@@ -96,7 +96,7 @@ if(isset($_GET['id'])){
 <?php
 	$sql = "SELECT c.class_id, c.title FROM Class c";
 	$result = mysql_query($sql);
-	echo '<table border="1" id="admin-classes">'."\n";
+	echo '<table border="1" id="admin-classes"><thead><th class="course-title">Course Title</th><th>Edit</th><th>Delete</th></thead>'."\n";
 	while($row = mysql_fetch_row($result)){
 	    echo "<tr><td class='course-title'>";
 		echo htmlentities($row[1]);

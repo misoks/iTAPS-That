@@ -475,7 +475,7 @@ td.course-title {
 
 /* ================ ADMIN =================== */
 
-#admin-classes table {
+#admin-classes {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid gray;
@@ -483,15 +483,16 @@ td.course-title {
 #admin-classes tr {
     height: 35px;
 }
-#admin-classes tr:nth-child(even) {
+#admin-classes tr:nth-child(odd) {
     background-color: white;
 }
-#admin-classes tr:nth-child(odd) {
+#admin-classes tr:nth-child(even) {
     background-color: #eee;
 }
 #admin-classes td {
     vertical-align: middle;
 }
+#admin th { background-color: gold;}
 
 .edit, .delete { width: 10%; text-align: center;}
 .edit img, .delete img { width: 15px; margin-right: 10px; padding-top: 2px; }
