@@ -102,4 +102,17 @@ function strtrim($str, $maxlen=40, $elli='...', $maxoverflow=5) {
     else return $str;
 }
 
+function delete_class($class_id) {
+    $userid = mysql_real_escape_string($_SESSION['userid']);    
+    $sql = "DELETE FROM Takes WHERE user_id = $userid and class_id = $class_id";
+	mysql_query($sql);
+    $course_title = get_title($class_id);
+    if(mysql_affected_rows() == -1 ){
+	    movePage('manual.php',"$course_title was not able to be removed. Please try again.", 'error');
+	}
+	else {
+		movePage('manual.php',"$course_title successfully removed!", 'success');
+	}
+}
+
 ?>

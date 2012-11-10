@@ -6,17 +6,7 @@ include_once('header.php');
 
 if(isset($_POST['delete']) && $_POST['delete'] != -1) {
 	$class_id = mysql_real_escape_string($_POST['delete']);
-	$userid = mysql_real_escape_string($_SESSION['userid']);
-	$sql = "DELETE FROM Takes WHERE user_id = '$userid' and class_id = '$class_id'";
-	mysql_query($sql);
-	$course_title = get_title($class_id);
-	if(mysql_affected_rows() == -1){
-	    movePage('manual.php',"$course_title was not able to be removed. Please try again.", 'error');
-	}
-	else {
-		movePage('manual.php',"$course_title successfully removed!", 'success');
-	}
-	return;
+	delete_class($class_id);
 }
 
 else if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
