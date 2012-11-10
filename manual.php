@@ -11,14 +11,18 @@ if(isset($_POST['delete']) && $_POST['delete'] != -1) {
 
 else if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
     $class_id = mysql_real_escape_string($_POST['class_id']);
-    $userid = mysql_real_escape_string($_SESSION['userid']);
-    $sql = "INSERT INTO Takes (class_id, user_id)
-            VALUES ('$class_id', '$userid')";
-    mysql_query($sql);
     $course_title = get_title($class_id);
-	movePage('manual.php', "$course_title successfully added!", 'success');
-    return;
+    $userid = mysql_real_escape_string($_SESSION['userid']);
+    if (check_duplicate($class_id) ==TRUE) {
+        movePage('manual.php', "$course_title has already been added!", 'error');
     }
+    else {
+        $sql = "INSERT INTO Takes (class_id, user_id)
+                VALUES ('$class_id', '$userid')";
+        mysql_query($sql);
+        movePage('manual.php', "$course_title successfully added!", 'success');
+	}
+}
 	
 else if ( isset($_POST['course_number']) && isset($_POST['title']) 
      && isset($_POST['credits']) && isset($_POST['pep_credits']) 

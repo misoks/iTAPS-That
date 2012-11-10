@@ -25,16 +25,16 @@ function greeting() {
     return "<span id='user'>Welcome back, $username!</span><br><span id='msg'>$messages[$num]</span>";
 }
 
+//Checks for duplicate course
 function check_duplicate($cid) {
     $uid = $_SESSION['userid'];
-    $sql = "SELECT EXISTS(SELECT 1 FROM Takes WHERE user_id = $uid and class_id= $cid)";
+    $sql = "SELECT 1 FROM Takes WHERE user_id = $uid and class_id= $cid LIMIT 1";
     $result = mysql_query($sql);
-    $row = mysql_fetch_row($result);
-    if (mysql_num_rows($result) != 0) {
-        return TRUE;
+    if (mysql_num_rows($result) != 1) {
+        return FALSE;
     }
     else {
-        return FALSE;
+        return TRUE;
     }
 }
 
@@ -102,6 +102,7 @@ function strtrim($str, $maxlen=40, $elli='...', $maxoverflow=5) {
     else return $str;
 }
 
+// Adds Manual Entry classes
 function manual_add_class($n, $t, $c, $p, $f, $r, $r2) {
     $user_id = $_SESSION['userid'];
     $sql = "INSERT INTO Manually_Entered_Class (title, credits, pep_credits) 
@@ -124,6 +125,8 @@ function manual_add_class($n, $t, $c, $p, $f, $r, $r2) {
 	movePage('manual.php', "$n - $t successfully added!", 'success'); 
 }
 
+
+// Deletes regular and manual classes
 function delete_class($class_id) {
     $userid = mysql_real_escape_string($_SESSION['userid']);  
     $course_title = get_title($class_id);  
