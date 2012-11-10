@@ -25,6 +25,19 @@ function greeting() {
     return "<span id='user'>Welcome back, $username!</span><br><span id='msg'>$messages[$num]</span>";
 }
 
+function check_duplicate($cid) {
+    $uid = $_SESSION['userid'];
+    $sql = "SELECT EXISTS(SELECT 1 FROM Takes WHERE user_id = $uid and class_id= $cid)";
+    $result = mysql_query($sql);
+    $row = mysql_fetch_row($result);
+    if (mysql_num_rows($result) != 0) {
+        return TRUE;
+    }
+    else {
+        return FALSE;
+    }
+}
+
 //Returns the user's specialization(s)
 function get_specialization() {
     $id = $_SESSION['userid'];
