@@ -56,13 +56,11 @@ function get_specialization() {
 
 //Converts the requirement name into a text ID that can be used by CSS & JS
 function make_req_id($name) {
-	$req_arr = explode(' ',trim($name));
-	if (array_key_exists(1, $req_arr)) {
-        $id = $req_arr[0].'-'.$req_arr[1];
-    }
-    else {
-        $id = $req_arr[0].'-';
-    }
+    $name = str_replace('(', '', $name);
+    $name = str_replace(')', '', $name);
+    $name = str_replace('-', '', $name);
+    $name = str_replace(',', '', $name);
+    $id = str_replace(' ', '', $name);
     return $id;
 }
 
