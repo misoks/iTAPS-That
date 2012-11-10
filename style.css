@@ -369,8 +369,16 @@ em { font-style: italic;}
     padding-bottom: 20px;
     position: relative;
 }
+#requirement-block h2 {
+    margin: 0;
+}
+#requirement-block h2 a {
+    padding-top: 1.7em;
+    padding-bottom: .5em;
+    display: block;
+}
 .top-link {
-    position: absolute; right: 20px; top: .5em;
+    position: absolute; right: 20px; top: 3.1em;
 }
 
 /*---Tables---*/
