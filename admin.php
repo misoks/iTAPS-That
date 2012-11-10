@@ -5,29 +5,37 @@ $page_title = "Admin";
 require_once "db.php";
 include_once('header.php');
 
-echo '<h1>Administration</h1>';
+echo '<h1>Select a Class to Edit as an Administrator</h1>';
 
 if ( isset($_POST['title']) && isset($_POST['link']) 
-     && isset($_POST['credits']) && is_numeric($_POST['credits'])
+     && isset($_POST['credits']) /*&& isset($_POST['specialization']) &&
+     isset($_POST['description']) */ && is_numeric($_POST['credits']) 
 	 && is_numeric($_POST['pep_credits']) && !(trim($_POST['title'])==='')) {
     $title = mysql_real_escape_string($_POST['title']);
-	$link = mysql_real_escape_string($_POST['link']);
-	$credits = mysql_real_escape_string($_POST['credits']);
+    $link = mysql_real_escape_string($_POST['link']);
+    $credits = mysql_real_escape_string($_POST['credits']);
     $pep_credits = mysql_real_escape_string($_POST['pep_credits']);
-    $sql = "UPDATE Class SET title = '$title', link = '$link',
-              credits = '$credits', pep_credits = '$pep_credits' WHERE class_id='$id'"; 
+    /*$special = mysql_real_escape_string($_POST['specialization']);
+    $description = mysql_real_escape_string($_POST['description']);
+    $r_id = mysql_real_escape_string($_POST['r_id']); */
+    $sql = " UPDATE Class SET title = '$title', link = '$link',
+              credits = '$credits', pep_credits = '$pep_credits' WHERE class_id='$id' AND
+              UPDATE Requirements SET specialization = '$special', description = '$description' WHERE r_id = '$r_id'";
     mysql_query($sql);
-    movePage('admin.php', "Class '$title' updated successfully.", 'success');
+    $_SESSION['success'] = 'Class Updated Successfully';
+    header( 'Location: admin.php');
     return;
 }
 
-else if(isset($_POST['title']) && ((trim($_POST['title'])==='') )){
-	movePage('admin.php', "Make sure you've filled in all fields.", 'error');
-}
-else if ( isset($_POST['title']) && isset($_POST['credits']) && (!is_numeric($_POST['credits'])) && (!is_numeric($_POST['pep_credits']))) {
-	movePage('admin.php', 'Error, value for credits and PEP credits must be numeric.', 'error');
-	return;
-}
+   else if(isset($_POST['title']) && ((trim($_POST['title'])==='') )){
+ 	 $_SESSION['error'] = 'Error, check to see that all fields are entered.';
+   header( 'Location: admin.php' );
+ 	 }	
+   else if ( isset($_POST['title']) && isset($_POST['credits']) && (!is_numeric($_POST['credits']))) {
+   $_SESSION['error'] = 'Error, value for credits must be numeric.';
+ 	 header( 'Location: admin.php' );
+ 	 return;	
+   }
 
 if ( isset($_POST['delete']) && isset($_POST['id']) ) {
     $id = mysql_real_escape_string($_POST['id']);
@@ -37,23 +45,36 @@ if ( isset($_POST['delete']) && isset($_POST['id']) ) {
     movePage('admin.php', "$course_title has been deleted.", 'success');
     return;
 }
-if(isset($_GET['id'])){
+
+if(isset($_GET['id']) /*&& isset($_GET['r_id']) */){
 	$id = mysql_real_escape_string($_GET['id']);
+  /*$r_id = mysql_real_escape_string($_GET['r_id']); */
 	$action = mysql_real_escape_string($_GET['action']);
 
 	if($action == 'edit'){
 		$result = mysql_query("SELECT title, link, credits, pep_credits, class_id 
-			FROM Class WHERE class_id='$id'");
+			FROM Class WHERE class_id='$id' ");
+    /*$result2 = mysql_query("SELECT * FROM requirements"); */
 		$row = mysql_fetch_row($result);
+    /* $row2 = mysql_fetch_row($result2); */
 		if ( $row == FALSE ) {
-		    movePage('admin.php', "Course ID could not be found.", 'error');
-			return;
-		}
+		  $_SESSION['error'] = 'Bad value for id';
+      header('Location: admin.php');
+      return;
+		} 
+    /*if($row2 == FALSE) {
+       $_SESSION['error'] = 'Bad value for id';
+       header('Location: admin.php');
+       return;
+    } */
 		$title = htmlentities($row[0]);
 		$link = htmlentities($row[1]);	
 		$credits = htmlentities($row[2]);
 		$pep_credits = htmlentities($row[3]);
-		$id = htmlentities($row[4]);
+		/*$id = htmlentities($row[4]);
+    $special = htmlentities($row[5]);
+    $description = htmlentities($row[6]);
+    $r_id = htmlentities($row[7]); */
 	
 		echo '<h2>Edit Class</h2>
 		<form method="post">
@@ -79,11 +100,11 @@ if(isset($_GET['id'])){
 			return;
 		}
 
-		echo "<p>Are you sure you want to delete $row[0]?</p>\n";
+		echo "<p>Confirm: Deleting $row[0]?</p>\n";
 		echo('<form method="post"><input type="hidden" ');
 		echo('name="id" value="'.$row[1].'">'."\n");
 		echo('<input type="submit" value="Delete" name="delete">');
-		echo('<a class="cancel" href="admin.php">Cancel</a>');
+		echo('<a href="admin.php">Cancel</a>');
 		echo("\n</form>\n");
 	}
 }
@@ -96,7 +117,7 @@ if(isset($_GET['id'])){
 <?php
 	$sql = "SELECT c.class_id, c.title FROM Class c";
 	$result = mysql_query($sql);
-	echo '<table border="1" id="admin-classes"><thead><th class="course-title">Course Title</th><th>Edit</th><th>Delete</th></thead>'."\n";
+	echo '<table border="1" id="admin-classes">'."\n";
 	while($row = mysql_fetch_row($result)){
 	    echo "<tr><td class='course-title'>";
 		echo htmlentities($row[1]);
