@@ -102,6 +102,22 @@ function strtrim($str, $maxlen=40, $elli='...', $maxoverflow=5) {
     else return $str;
 }
 
+// Adds regular classes
+function add_class($class_id, $location) {
+    //Location is the page you want it to reload on after the class is added
+    $course_title = get_title($class_id);
+    $userid = mysql_real_escape_string($_SESSION['userid']);
+    if (check_duplicate($class_id) ==TRUE) {
+        movePage($location, "$course_title has already been added!", 'error');
+    }
+    else {
+        $sql = "INSERT INTO Takes (class_id, user_id)
+                VALUES ('$class_id', '$userid')";
+        mysql_query($sql);
+        movePage($location, "$course_title successfully added!", 'success');
+	}
+}
+
 // Adds Manual Entry classes
 function manual_add_class($n, $t, $c, $p, $f, $r, $r2) {
     $user_id = $_SESSION['userid'];
@@ -127,7 +143,7 @@ function manual_add_class($n, $t, $c, $p, $f, $r, $r2) {
 
 
 // Deletes regular and manual classes
-function delete_class($class_id) {
+function delete_class($class_id, $location) {
     $userid = mysql_real_escape_string($_SESSION['userid']);  
     $course_title = get_title($class_id);  
     if ($class_id < 999) {
@@ -141,10 +157,10 @@ function delete_class($class_id) {
         mysql_query($sql2);
     }
     if(mysql_affected_rows() == -1 ){
-	    movePage('manual.php',"$course_title was not able to be removed. Please try again.", 'error');
+	    movePage($location,"$course_title was not able to be removed. Please try again.", 'error');
 	}
 	else {
-		movePage('manual.php',"$course_title successfully removed!", 'success');
+		movePage($location,"$course_title successfully removed!", 'success');
 	}
 }
 

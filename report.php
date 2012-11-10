@@ -5,6 +5,7 @@ $page_title = "My Report";
 include_once('header.php');
 include_once('report_menu.php');
 
+
 echo '<script>
 $(function() {
     var fixadent = $("#report-menu"), pos = fixadent.offset();
@@ -19,6 +20,15 @@ $(function() {
         }
     })
 });</script>';
+
+if(isset($_POST['add'])) {
+	$class_id = mysql_real_escape_string($_POST['add']);
+	add_class($class_id, 'report.php');
+}
+if(isset($_POST['delete']) && $_POST['delete'] != -1) {
+	$class_id = mysql_real_escape_string($_POST['delete']);
+	delete_class($class_id, 'report.php');
+}
 
  $running_total = 0;
 if(isset($_SESSION['userid'])){
@@ -36,8 +46,7 @@ if(isset($_SESSION['userid'])){
 						WHERE m.class_id = t.class_id and t.user_id = '$user_id'";
 	$cq_result = mysql_query($credits_query);
 	$me_cq_result = mysql_query($me_credits_query);
-	echo '<div id="report-body">';
-	echo '<h1>My Report</h1><form id="report">';
+	echo '<h1>My Report</h1>';
 	echo '<h3 class="overview-spec">'.get_specialization().'</h3>';
 	
 	$cq_row = mysql_fetch_row($cq_result);
@@ -88,7 +97,9 @@ if(isset($_SESSION['userid'])){
         while($row2 = mysql_fetch_row($tcq_result)){
             $taken_credits = $taken_credits + $row2[3];
             echo "<tr><td>";
-            echo '<input type="checkbox" value="taken" checked disabled>';
+            echo '<form method="post">
+                <input type="submit" value="'.htmlentities($row2[0]).'" name="delete">
+                </form>';
             echo('</td><td class="course-title">');
             if($row2[2] != NULL){
                 echo '<a href="'.htmlentities($row2[2]).'">'.htmlentities($row2[1]).'</a>';
@@ -148,7 +159,10 @@ if(isset($_SESSION['userid'])){
             <th class="course-title">Course</th><th class="credits">Credits</th><th class="pep">PEP</th></tr></thead><tbody>';
             while($row3 = mysql_fetch_row($rcq_result)){
                 echo "<tr><td>";
-                //echo '<input type="checkbox" name="'.htmlentities($requirement_id).'" value="not taken">';
+                echo '
+                <form method="post">
+                <input type="submit" value="'.htmlentities($row3[0]).'" name="add">
+                </form>';
                 echo('</td><td class="course-title">');
                 if($row3[2] != NULL){
                     echo '<a href="'.htmlentities($row3[2]).'">'.htmlentities($row3[1]).'</a>';
@@ -185,7 +199,9 @@ if(isset($_SESSION['userid'])){
         while($row5 = mysql_fetch_row($other_class_result)){
             $taken_credits = $taken_credits + $row5[3];
             echo "<tr><td>";
-            echo '<input type="checkbox" value="taken" checked disabled>';
+            echo '<form method="post">
+                <input type="submit" value="'.htmlentities($row5[0]).'" name="delete">
+                </form>';
             echo('</td><td class="course-title">');
             if($row5[2] != NULL){
                 echo '<a href="'.htmlentities($row5[2]).'">'.htmlentities($row5[1]).'</a>';
@@ -202,7 +218,6 @@ if(isset($_SESSION['userid'])){
         echo '<tr class="total-row"><td></td><td class="total">Total:</td><td>'.htmlentities($taken_credits).'</td><td></td></tr>';
         echo '</table>';
 	
-	echo "</form>";
 }
 else if(!isset($_SESSION['userid'])){
 	header('Location: login.php');
@@ -226,7 +241,7 @@ else {
 }
 ?>
 <p id="add-more"><a href="manual.php">Add More Classes</a></p>
-</div>
+
 
 
 <?php include_once('footer.php'); ?>

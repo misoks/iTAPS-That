@@ -313,8 +313,11 @@ em { font-style: italic;}
     left: 4%;
     top: 150px;
 }
-#report-body {
-    padding-left: 160px;
+#my-report #content {
+    padding-left: 200px;
+}
+#my-report #header-space {
+    margin-left: -160px;
 }
 #report-menu {
 }
@@ -395,7 +398,7 @@ em { font-style: italic;}
     height: 35px;
 }
 #my-report th { padding: 15px 0 7px 0; border-bottom: 3px solid gold; }
-#my-report td { padding-top: 2px; border-right: 1px solid #ddd; }
+#my-report td { padding-top: 2px; border-right: 1px solid #ddd; text-align: center; }
 td.last-col { border-right: 0px; }
 table.untaken { }
 #my-report table.untaken th { color: #777; border-bottom-color: #aaa;}
@@ -407,15 +410,36 @@ table.untaken { }
     width: 5%;
     font-size: 0;
     text-align: center;
+    vertical-align: middle;
 }
-input[type="checkbox"] {
-    margin: 10px;
-    width: 20px;
+#my-report table form {
+    margin: 0; padding: 0;
+    margin: 5px 6px 5px 8px;
+}
+#my-report input[type="submit"] {
+    display: block;
+    background-color: transparent;
+    border: 0;
+    color: transparent; font-size: 0;
+    margin: 0px; padding: 0px;
+    width: 25px; height: 25px;
+    margin-bottom: 0;
+    cursor: pointer;
+    opacity: .5;
+}
+#my-report .taken input[type="submit"] {
+    background-image: url('images/minus.png');
+}
+#my-report .untaken input[type="submit"] {
+    background-image: url('images/add.png');
+}
+#my-report input[type="submit"]:hover {
+    opacity: 1;
 }
 th.course-title, 
 td.course-title {
     width: 70%;
-    text-align: left;
+    text-align: left !important;
     padding-left: 10px;
 }
 .credits, .pep {width: 10%;}

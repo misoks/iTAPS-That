@@ -6,22 +6,12 @@ include_once('header.php');
 
 if(isset($_POST['delete']) && $_POST['delete'] != -1) {
 	$class_id = mysql_real_escape_string($_POST['delete']);
-	delete_class($class_id);
+	delete_class($class_id, 'manual.php');
 }
 
 else if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {
     $class_id = mysql_real_escape_string($_POST['class_id']);
-    $course_title = get_title($class_id);
-    $userid = mysql_real_escape_string($_SESSION['userid']);
-    if (check_duplicate($class_id) ==TRUE) {
-        movePage('manual.php', "$course_title has already been added!", 'error');
-    }
-    else {
-        $sql = "INSERT INTO Takes (class_id, user_id)
-                VALUES ('$class_id', '$userid')";
-        mysql_query($sql);
-        movePage('manual.php', "$course_title successfully added!", 'success');
-	}
+    add_class($class_id, 'manual.php');
 }
 	
 else if ( isset($_POST['course_number']) && isset($_POST['title']) 
