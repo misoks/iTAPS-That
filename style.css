@@ -398,7 +398,7 @@ em { font-style: italic;}
     height: 35px;
 }
 #my-report th { padding: 15px 0 7px 0; border-bottom: 3px solid gold; }
-#my-report td { padding-top: 2px; border-right: 1px solid #ddd; text-align: center; }
+#my-report td { padding-top: 2px; border-right: 1px solid #ddd;}
 td.last-col { border-right: 0px; }
 table.untaken { }
 #my-report table.untaken th { color: #777; border-bottom-color: #aaa;}
