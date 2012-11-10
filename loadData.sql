@@ -52,7 +52,7 @@ INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 650 - Information Retrieval', 'http://si.umich.edu/class/sync-30', 3, 0);
 
 INSERT INTO Class(title, link, credits, pep_credits)
-VALUES ('SI 665 - Information and Control', 'http://si.umich.edu/class/fall-2012/online-searching-and-databases', 3, 0);
+VALUES ('SI 665 - Online Searching and Databases', 'http://si.umich.edu/class/fall-2012/online-searching-and-databases', 3, 0);
 
 INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 721 - Data Mining: Methods and Applications', 'http://si.umich.edu/class/fall-2012/data-mining-methods-and-applications', 3, 0);
