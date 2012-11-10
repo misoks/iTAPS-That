@@ -71,10 +71,7 @@ if(isset($_SESSION['userid'])){
 	while($row = mysql_fetch_row($result)){
 		$requirement = $row[0];
 		$requirement_name = $row[1];
-		
-		// Getting a version of the requirement name without spaces for naming tables in HTML and JS
-		$req_arr = explode(' ',trim($requirement_name));
-        $requirement_id = $req_arr[0];
+        $requirement_id = make_req_id($requirement_name);
     
 		$credits = $row[2];
 		$taken_credits = 0.0;
