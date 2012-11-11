@@ -40,7 +40,7 @@ if ( isset($_POST['delete']) && isset($_POST['id']) ) {
     $course_title = get_title($id);
     $sql = "DELETE FROM Class WHERE class_id = $id";
     mysql_query($sql);
-    movePage('admin.php', "$course_title has been deleted.", 'success');
+    header('Location: admin.php');
     return;
 }
 
