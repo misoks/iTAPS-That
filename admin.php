@@ -1,5 +1,4 @@
 <?php
-session_start();
 //connect to db
 $page_title = "Admin";
 require_once "db.php";
@@ -8,8 +7,7 @@ include_once('header.php');
 echo '<h1>Select a Class to Edit as an Administrator</h1>';
 
 if ( isset($_POST['title']) && isset($_POST['link']) 
-     && isset($_POST['credits']) /*&& isset($_POST['specialization']) &&
-     isset($_POST['description']) */ && is_numeric($_POST['credits']) 
+     && isset($_POST['credits']) && is_numeric($_POST['credits']) 
 	 && is_numeric($_POST['pep_credits']) && !(trim($_POST['title'])==='')) {
     $title = mysql_real_escape_string($_POST['title']);
     $link = mysql_real_escape_string($_POST['link']);
@@ -31,7 +29,7 @@ if ( isset($_POST['title']) && isset($_POST['link'])
  	 $_SESSION['error'] = 'Error, check to see that all fields are entered.';
    header( 'Location: admin.php' );
  	 }	
-   else if ( isset($_POST['title']) && isset($_POST['credits']) && (!is_numeric($_POST['credits']))) {
+   else if ( isset($_POST['title']) && isset($_POST['credits']) && (!is_numeric($_POST['credits'])) && (!is_numeric($_POST['pep_credits']))) {
    $_SESSION['error'] = 'Error, value for credits must be numeric.';
  	 header( 'Location: admin.php' );
  	 return;	
@@ -46,35 +44,25 @@ if ( isset($_POST['delete']) && isset($_POST['id']) ) {
     return;
 }
 
-if(isset($_GET['id']) /*&& isset($_GET['r_id']) */){
+if(isset($_GET['id'])){
 	$id = mysql_real_escape_string($_GET['id']);
-  /*$r_id = mysql_real_escape_string($_GET['r_id']); */
 	$action = mysql_real_escape_string($_GET['action']);
 
 	if($action == 'edit'){
 		$result = mysql_query("SELECT title, link, credits, pep_credits, class_id 
 			FROM Class WHERE class_id='$id' ");
-    /*$result2 = mysql_query("SELECT * FROM requirements"); */
 		$row = mysql_fetch_row($result);
-    /* $row2 = mysql_fetch_row($result2); */
 		if ( $row == FALSE ) {
 		  $_SESSION['error'] = 'Bad value for id';
       header('Location: admin.php');
       return;
 		} 
-    /*if($row2 == FALSE) {
-       $_SESSION['error'] = 'Bad value for id';
-       header('Location: admin.php');
-       return;
-    } */
+  
 		$title = htmlentities($row[0]);
 		$link = htmlentities($row[1]);	
 		$credits = htmlentities($row[2]);
 		$pep_credits = htmlentities($row[3]);
-		/*$id = htmlentities($row[4]);
-    $special = htmlentities($row[5]);
-    $description = htmlentities($row[6]);
-    $r_id = htmlentities($row[7]); */
+	
 	
 		echo '<h2>Edit Class</h2>
 		<form method="post">
@@ -120,7 +108,7 @@ if(isset($_GET['id']) /*&& isset($_GET['r_id']) */){
 	echo '<table border="1" id="admin-classes">'."\n";
 	while($row = mysql_fetch_row($result)){
 	    echo "<tr><td class='course-title'>";
-		echo htmlentities($row[1]);
+		echo strtrim(htmlentities($row[1]));
 		echo("</td>");
 		echo('<td class="edit" width = "15%"><a href="admin.php?id='.htmlentities($row[0]).'&action=edit"><center><img src="images/edit.png">Edit</center></a></td> ');
 		echo('<td class="delete" width = "85%"><a href="admin.php?id='.htmlentities($row[0]).'&action=delete"><center><img src="images/delete.png">Delete</center></a></td>');
