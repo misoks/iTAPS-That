@@ -13,12 +13,13 @@ if ( isset($_POST['title']) && isset($_POST['link'])
     $link = mysql_real_escape_string($_POST['link']);
     $credits = mysql_real_escape_string($_POST['credits']);
     $pep_credits = mysql_real_escape_string($_POST['pep_credits']);
+	$id = mysql_real_escape_string($_POST['id']);
     /*$special = mysql_real_escape_string($_POST['specialization']);
     $description = mysql_real_escape_string($_POST['description']);
     $r_id = mysql_real_escape_string($_POST['r_id']); */
     $sql = " UPDATE Class SET title = '$title', link = '$link',
-              credits = '$credits', pep_credits = '$pep_credits' WHERE class_id='$id' AND
-              UPDATE Requirements SET specialization = '$special', description = '$description' WHERE r_id = '$r_id'";
+              credits = '$credits', pep_credits = '$pep_credits' WHERE class_id='$id' /*AND
+              UPDATE Requirements SET specialization = '$special', description = '$description' WHERE r_id = '$r_id'*/";
     mysql_query($sql);
     $_SESSION['success'] = 'Class Updated Successfully';
     header( 'Location: admin.php');
