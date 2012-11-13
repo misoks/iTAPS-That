@@ -24,7 +24,6 @@ if (isset($_POST['update']) && isset($_POST['title']) && isset($_POST['link'])
               UPDATE Requirements SET specialization = '$special', description = '$description' WHERE r_id = '$r_id'*/;
     mysql_query($sql);
     movePage('admin.php', htmlentities(get_title($id)).' Updated Successfully', 'success');
-    return;
 }
 else if(isset($_POST['title']) && ((trim($_POST['title'])==='') )){
     $_SESSION['error'] = 'Error, check to see that all fields are entered.';
@@ -41,7 +40,7 @@ if ( isset($_POST['delete']) && isset($_POST['id']) ) {
     $course_title = get_title($id);
     $sql = "DELETE FROM Class WHERE class_id = $id";
     mysql_query($sql);
-   /* movePage('admin.php', 'successfully deleted.', 'success');*/
+    movePage('admin.php', $course_title.' successfully deleted.', 'success');
 }
 
 if(isset($_GET['id'])){

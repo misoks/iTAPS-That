@@ -3,7 +3,9 @@
 //Redirects and can passes a status message to the header of the new page
 function movePage($url, $msg, $type) {
     //Types: 'success' or 'error'
-    $_SESSION['message'] = "<p class='message $type'>".htmlentities($msg)."</p>";
+    if ($msg) {
+        $_SESSION['message'] = "<p class='message $type'>".htmlentities($msg)."</p>";
+    }
     header ("Location: $url");
 } 
 
