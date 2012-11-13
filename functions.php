@@ -70,12 +70,12 @@ function make_req_id($name) {
 //Returns the title of a course based on its ID
 function get_title($id) {
     if ($id < 999 ) {
-        $sql = "SELECT c.title FROM Class c WHERE class_id = $id";
+        $sql = "SELECT c.title FROM Class c WHERE c.class_id = $id";
         $result = mysql_query($sql);
         $row = mysql_fetch_row($result);
     }
 	else {
-		$sql = "SELECT m.title FROM Manually_Entered_Class m WHERE class_id = $id";
+		$sql = "SELECT m.title FROM Manually_Entered_Class m WHERE m.class_id = $id";
 		$result = mysql_query($sql);
 		$row = mysql_fetch_row($result);
 	}
