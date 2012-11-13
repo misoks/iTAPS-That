@@ -438,11 +438,11 @@ table.untaken { }
 }
 th.course-title, 
 td.course-title {
-    width: 70%;
+    width: 65%;
     text-align: left !important;
     padding-left: 10px;
 }
-.credits, .pep {width: 10%;}
+.credits, .pep {width: 8%; text-align: center;}
 .caption { font-style: italic; color: gray; }
 .course-title { width: 200px; }
 .course-credits { width: 50px; }
@@ -518,6 +518,7 @@ td.course-title {
 }
 #admin th { background-color: gold;}
 
-.edit, .delete { width: 10%; text-align: center;}
-.edit img, .delete img { width: 15px; margin-right: 10px; padding-top: 2px; }
+.edit, .delete { width: 6%; text-align: center; background-color: #ddd;}
+#admin th.edit, #admin th.delete { background-color: #97accb ;}
+.edit img, .delete img { width: 15px; }
 .cancel { margin-left: 20px; }

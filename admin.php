@@ -101,16 +101,19 @@ if(isset($_GET['id'])){
 <h2>Classes</h2>
 
 <?php
-	$sql = "SELECT c.class_id, c.title FROM Class c";
+	$sql = "SELECT c.class_id, c.title, c.credits, c.pep_credits, c.link FROM Class c";
 	$result = mysql_query($sql);
 	echo '<table border="1" id="admin-classes">'."\n";
+	echo "<thead><th>Course Title</th><th>Credits</th><th>PEP</th><th class='edit'>Edit</th><th class='delete'>Delete</th></thead>";
 	while($row = mysql_fetch_row($result)){
 	    echo "<tr><td class='course-title'>";
-		echo htmlentities($row[1]);
-		echo("</td>");
-		echo('<td class="edit"><a href="admin.php?id='.htmlentities($row[0]).'&action=edit"><img src="images/edit.png">Edit</a></td> ');
-		echo('<td class="delete"><a href="admin.php?id='.htmlentities($row[0]).'&action=delete"><img src="images/delete.png">Delete</a></td>');
-		echo("</td></tr>\n");
+		echo '<a href="'.htmlentities($row[4]).'">'.htmlentities($row[1]).'</a>';
+		echo "</td>";
+		echo "<td class='credits'>".htmlentities($row[2])."</td>";
+		echo "<td class='pep'>".htmlentities($row[3])."</td>";
+		echo '<td class="edit"><a href="admin.php?id='.htmlentities($row[0]).'&action=edit"><img src="images/edit.png" alt="Edit Class"></a></td>';
+		echo '<td class="delete"><a href="admin.php?id='.htmlentities($row[0]).'&action=delete"><img src="images/delete.png" alt="Delete Class"></a></td>';
+		echo "</td></tr>\n";
 	}
 	echo '</table>';
 ?>
