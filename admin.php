@@ -4,7 +4,7 @@ $page_title = "Admin";
 require_once "db.php";
 include_once('header.php');
 
-echo '<h1>Select a Class to Edit as an Administrator</h1>';
+echo '<h1>Administration</h1>';
 
 if ( isset($_POST['title']) && isset($_POST['link']) 
      && isset($_POST['credits']) && is_numeric($_POST['credits']) 
@@ -21,19 +21,17 @@ if ( isset($_POST['title']) && isset($_POST['link'])
               credits = '$credits', pep_credits = '$pep_credits' WHERE class_id='$id' /*AND
               UPDATE Requirements SET specialization = '$special', description = '$description' WHERE r_id = '$r_id'*/";
     mysql_query($sql);
-    $_SESSION['success'] = 'Class Updated Successfully';
-    header( 'Location: admin.php');
+    movePage('admin.php', get_title($id).' Updated Successfully', 'success');
     return;
 }
 
-   else if(isset($_POST['title']) && ((trim($_POST['title'])==='') )){
- 	 $_SESSION['error'] = 'Error, check to see that all fields are entered.';
-   header( 'Location: admin.php' );
- 	 }	
-   else if ( isset($_POST['title']) && isset($_POST['credits']) && (!is_numeric($_POST['credits'])) && (!is_numeric($_POST['pep_credits']))) {
-   $_SESSION['error'] = 'Error, value for credits must be numeric.';
- 	 header( 'Location: admin.php' );
- 	 return;	
+    else if(isset($_POST['title']) && ((trim($_POST['title'])==='') )){
+        $_SESSION['error'] = 'Error, check to see that all fields are entered.';
+        header( 'Location: admin.php' );
+ 	}	
+    else if ( isset($_POST['title']) && isset($_POST['credits']) && (!is_numeric($_POST['credits'])) && (!is_numeric($_POST['pep_credits']))) {
+        movePage('admin.php', 'Error: Value for credits must be numeric.', 'error');
+ 	    return;	
    }
 
 if ( isset($_POST['delete']) && isset($_POST['id']) ) {
@@ -41,7 +39,7 @@ if ( isset($_POST['delete']) && isset($_POST['id']) ) {
     $course_title = get_title($id);
     $sql = "DELETE FROM Class WHERE class_id = $id";
     mysql_query($sql);
-    header('Location: admin.php');
+    movePage('admin.php');
     return;
 }
 
@@ -54,8 +52,7 @@ if(isset($_GET['id'])){
 			FROM Class WHERE class_id='$id' ");
 		$row = mysql_fetch_row($result);
 		if ( $row == FALSE ) {
-		  $_SESSION['error'] = 'Bad value for id';
-      header('Location: admin.php');
+		    movePage('admin.php', 'Error: Invalid class id', 'error');
       return;
 		} 
   
@@ -84,8 +81,7 @@ if(isset($_GET['id'])){
 		$result = mysql_query("SELECT title , class_id FROM Class WHERE class_id='$id'");
 		$row = mysql_fetch_row($result);
 		if ( $row == FALSE ) {
-			$_SESSION['error'] = 'Bad value for id';
-			header( 'Location: admin.php' ) ;
+		    movePage('admin.php', 'Error: Invalid class id', 'error');
 			return;
 		}
 
@@ -109,10 +105,10 @@ if(isset($_GET['id'])){
 	echo '<table border="1" id="admin-classes">'."\n";
 	while($row = mysql_fetch_row($result)){
 	    echo "<tr><td class='course-title'>";
-		echo strtrim(htmlentities($row[1]));
+		echo htmlentities($row[1]);
 		echo("</td>");
-		echo('<td class="edit" width = "15%"><a href="admin.php?id='.htmlentities($row[0]).'&action=edit"><center><img src="images/edit.png">Edit</center></a></td> ');
-		echo('<td class="delete" width = "85%"><a href="admin.php?id='.htmlentities($row[0]).'&action=delete"><center><img src="images/delete.png">Delete</center></a></td>');
+		echo('<td class="edit"><a href="admin.php?id='.htmlentities($row[0]).'&action=edit"><img src="images/edit.png">Edit</a></td> ');
+		echo('<td class="delete"><a href="admin.php?id='.htmlentities($row[0]).'&action=delete"><img src="images/delete.png">Delete</a></td>');
 		echo("</td></tr>\n");
 	}
 	echo '</table>';

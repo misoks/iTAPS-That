@@ -3,7 +3,8 @@
 //Redirects and can passes a status message to the header of the new page
 function movePage($url, $msg, $type) {
     //Types: 'success' or 'error'
-    header ("Location: $url?msg=$msg&type=$type");
+    $_SESSION['message'] = "<p class='message $type'>$msg</p>";
+    header ("Location: $url");
 } 
 
 //Sets a greeting message for logged in users
