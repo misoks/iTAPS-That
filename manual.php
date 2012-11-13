@@ -54,7 +54,7 @@ else if(!isset($_SESSION['userid'])){
         <option value=-1>Select</option>
         <?php
             $user_program = $_SESSION['specialization'];
-            $sql_3 = "SELECT class_id, title FROM Class";
+            $sql_3 = "SELECT class_id, title FROM Class ORDER BY title ASC";
             $result = mysql_query($sql_3);
             while($row = mysql_fetch_row($result)){
                 echo "<option value=".htmlentities($row[0]).">".strtrim(htmlentities($row[1]))."</option>";
