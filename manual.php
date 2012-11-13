@@ -6,7 +6,7 @@ include_once('header.php');
 
 if(isset($_POST['delete']) && $_POST['delete'] != -1) {
 	$class_id = mysql_real_escape_string($_POST['delete']);
-	delete_class($class_id, 'manual.php');
+	remove_class($class_id, 'manual.php');
 }
 
 else if(isset($_POST['class_id']) && isset($_SESSION['userid'])) {

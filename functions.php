@@ -3,7 +3,7 @@
 //Redirects and can passes a status message to the header of the new page
 function movePage($url, $msg, $type) {
     //Types: 'success' or 'error'
-    $_SESSION['message'] = "<p class='message $type'>$msg</p>";
+    $_SESSION['message'] = "<p class='message $type'>".htmlentities($msg)."</p>";
     header ("Location: $url");
 } 
 
@@ -153,8 +153,8 @@ function manual_add_class($n, $t, $c, $p, $f, $r, $r2) {
 }
 
 
-// Deletes regular and manual classes
-function delete_class($class_id, $location) {
+// Removes regular and manual classes from user's Takes
+function remove_class($class_id, $location) {
     $userid = mysql_real_escape_string($_SESSION['userid']);  
     $course_title = get_title($class_id);  
     if ($class_id < 999) {

@@ -27,7 +27,7 @@ if(isset($_POST['add'])) {
 }
 if(isset($_POST['delete']) && $_POST['delete'] != -1) {
 	$class_id = mysql_real_escape_string($_POST['delete']);
-	delete_class($class_id, 'report.php');
+	remove_class($class_id, 'report.php');
 }
 
  $running_total = 0;
