@@ -1,6 +1,7 @@
 <?php
 //connect to db
 $page_title = "Admin";
+session_start();
 require_once "db.php";
 include_once('header.php');
 
