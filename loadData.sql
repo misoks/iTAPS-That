@@ -252,6 +252,18 @@ VALUES ('SI 646 - Information Economics', 'http://si.umich.edu/class/fall-2012/u
 INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 652 - Electronic Commerce', 'http://si.umich.edu/class/fall-2012/understanding-records-and-archives-principles-and-practices', 3, 0);
 
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES('SI 001 - Tested Out of SI 502 - Networked Computing: Storage, Communication, and Processing', '', 0, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES('SI 002 - Tested Out of Management Requirement', '', 0, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES('SI 003 - Tested Out of Statistics Requirement','', 0, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES('SI 004 - Tested Out of Programming Requirement', '', 0, 0);
+
 INSERT INTO Requirements(specialization, description, credits)
 VALUES('MSI', 'Foundations', 9);
 
@@ -346,6 +358,10 @@ SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Fo
 and c.title = 'SI 502 - Networked Computing: Storage, Communication, and Processing';
 
 INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Foundations' and r.specialization = 'MSI'
+and c.title = 'SI 001 - Tested Out of SI 502 - Networked Computing: Storage, Communication, and Processing';
+
+INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management' and r.specialization = 'MSI'
 and c.title = 'SI 523 - Information and Control';
 
@@ -376,6 +392,10 @@ and c.title = 'SI 638 - School Library Media Management';
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management' and r.specialization = 'MSI'
 and c.title = 'SI 663 - Entrepreneurship in the Information Industry';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management' and r.specialization = 'MSI'
+and c.title = 'SI 002 - Tested Out of Management Requirement';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Research' and r.specialization = 'MSI'
@@ -463,6 +483,10 @@ and c.title = 'SI 588 - Fundamentals of Human Behavior';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming (HCI)' and r.specialization = 'HCI'
+and c.title = 'SI 004 - Tested Out of Programming Requirement';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming (HCI)' and r.specialization = 'HCI'
 and c.title = 'SI 539 - Design of Complex Websites';
 
 INSERT INTO Fulfills(r_id, class_id)
@@ -476,6 +500,11 @@ and c.title = 'SI 664 - Database Application Design';
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Statistics (HCI)' and r.specialization = 'HCI'
 and c.title = 'SI 544 - Introduction to Statistics and Data Analysis';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Statistics (HCI)' and r.specialization = 'HCI'
+and c.title = 'SI 003 - Tested Out of Statistics Requirement';
+
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total HCI Credits' and r.specialization = 'HCI'
@@ -559,6 +588,10 @@ and c.title = 'SI 694 - Advanced Project and Social Computing Design';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming (IAR)' and r.specialization = 'IAR'
+and c.title = 'SI 004 - Tested Out of Programming Requirement';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming (IAR)' and r.specialization = 'IAR'
 and c.title = 'SI 539 - Design of Complex Websites';
 
 INSERT INTO Fulfills(r_id, class_id)
@@ -568,6 +601,10 @@ and c.title = 'SI 543 - Programming I (Java)';
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Programming (IAR)' and r.specialization = 'IAR'
 and c.title = 'SI 664 - Database Application Design';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Statistics (IAR)' and r.specialization = 'HCI'
+and c.title = 'SI 003 - Tested Out of Statistics Requirement';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Statistics (IAR)' and r.specialization = 'IAR'
