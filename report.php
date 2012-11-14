@@ -72,7 +72,9 @@ if(isset($_SESSION['userid'])){
 		$requirement = $row[0];
 		$requirement_name = $row[1];
         $requirement_id = make_req_id($requirement_name);
-    
+		$testedout = false;
+		$testedout502 = false;
+		$taken502 = false;
 		$credits = $row[2];
 		$taken_credits = 0.0;
 		echo '<div id="requirement-block">';
@@ -92,25 +94,39 @@ if(isset($_SESSION['userid'])){
         echo '<table border=0px class="taken"><tr><thead><th class="taken-check">Taken?</th>
         <th class="course-title">Course</th><th class="credits">Credits</th><th class="pep">PEP</th></thead></tr><tbody>';
         while($row2 = mysql_fetch_row($tcq_result)){
-            $taken_credits = $taken_credits + $row2[3];
-            echo "<tr><td>";
-            echo '<form method="post">
-                <input type="submit" value="'.htmlentities($row2[0]).'" name="delete">
-                </form>';
-            echo('</td><td class="course-title">');
-            if($row2[2] != NULL){
-                echo '<a href="'.htmlentities($row2[2]).'">'.htmlentities($row2[1]).'</a>';
-            }
-            else{
-                echo(htmlentities($row2[1]));
-            }
-            echo("</td><td>");
-            echo(htmlentities($row2[3]));
-            echo("</td><td class='last-col'>");
-            echo(htmlentities($row2[4]));
-            echo("</td></tr>\n");
-        }
-        if ( $taken_credits >= $credits ) {
+			if($row2[1] == 'SI 502 - Networked Computing: Storage, Communication, and Processing'){
+				$taken502 = true;
+			}
+			if($row2[3] == 0 && $requirement_name != 'Foundations'){
+				$testedout = true;
+			}
+			else if($row2[3] == 0 && $requirement_name == 'Foundations'){
+				$testedout502 = true;
+			}
+			$taken_credits = $taken_credits + $row2[3];
+			echo "<tr><td>";
+			echo '<form method="post">	
+			<input type="submit" value="'.htmlentities($row2[0]).'" name="delete">
+				</form>';
+			echo('</td><td class="course-title">');
+			if($row2[2] != NULL){
+				echo '<a href="'.htmlentities($row2[2]).'">'.htmlentities($row2[1]).'</a>';	
+			}
+			else{
+				echo(htmlentities($row2[1]));
+			}
+			echo("</td><td>");
+			echo(htmlentities($row2[3]));
+			echo("</td><td class='last-col'>");
+			echo(htmlentities($row2[4]));
+			echo("</td></tr>\n");
+		}
+		if($requirement_name == 'Foundations' && $taken_credits == 6 &&
+			($taken502 == false) && $testedout502){
+			$testedout = true;
+		}
+		
+        if ( $taken_credits >= $credits || $testedout) {
             echo '<tr class="total-row complete">';
             echo '<script>
                 var menuitem = $("#menu-'.$requirement_id.'")
@@ -130,11 +146,14 @@ if(isset($_SESSION['userid'])){
         
         // Credit requirements
 		$remaining_credits = $credits - $taken_credits;
+		if($testedout502 && ($taken502 == false)){
+			$remaining_credits = $remaining_credits - 3;
+		}
 		$requirement_name_mod = str_replace(' Credits', '', $requirement_name);
 		if($remaining_credits < 0) {
 			$remaining_credits = 0;
 		}
-		if ($remaining_credits == 0) {
+		if ($remaining_credits == 0 || $testedout) {
 		    echo "<p class='summary completed'> You have completed the $requirement_name_mod requirement! </p>";
 		}
 		else {
