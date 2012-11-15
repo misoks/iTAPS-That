@@ -241,7 +241,7 @@ else if(!isset($_SESSION['userid'])){
 ?>
 
 <?php echo '<div id="total-credits">Total MSI Credits: ';
-if ($total_credits > 48) {
+if ($total_credits >= 48) {
     echo '<span class="completed">'.htmlentities($total_credits)."/48</span></div>"; 
     echo '<script>
                 var menuitem = $("#menu-total")
