@@ -34,6 +34,38 @@ else if ( isset($_POST['title']) && isset($_POST['credits']) && (!is_numeric($_P
     movePage('admin.php', 'Error: Value for credits must be numeric.', 'error');
  	return;	
 }
+if ( isset($_POST['add_course_number']) && isset($_POST['add_title']) && isset($_POST['add_link'])
+     && isset($_POST['add_credits']) && isset($_POST['add_pep_credits']) 
+	 && is_numeric($_POST['add_credits']) && is_numeric($_POST['add_pep_credits'])
+	 && isset($_POST['add_requirement'])  ) {
+   $n = mysql_real_escape_string($_POST['add_course_number']);
+   $t = mysql_real_escape_string($_POST['add_title']);
+   $c = mysql_real_escape_string($_POST['add_credits']);
+   $p = mysql_real_escape_string($_POST['add_pep_credits']);
+   $l = mysql_real_escape_string($_POST['add_link']);
+   $f = $n . " - " . $t;
+   $r = mysql_real_escape_string($_POST['add_requirement']);
+   if(isset($_POST['add_second_requirement'])){ //and second_requirement isnt empty
+		$r2  = $_POST['add_second_requirement'];
+	}
+	else { $r2 = FALSE; }
+	$sqlnewclass = "INSERT INTO Class(title, link, credits, pep_credits) VALUES ('$f','$l','$c','$p')";
+	mysql_query($sqlnewclass);
+	$sqlfulfills = "INSERT INTO Fulfills(r_id, class_id) SELECT '$r', c.class_id from Class c where c.title = '$f'";
+	mysql_query($sqlfulfills);
+	if($r2){
+		$sqlfulfills2 = "INSERT INTO Fulfills(r_id, class_id) SELECT '$r2', c.class_id from Class c where c.title = '$f'";
+	}
+	mysql_query($sqlfulfills2);
+	movePage('admin.php', "$n - $t successfully added!", 'success'); 
+  }
+  
+else if ( isset($_POST['course_number']) && isset($_POST['title']) 
+     && isset($_POST['credits']) && isset($_POST['pep_credits'])
+	 && (!is_numeric($_POST['credits']) || !is_numeric($_POST['pep_credits']))) {
+	movePage('manual.php', "Error, values for credits and PEP credits must be numeric.", 'error');
+	return;
+}
 
 // Delete a class
 if ( isset($_POST['delete']) && isset($_POST['id']) ) {
@@ -96,7 +128,59 @@ if(isset($_GET['id'])){
 }
 ?>
 
-
+<div id="add-class">
+    <h2>Add a New Class</h2>
+    <form method="post">
+        <table>
+            <tr>
+                <td class="label">Course #:</td>
+                <td class="input"><input type="text" name="add_course_number" class="course"><em class="example"> e.g. SI 539</em></td>
+            </tr>
+            <tr>
+                <td class="label">Title:</td>
+                <td class="input"><input type="text" name="add_title" class="title"><em class="example"> e.g. Design of Complex Websites</em></td>
+            </tr>
+			<tr>
+                <td class="label">Link:</td>
+                <td class="input"><input type="text" name="add_link" class="link"><em class="example"> http://umich.edu</em></td>
+            </tr>
+            <tr>
+                <td class="label">Credits:</td>
+                <td class="input"><input type="text" name="add_credits" class="credits"><em class="example"> e.g. 3</em></td>
+            </tr>
+            <tr>
+                <td class="label">PEP Credits:</td>
+                <td class="input"><input type="text" name="add_pep_credits" class="credits" value="0"><em class="example"> e.g. 0</em></td>
+            </tr>
+        </table>
+        <p>Select which requirement this class fulfills:</p>
+        <select name="add_requirement">
+        <option value=-1>Select</option>
+        <?php
+            $user_program = $_SESSION['specialization'];
+            $user_second_program = $_SESSION['second_specialization'];
+            $sql3 = "SELECT DISTINCT r.r_id, r.description,r.specialization from Requirements r";
+            $result = mysql_query($sql3);
+            while($row = mysql_fetch_row($result)){
+                echo "<option value=".htmlentities($row[0]).">".htmlentities($row[2])." - ".htmlentities($row[1])."</option>";
+            }
+            echo "</select>";
+        ?>
+        <p>Optional: Select a second requirement this class also fulfills:</p>
+        <select name="add_second_requirement">
+        <option value=-1>Select</option>
+        <?php
+            $user_program = $_SESSION['specialization'];
+            $user_second_program = $_SESSION['second_specialization'];
+            $sql4 = "SELECT DISTINCT r.r_id, r.description,r.specialization from Requirements r";
+            $result1 = mysql_query($sql4);
+            while($row = mysql_fetch_row($result1)){
+                echo "<option value=".htmlentities($row[0]).">".htmlentities($row[2])." - ".htmlentities($row[1])."</option>";
+            }
+            echo "</select>";
+        ?>
+        <p><input type="submit" value="Enter Class"/>
+    </form>
 
 <h2>Classes</h2>
 
