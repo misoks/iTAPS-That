@@ -4,6 +4,72 @@ INSERT INTO Student(username, password, specialization, year)
 VALUES('admin', 'chickennoodlesoup', 'none', 1);
 
 INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 519 - Intellectual Property and Information Law', 'http://si.umich.edu/class/fall-2012/intellectual-property-and-information-law', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 541 - Systems, Networks and Web', 'http://www.si.umich.edu/class/fall-2011/systems-networks-and-web', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 507 - Foundations of Information Policy Analysis and Design', 'http://www.si.umich.edu/class/fall-2012/foundations-information-policy-analysis-and-design', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 510 - Data Security and Privacy: Legal, Policy, and Enterprise Issues', 'http://www.si.umich.edu/class/winter-2012/data-security-and-privacy-legal-policy-and-enterprise-issues', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 525 - Empirical Methods for Health Informatics', 'http://www.si.umich.edu/class/winter-2012/empirical-methods-health-informatics', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 532 - ecomm', 'Digital Government (I): Information Technology and Democratic Politics', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 533 - Digital Government (II): Information Technology and Democratic Administration', 'http://www.si.umich.edu/class/winter-2011/digital-government-ii-information-technology-and-democratic-administration', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 545 - Information Technology and Development: Contemporary Issues', 'http://www.si.umich.edu/class/sync-58', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 546 - Personal Privacy: Policy, Practice and Technology Issues', 'http://www.si.umich.edu/class/fall-2010/personal-privacy-policy-practice-and-technology-issues-0', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 549 - Transformative Learning and Teaching with Technology', 'http://www.si.umich.edu/class/fall-2011/transformative-learning-and-teaching-technology', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 550 - Seminar on Information Policy', 'http://www.si.umich.edu/class/winter-2012/seminar-information-policy', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 579 - Government Information: Issues, Resources, and Policy', 'http://www.si.umich.edu/class/fall-2011/government-information-issues-resources-and-policy', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 589 - History of Computers and the Internet', 'http://www.si.umich.edu/class/winter-2011/history-computers-and-internet-0', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 608 - Networks', 'http://www.si.umich.edu/class/sync-68', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 634 - Application Platform Configuration', 'http://www.si.umich.edu/class/fall-2012/application-platform-configuration', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 642 - Current Concepts and Case Studies in Health Informatics', 'http://www.si.umich.edu/class/fall-2011/current-concepts-and-case-studies-health-informatics', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 645 - Information Use in Communities', 'http://www.si.umich.edu/class/winter-2011/information-use-communities', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 648 - Info Culture: Theory and Methods in the History and Sociology of Information Technology', 'http://www.si.umich.edu/class/winter-2011/info-culture-theory-and-methods-history-and-sociology-information-technology', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 654 - Critical Policy Issues in Health IT', 'http://www.si.umich.edu/class/fall-2011/critical-policy-issues-health-it', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 657 - Information Technology and International Development', 'http://www.si.umich.edu/class/fall-2012/information-technology-and-international-development', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 679 - Aggregation and Prediction Markets', 'http://www.si.umich.edu/class/fall-2011/aggregation-and-prediction-markets', 1.5, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
+VALUES ('SI 685 - Seminar in Entrepreneurship: Building the Company', 'http://www.si.umich.edu/class/winter-2012/seminar-entrepreneurship-building-company', 3, 0);
+
+INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 580 - Understanding Records and Archives: Principles and Practices', 'http://si.umich.edu/class/fall-2012/understanding-records-and-archives-principles-and-practices', 3, 0);
 
 INSERT INTO Class(title, link, credits, pep_credits)
@@ -44,9 +110,6 @@ VALUES ('SI 675 - Digitization for Preservation ', 'http://si.umich.edu/class/wi
 
 INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 678 - Preserving Sound and Motion', 'http://si.umich.edu/class/winter-2012/preserving-sound-and-motion', 1.5, 0);
-
-INSERT INTO Class(title, link, credits, pep_credits)
-VALUES ('SI 508 - Networks: Theory and Application', 'http://si.umich.edu/class/fall-2011/networks', 3, 0);
 
 INSERT INTO Class(title, link, credits, pep_credits)
 VALUES ('SI 650 - Information Retrieval', 'http://si.umich.edu/class/sync-30', 3, 0);
@@ -331,7 +394,7 @@ INSERT INTO Requirements(specialization, description, credits)
 VALUES('LIS', 'Total LIS Credits', 15);
 
 INSERT INTO Requirements(specialization, description, credits)
-VALUES('LIS', 'Required LIS Courses', 18);
+VALUES('LIS', 'Required - 647', 18);
 
 INSERT INTO Requirements(specialization, description, credits)
 VALUES('SLM', 'Total SLM Credits', 24);
@@ -367,7 +430,7 @@ and c.title = 'SI 523 - Information and Control';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management' and r.specialization = 'MSI'
-and c.title = 'SI 530 - Principles and Management';
+and c.title = 'SI 530 - Principles in Management';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Management' and r.specialization = 'MSI'
@@ -411,7 +474,7 @@ and c.title = 'SI 563 - Game Theory';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Research' and r.specialization = 'MSI'
-and c.title = 'SI 601 Data Manipulation';
+and c.title = 'SI 601 - Data Manipulation';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Research' and r.specialization = 'MSI'
@@ -428,6 +491,10 @@ and c.title = 'SI 623 - Research Methods for Information Professionals';
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Research' and r.specialization = 'MSI'
 and c.title = 'SI 840 - Research Methods';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Research' and r.specialization = 'MSI'
+and c.title = 'SI 525 - Empirical Methods for Health Informatics';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'PEP Credits' and r.specialization = 'MSI'
@@ -536,6 +603,10 @@ and c.title = 'SI 551 - Information-Seeking Behavior';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total HCI Credits' and r.specialization = 'HCI'
+and c.title = 'SI 545 - Information Technology and Development: Contemporary Issues';
+
+INSERT INTO Fulfills(r_id, class_id)
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total HCI Credits' and r.specialization = 'HCI'
 and c.title = 'SI 561 - Natural Language Processing';
 
 INSERT INTO Fulfills(r_id, class_id)
@@ -548,7 +619,7 @@ and c.title = 'SI 601 - Data Manipulation';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total HCI Credits' and r.specialization = 'HCI'
-and c.title = 'SI - Personal Informatics Design';
+and c.title = 'SI 606 - Personal Informatics Design';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total HCI Credits' and r.specialization = 'HCI'
@@ -624,7 +695,7 @@ and c.title = 'SI 583 - Recommender Systems';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IAR Credits' and r.specialization = 'IAR'
-and c.title = 'SI 508 - Networks: Theory and Application';
+and c.title = 'SI 608 - Networks';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IAR Credits' and r.specialization = 'IAR'
@@ -922,28 +993,8 @@ SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'To
 and c.title = 'SI 666 - Organization of Information Resources';
 
 INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required LIS Courses' and r.specialization = 'LIS'
+SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required - 647' and r.specialization = 'LIS'
 and c.title = 'SI 647 - Information Resources and Services';
-
-INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required LIS Courses' and r.specialization = 'LIS'
-and c.title = 'SI 620 - Collection Development and Management';
-
-INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required LIS Courses' and r.specialization = 'LIS'
-and c.title = 'SI 626 - Management of Nonprofit Libraries and Information Services';
-
-INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required LIS Courses' and r.specialization = 'LIS'
-and c.title = 'SI 643 - Professional Practice in Libraries and Information Centers';
-
-INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required LIS Courses' and r.specialization = 'LIS'
-and c.title = 'SI 665 - Online Searching and Databases';
-
-INSERT INTO Fulfills(r_id, class_id)
-SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required LIS Courses' and r.specialization = 'LIS'
-and c.title = 'SI 666 - Organization of Information Resources';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SLM Credits' and r.specialization = 'SLM'
@@ -1059,7 +1110,7 @@ and c.title = 'SI 601 - Data Manipulation';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
-and c.title = 'SI 608 - Networks: Theory and Application';
+and c.title = 'SI 608 - Networks';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
@@ -1088,19 +1139,19 @@ and c.title = 'SI 694 - Advanced Project and Social Computing Design';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
-and c.title = 'SI 539 – Design of Complex Web Sites';
+and c.title = 'SI 539 - Design of Complex Web Sites';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
-and c.title = 'SI 543 – Programming I (Java)';
+and c.title = 'SI 543 - Programming I (Java)';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
-and c.title = 'SI 664 – Database Application Design';
+and c.title = 'SI 664 - Database Application Design';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total SC Credits' and r.specialization = 'SC'
-and c.title = 'SI 544 – Introduction to Statistics and Data Analysis';
+and c.title = 'SI 544 - Introduction to Statistics and Data Analysis';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Required - 562 and 563' and r.specialization = 'IEM'
@@ -1132,15 +1183,15 @@ and c.title = 'SI 617 - Choice Architecture';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
-and c.title = 'SI 646 – Information Economics';
+and c.title = 'SI 646 - Information Economics';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
-and c.title = 'SI 652 – Electronic Commerce';
+and c.title = 'SI 652 - Electronic Commerce';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
-and c.title = 'SI 683 – Reputation Systems';
+and c.title = 'SI 683 - Reputation Systems';
 
 INSERT INTO Fulfills(r_id, class_id)
 SELECT r.r_id, c.class_id from Requirements r, Class c where r.description = 'Total IEM Credits' and r.specialization = 'IEM'
