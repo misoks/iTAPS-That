@@ -79,6 +79,9 @@ if(isset($_SESSION['userid'])){
 		$taken_credits = 0.0;
 		echo '<div id="requirement-block">';
 		echo '<h2><a name="'.htmlentities($requirement_id).'">'.htmlentities($requirement_name)."</a></h2>";
+		if ( $requirement_name == 'Cognate' ) {
+		    echo '<a href="http://www.si.umich.edu/academics/courses/student-recommended-cognate-courses" target="_blank" class="detail-link">Student-recommended cognate courses</a>';
+		}
 		echo '<a class="top-link" href="#top">Top</a>';
 		
 		// ALL courses a user has taken 

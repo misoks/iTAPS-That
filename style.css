@@ -14,7 +14,7 @@ body {
 p { line-height: 1.2em; }
 h1, h2, h3, #title-text { font-family: Museo;}
 h1 { font-size: 2em; color: #444; text-align: center;}
-h2 { font-size: 1.7em; margin-top: 1.5em; border-bottom: 1px solid whitesmoke }
+h2 { font-size: 1.7em; margin-top: 1.5em; border-bottom: 0px solid whitesmoke }
 h2 a, h2 a:hover { color: black; }
 a { color: #185e91; }
 a:hover { color: #97accb; }
@@ -454,6 +454,12 @@ td.course-title {
 .incomplete:hover { border-left: 7px solid #e16244;}
 .total-row { height: 35px; font-weight: bold;  border-left: 0;}
 .total-row:hover { border-left: 0; }
+
+.detail-link {
+    display: block;
+    margin-bottom: 10px;
+    font-size: .9em;
+}
 
 /*---Other---*/
 
