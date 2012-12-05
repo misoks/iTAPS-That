@@ -154,7 +154,7 @@ if(isset($_GET['id'])){
 		$result = mysql_query("SELECT title , class_id FROM Class WHERE class_id='$id'");
 		$row = mysql_fetch_row($result);
 		if ( $row == FALSE ) {
-		    movePage('admin.php', 'Error: Invalid class id', 'error');
+		  //  movePage('admin.php', 'Error: Invalid class id', 'error');
 			return;
 		}
 
