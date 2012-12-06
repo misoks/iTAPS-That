@@ -13,13 +13,14 @@ DATABASE SETUP
 
 LOADING COURSE INFORMATION
 
- - Run the code from createTables.sql in the SQL field
- - Run the code from loadData.sql in the SQL field to load class and requirement information
+ - Run the code from setup/createTables.sql in the SQL field
+ - Run the code from setup/loadData.sql in the SQL field to load class and requirement information
 
 
 CONNECTING TO YOUR DATABASE
 
+ - Open the "setup" folder
  - Duplicate "DEFAULT_db.php"
  - Rename it "db.php" 
- - Open db.php
- - Add your database name, username, and password in the appropriate locations
+ - Open your new db.php
+ - Add your database name, username, and password in the indicated locations

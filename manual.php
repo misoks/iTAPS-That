@@ -1,5 +1,5 @@
 <?php
-require_once "db.php";
+require_once "setup/db.php";
 session_start();
 $page_title = "Add Classes";
 include_once('header.php');
