@@ -7,7 +7,7 @@ to perform the functions that the School of Information's Tracking and Planning 
 DATABASE SETUP
 
  - Create a new database within your host's phpMyAdmin
- - Create a user with universal privileges for that table
+ - Create a user with universal privileges for that database
  - Note the database name, username, password as these will be required later
 
 
