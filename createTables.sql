@@ -1,5 +1,3 @@
-use itaps;
-
 CREATE TABLE Class(
 class_id INT AUTO_INCREMENT PRIMARY KEY,
 title VARCHAR(128) NOT NULL,

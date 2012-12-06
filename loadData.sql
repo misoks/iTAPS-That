@@ -1,6 +1,4 @@
-﻿use itaps;
-
-INSERT INTO Student(username, password, specialization, year)
+﻿INSERT INTO Student(username, password, specialization, year)
 VALUES('admin', 'chickennoodlesoup', 'none', 1);
 
 INSERT INTO Class(title, link, credits, pep_credits)
