@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once "db.php";
 $page_title = "My Report";
 include_once('header.php');
 include_once('report_menu.php');

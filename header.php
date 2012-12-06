@@ -1,4 +1,5 @@
 <?php
+require_once "setup/db.php";
 @include("functions.php");
 ?>
 <html>

@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once "db.php";
 $page_title = "Create an Account";
 include_once('header.php'); 
 if ( isset($_POST['username']) && isset($_POST['password'])
