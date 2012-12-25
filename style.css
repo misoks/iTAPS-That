@@ -298,7 +298,7 @@ em { font-style: italic;}
 #report-menu .persp-box {
     width: 220px;
     transform: perspective( 400px ) rotateY( 15deg );
-    -webkit-transform: perspective( 400px ) rotateY( 15deg );
+    /*-webkit-transform: perspective( 400px ) rotateY( 15deg );*/
     -moz-transform: perspective( 400px ) rotateY( 15deg );
     padding: 0px; padding-top: 0;
     background-color: #f1ede8;
